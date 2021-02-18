@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Tir\Crud\Support\Scaffold\Inputs\Text;
+use Tir\Crud\Support\Scaffold\Fields\Select;
+use Tir\Crud\Support\Scaffold\Fields\Text;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,29 @@ Route::get('/', function () {
 Route::get('crudTest', function (){
     $user = new \Tir\User\Entities\User();
 
-    $user->fields()->input();
+    $user->fields()->add([
+        Text::make('test'),
+
+        Text::make('last_name')
+            ->hideOnIndex(function () {
+                return false;
+            }),
+
+        Select::make('users')
+                ->data([1,2,3])
+
+    ]);
+
+
+//    $crud = \Tir\Crud\Support\Scaffold\Crud::getCrud();
+//
+//    $crud->setModel(\App\Models\User::class);
+//
+//     $crud->getModel();
+
+
+
+
     return $user->fields()->get();
 
 });
