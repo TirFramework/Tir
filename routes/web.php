@@ -51,3 +51,8 @@ Route::get('crudTest', function (){
 
 });
 
+
+Route::get('/', function () {
+    return view('dashboard');
+});
+

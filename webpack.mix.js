@@ -11,6 +11,19 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/index.js', 'public/js')
     .react()
-    .sass('resources/sass/app.scss', 'public/css');
+    .postCss('resources/css/tailwindcss.css', 'public/css', [
+        require('tailwindcss'),
+    ])
+    .less('resources/less/app.less', 'public/css',
+        {
+            lessOptions: {
+                modifyVars: {
+                    'primary-color': '#00ff00',
+                },
+                javascriptEnabled: true,
+            } ,
+        });
+
+mix.browserSync('localhost:8000');
