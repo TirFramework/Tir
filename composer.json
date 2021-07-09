@@ -14,11 +14,11 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "tir/authorization": "dev-TirdadDevRefactor",
-        "tir/blog": "dev-TirdadDevRefactor",
-        "tir/crud": "dev-TirdadDevRefactor",
-        "tir/first-panel": "dev-TirdadDevRefactor",
-        "tir/user": "dev-TirdadDevRefactor"
+        "tir/authorization": "*",
+        "tir/blog": "*",
+        "tir/crud": "*",
+        "tir/first-panel": "*",
+        "tir/user": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -103,56 +103,6 @@
             "options": {
                 "symlink": true
             }
-        },
-        "store" : {
-            "type": "path",
-            "url": "../packages/store",
-            "options": {
-                "symlink": true
-            }
-        },
-        "language" : {
-            "type": "path",
-            "url": "../packages/language",
-            "options": {
-                "symlink": true
-            }
-        },
-        "menu" : {
-            "type": "path",
-            "url": "../packages/menu",
-            "options": {
-                "symlink": true
-            }
-        },
-        "page" : {
-            "type": "path",
-            "url": "../packages/page",
-            "options": {
-                "symlink": true
-            }
-        },
-        "storefront" : {
-            "type": "path",
-            "url": "../packages/storefront",
-            "options": {
-                "symlink": true
-            }
-        },
-        "setting" : {
-            "type": "path",
-            "url": "../packages/setting",
-            "options": {
-                "symlink": true
-            }
-        },
-        "slider" : {
-            "type": "path",
-            "url": "../packages/slider",
-            "options": {
-                "symlink": true
-            }
         }
-
     }
 }
