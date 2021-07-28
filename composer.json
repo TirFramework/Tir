@@ -103,6 +103,62 @@
             "options": {
                 "symlink": true
             }
+        },
+        "store" : {
+            "type": "path",
+            "url": "../packages/store",
+            "options": {
+                "symlink": true
+            }
+        },
+        "language" : {
+            "type": "path",
+            "url": "../packages/language",
+            "options": {
+                "symlink": true
+            }
+        },
+        "menu" : {
+            "type": "path",
+            "url": "../packages/menu",
+            "options": {
+                "symlink": true
+            }
+        },
+        "page" : {
+            "type": "path",
+            "url": "../packages/page",
+            "options": {
+                "symlink": true
+            }
+        },
+        "storefront" : {
+            "type": "path",
+            "url": "../packages/storefront",
+            "options": {
+                "symlink": true
+            }
+        },
+        "setting" : {
+            "type": "path",
+            "url": "../packages/setting",
+            "options": {
+                "symlink": true
+            }
+        },
+        "slider" : {
+            "type": "path",
+            "url": "../packages/slider",
+            "options": {
+                "symlink": true
+            }
+        },
+        "mehr-panel" : {
+            "type": "path",
+            "url": "../packages/mehr-panel",
+            "options": {
+                "symlink": true
+            }
         }
     }
 }
