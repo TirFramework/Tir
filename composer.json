@@ -152,6 +152,13 @@
             "options": {
                 "symlink": true
             }
+        },
+        "mehr-panel" : {
+            "type": "path",
+            "url": "../packages/mehr-panel",
+            "options": {
+                "symlink": true
+            }
         }
 
     }

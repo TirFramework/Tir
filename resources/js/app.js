@@ -7,6 +7,8 @@ import {
     UserOutlined,
 } from "@ant-design/icons";
 
+
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -57,6 +59,8 @@ function App() {
                         Bill is a cat.
                     </div>
                 </Content>
+
+
                 <Footer style={{ textAlign: "center" }}>
                     Ant Design ©2018 Created by Ant UED
                 </Footer>
