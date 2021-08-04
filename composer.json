@@ -14,7 +14,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "tir/authorization": "dev-TirdadDevRefactor"
+        "tir/user": "dev-RestFullDevTirdad"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
