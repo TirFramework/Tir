@@ -14,11 +14,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "tir/authorization": "dev-TirdadDevRefactor",
-        "tir/blog": "dev-TirdadDevRefactor",
-        "tir/crud": "dev-TirdadDevRefactor",
-        "tir/first-panel": "dev-TirdadDevRefactor",
-        "tir/user": "dev-TirdadDevRefactor"
+        "tir/authorization": "dev-TirdadDevRefactor"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -90,69 +86,7 @@
                 "symlink": true
             }
         },
-        "blog" : {
-            "type": "path",
-            "url": "../packages/blog",
-            "options": {
-                "symlink": true
-            }
-        },
-        "first-panel" : {
-            "type": "path",
-            "url": "../packages/first-panel",
-            "options": {
-                "symlink": true
-            }
-        },
-        "store" : {
-            "type": "path",
-            "url": "../packages/store",
-            "options": {
-                "symlink": true
-            }
-        },
-        "language" : {
-            "type": "path",
-            "url": "../packages/language",
-            "options": {
-                "symlink": true
-            }
-        },
-        "menu" : {
-            "type": "path",
-            "url": "../packages/menu",
-            "options": {
-                "symlink": true
-            }
-        },
-        "page" : {
-            "type": "path",
-            "url": "../packages/page",
-            "options": {
-                "symlink": true
-            }
-        },
-        "storefront" : {
-            "type": "path",
-            "url": "../packages/storefront",
-            "options": {
-                "symlink": true
-            }
-        },
-        "setting" : {
-            "type": "path",
-            "url": "../packages/setting",
-            "options": {
-                "symlink": true
-            }
-        },
-        "slider" : {
-            "type": "path",
-            "url": "../packages/slider",
-            "options": {
-                "symlink": true
-            }
-        },
+
         "mehr-panel" : {
             "type": "path",
             "url": "../packages/mehr-panel",
