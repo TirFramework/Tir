@@ -14,6 +14,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "tir/authorization": "dev-RestFullDevTirdad",
+        "tir/blog": "dev-master",
         "tir/user": "dev-RestFullDevTirdad"
     },
     "require-dev": {
@@ -61,35 +63,31 @@
             "@php artisan key:generate --ansi"
         ]
     },
-
-
-    "repositories":
-    {
-        "crud" : {
+    "repositories": {
+        "crud": {
             "type": "path",
             "url": "../packages/crud",
             "options": {
                 "symlink": true
             }
         },
-        "authorization" : {
+        "authorization": {
             "type": "path",
             "url": "../packages/authorization",
             "options": {
                 "symlink": true
             }
         },
-        "user" : {
+        "user": {
             "type": "path",
             "url": "../packages/user",
             "options": {
                 "symlink": true
             }
         },
-
-        "mehr-panel" : {
+        "blog": {
             "type": "path",
-            "url": "../packages/mehr-panel",
+            "url": "../packages/blog",
             "options": {
                 "symlink": true
             }
