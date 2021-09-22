@@ -14,9 +14,11 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "tir/authorization": "dev-RestFullDevTirdad",
-        "tir/blog": "dev-master",
-        "tir/user": "dev-RestFullDevTirdad"
+        "tir/authorization": "*",
+        "tir/blog": "*",
+        "tir/file-manager": "*",
+        "tir/mehr-panel": "dev-master",
+        "tir/user": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -74,6 +76,20 @@
         "authorization": {
             "type": "path",
             "url": "../packages/authorization",
+            "options": {
+                "symlink": true
+            }
+        },
+        "mehr-panel": {
+            "type": "path",
+            "url": "../packages/mehr-panel",
+            "options": {
+                "symlink": true
+            }
+        },
+        "file-manager": {
+            "type": "path",
+            "url": "../packages/file-manager",
             "options": {
                 "symlink": true
             }

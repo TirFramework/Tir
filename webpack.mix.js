@@ -20,7 +20,7 @@ mix.js('resources/js/index.js', 'public/js')
         {
             lessOptions: {
                 modifyVars: {
-                    'primary-color': '#00ff00',
+                    // 'primary-color': '#00ff00',
                 },
                 javascriptEnabled: true,
             } ,

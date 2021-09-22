@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d80c3a7709ff06af947214471a7665a6",
+    "content-hash": "bb92171fc8f9035b5bfa4c47f61673bf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5142,11 +5142,11 @@
         },
         {
             "name": "tir/authorization",
-            "version": "dev-RestFullDevTirdad",
+            "version": "dev-Development",
             "dist": {
                 "type": "path",
                 "url": "../packages/authorization",
-                "reference": "fffb05903007339a28e1b11916e6e788372b8098"
+                "reference": "137040bd104118a8649dbf36db329eaf7efc0939"
             },
             "require": {
                 "cviebrock/eloquent-sluggable": "^8.0",
@@ -5183,11 +5183,11 @@
         },
         {
             "name": "tir/blog",
-            "version": "dev-master",
+            "version": "dev-Development",
             "dist": {
                 "type": "path",
                 "url": "../packages/blog",
-                "reference": "b9a827fcc9249cf171b83206d25a733dc44334fd"
+                "reference": "bece7af4f84bab52a9d3e6ff0cfe9ed2e17efd33"
             },
             "require": {
                 "cviebrock/eloquent-sluggable": "^8.0",
@@ -5223,11 +5223,11 @@
         },
         {
             "name": "tir/crud",
-            "version": "dev-ResfullDevTirdad",
+            "version": "dev-Development",
             "dist": {
                 "type": "path",
                 "url": "../packages/crud",
-                "reference": "5f7dc2c7b3c9eef299d2448d8b73c552bb368651"
+                "reference": "9750aaac3956e60c31ea3537ba22e06275b2cf02"
             },
             "require": {
                 "laravel/framework": "^8.0"
@@ -5264,12 +5264,90 @@
             }
         },
         {
+            "name": "tir/file-manager",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../packages/file-manager",
+                "reference": "6805ee7f1b1f9cbab6baa8676e088ae7b4564d2d"
+            },
+            "require": {
+                "tir/user": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tir\\FileManager\\FileManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tir\\FileManager\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tirdad Abbasi",
+                    "email": "abbasi.tirdad@gmail.com"
+                }
+            ],
+            "description": "Laravel File Manager work in Tir Framework",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "tir/mehr-panel",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../packages/mehr-panel",
+                "reference": "33a8af196b7c9bfbb6773bc99a3cd22c24490b60"
+            },
+            "require": {
+                "tir/crud": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tir\\MehrPanel\\MehrPanelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tir\\MehrPanel\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehrdad Abbasi",
+                    "email": "javadabbasi@gmail.com"
+                }
+            ],
+            "description": "The admin panel for Tir framework",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "tir/user",
-            "version": "dev-RestFullDevTirdad",
+            "version": "dev-Development",
             "dist": {
                 "type": "path",
                 "url": "../packages/user",
-                "reference": "8b71a17b455ab8f05ed45261e1e99cce1687ffd2"
+                "reference": "ce4e140f4ba3b54a100fabd8029b19a54c29dd1c"
             },
             "require": {
                 "tir/crud": "*"
@@ -8237,9 +8315,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "tir/authorization": 20,
-        "tir/blog": 20,
-        "tir/user": 20
+        "tir/mehr-panel": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

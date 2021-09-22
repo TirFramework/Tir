@@ -18,6 +18,3 @@ use Tir\Crud\Support\Scaffold\Fields\Text;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-
