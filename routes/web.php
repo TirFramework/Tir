@@ -14,7 +14,11 @@ use Tir\Crud\Support\Scaffold\Fields\Text;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('storagesimlink', function () {
+    App::make('files')->link(storage_path('app/public'), public_path('storage'));
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
+
