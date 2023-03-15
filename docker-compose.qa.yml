@@ -1,0 +1,81 @@
+version: "3.3"
+services:
+
+  #Nginx Service
+  webserver:
+    image: nginx:alpine
+    restart: unless-stopped
+    tty: true
+    container_name: crm-webserver
+    ports:
+      - "${HTTP_PORT}:80"
+      - "${HTTPS_PORT}:443"
+    volumes:
+      - app_files:/var/www
+      - ./nginx/local/conf.d:/etc/nginx/conf.d
+      - ./nginx/local/logs:/var/log/nginx
+    networks:
+      - crm-network
+
+  #App (PHP) Service
+  app:
+    build:
+      context: ./app
+      dockerfile: app.dockerfile
+    image: crm-app
+    container_name: crm-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      CONTAINER_ROLE: app
+    working_dir: /var/www
+    volumes:
+      - app_files:/var/www
+      - ./php/conf.d:/usr/local/etc/php/conf.d
+    depends_on:
+      - webserver
+    networks:
+      - crm-network
+    env_file:
+      - ./app/project-files/.env
+
+  js-report:
+    build:
+      context: ./report/
+      dockerfile: report.dockerfile
+    container_name: crm-report
+    tty: true
+    restart: unless-stopped
+    ports:
+      -  "${JS_REPORT_PORT}:5488"
+    volumes:
+      - ./report/config/jsreport.config.json:/app/jsreport.config.json
+    depends_on:
+      - app
+    networks:
+      - crm-network
+    env_file:
+      - .env
+
+
+  node:
+    image: node:16
+    user: 1000:1000
+    container_name: crm-node
+    working_dir: /var/www
+    ports:
+      - "3000:3000"
+    volumes:
+      - app_files:/var/www
+    networks:
+      - crm-network
+
+
+#Docker Networks
+networks:
+  crm-network:
+    driver: bridge
+
+volumes:
+  app_files:
+    driver: local
