@@ -2,10 +2,6 @@
 
 namespace App\Providers;
 
-use App\Observers\CandidateObserver;
-use App\Observers\ProfileObserver;
-use App\Panels\Admin\Models\Candidate;
-use App\Panels\Admin\Models\Profile;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,10 +18,6 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-    ];
-
-    protected $observers = [
-        Profile::class => [CandidateObserver::class],
     ];
 
     /**
