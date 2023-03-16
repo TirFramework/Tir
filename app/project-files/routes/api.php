@@ -1,6 +1,6 @@
 <?php
 
-use App\Panels\Admin\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Authentication\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('/v1/admin/login', [LoginController::class, 'login'])->name('login');
