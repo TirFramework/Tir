@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,25 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/v1/admin/login', [LoginController::class, 'login'])->name('login');
+Route::resource('/v1/admin/user', UserController::class)->names('admin.user');
+Route::get('/v1/admin/sidebar', function () {
+
+    $menu = [];
+
+    $menu[] = (object)[
+        'title' => 'User',
+        'link'  => '/admin/user',
+        'icon'  => 'DesktopOutlined',
+        'name'  => 'user',
+    ];
+    $menu[] = (object)[
+        'title' => 'Profile',
+        'link'  => '/admin/user',
+        'icon'  => 'DesktopOutlined',
+        'name'  => 'profile',
+    ];
+
+    return collect($menu);
+});
+
+Route::get('/v1/admin/mehr-panel', fn () => (object)['name' => config('app.name')]);
