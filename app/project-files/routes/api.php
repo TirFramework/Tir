@@ -31,12 +31,7 @@ Route::get('/v1/admin/sidebar', function () {
         'icon'  => 'DesktopOutlined',
         'name'  => 'user',
     ];
-    $menu[] = (object)[
-        'title' => 'Profile',
-        'link'  => '/admin/user',
-        'icon'  => 'DesktopOutlined',
-        'name'  => 'profile',
-    ];
+
 
     return collect($menu);
 });

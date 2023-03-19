@@ -12,26 +12,25 @@ const mix = require("laravel-mix");
  */
 
 mix.sass(
-  "resources/admin/src/assets/custom.scss",
-  "/public/../../admin-assets/css"
+    "resources/admin/src/assets/custom.scss",
+    "/public/../../admin-assets/css"
 );
 
-mix
-  .js("resources/admin/src/index.js", "/public/../../admin-assets/js")
-  .react()
-  // .postCss(
-  //   "resources/admin/src/assets/tailwindcss.css",
-  //   "/public/../../admin-assets/css",
-  //   [require("tailwindcss")]
-  // )
-  //   .less("resources/less/app.less", "/public/../../admin-assets/css", {
-  //     lessOptions: {
-  //       modifyVars: {
-  //         // 'primary-color': '#00ff00',
-  //       },
-  //       javascriptEnabled: true,
-  //     },
-  //   })
-  .version();
+mix.js("resources/admin/src/index.js", "/public/../../admin-assets/js")
+    .react()
+    // .postCss(
+    //   "resources/admin/src/assets/tailwindcss.css",
+    //   "/public/../../admin-assets/css",
+    //   [require("tailwindcss")]
+    // )
+    //   .less("resources/less/app.less", "/public/../../admin-assets/css", {
+    //     lessOptions: {
+    //       modifyVars: {
+    //         // 'primary-color': '#00ff00',
+    //       },
+    //       javascriptEnabled: true,
+    //     },
+    //   })
+    .version();
 
-mix.browserSync("localhost:8000");
+mix.browserSync(process.env.APP_URL);
