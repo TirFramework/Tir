@@ -1,0 +1,105 @@
+version: "3.3"
+services:
+
+  #MySQL Service
+  mysql:
+    image: mysql:8.0
+    restart: always
+    container_name: ${APP_NAME}-mysql
+    env_file:
+      - .env
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ./mysql/db_data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - ${APP_NAME}-network
+
+  #Nginx Service
+  webserver:
+    image: nginx:alpine
+    restart: unless-stopped
+    tty: true
+    container_name: ${APP_NAME}-webserver
+    ports:
+      - "${HTTP_PORT}:80"
+      - "${HTTPS_PORT}:443"
+    volumes:
+      - ./app/project-files:/var/www
+      - ./nginx/local/conf.d:/etc/nginx/conf.d
+      - ./nginx/local/logs:/var/log/nginx
+    networks:
+      - ${APP_NAME}-network
+
+  #App (PHP) Service
+  app:
+    build:
+      context: ./app
+      dockerfile: app.dockerfile
+    image: ${APP_NAME}-app
+    container_name: ${APP_NAME}-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      CONTAINER_ROLE: app
+    working_dir: /var/www
+    volumes:
+      - ./app/project-files:/var/www
+      - ${PWD}/php/local.ini:/usr/local/etc/php/conf.d/php.ini
+
+    depends_on:
+      - webserver
+      - mysql
+    networks:
+      - ${APP_NAME}-network
+    env_file:
+      - ./app/project-files/.env
+
+  queue:
+    image: ${APP_NAME}-app
+    restart: always
+    container_name: ${APP_NAME}-queue
+    depends_on:
+      - app
+    environment:
+      CONTAINER_ROLE: queue
+    volumes:
+      - ./app/project-files:/var/www
+    env_file:
+      - ./app/project-files/.env
+    networks:
+      - ${APP_NAME}-network
+
+  #Phpmyadmin Service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${APP_NAME}-phpmyadmin
+    depends_on:
+      - mysql
+    tty: true
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "${PMA_PORT}:80"
+    networks:
+      - ${APP_NAME}-network
+
+  node:
+    image: node:16
+    user: 1000:1000
+    container_name: ${APP_NAME}-node
+    working_dir: /var/www
+    ports:
+      - "${NODE_PORT}:3000"
+    volumes:
+      - ./app/project-files:/var/www
+    networks:
+      - ${APP_NAME}-network
+
+#Docker Networks
+networks:
+  tir-network:
+    driver: bridge
