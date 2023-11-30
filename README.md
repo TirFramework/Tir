@@ -1,6 +1,8 @@
-#TirAdminKit
+# TirAdminKit
 
 Tir is a Laravel-based system that simplifies scaffolding and offers a comprehensive admin panel. It is composed of several packages that work in conjunction to provide a powerful and customizable solution.
+
+![image](https://github.com/TirFramework/Tir/assets/10432008/2a60b3d7-b511-4667-be92-821ae931a1b9)
 
 ## Project Overview
 
@@ -14,7 +16,7 @@ Mehr-Panel, developed with React.js, complements the "CRUD" package by utilizing
 
 ### User Package
 
-The "User" package manages authentication, leveraging CRUD and Mehr-Panel functionalities. It enables user management, authentication, and interacts with the admin panel.
+The "User" package manages authentication, leveraging CRUD and Mehr-Panel functionalities. It enables user management, and authentication, and interacts with the admin panel.
 
 ### Authorization Package
 
