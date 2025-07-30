@@ -84,3 +84,10 @@ Contributions to the Tir framework are encouraged! Please refer to the contribut
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
+
+#step from package
+# Install laravel 
+# composer require tir/crud v12.0
+# php artisan  install:api

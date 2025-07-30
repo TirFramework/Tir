@@ -1,0 +1,31 @@
+{
+    "name": "tir/crud",
+    "description": "Laravel CRUD scaffolding system",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tirdad Abbasi",
+            "email": "abbasi.tirdad@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": ">8.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Tir\\Crud\\": "src/"
+        }
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tir\\Crud\\CrudServiceProvider"
+            ],
+            "aliases": {
+                "Crud": "Tir\\Crud\\Support\\Facades\\Crud"
+            }
+        }
+    }
+}
