@@ -13,7 +13,7 @@ trait CreateTrait
 
     public function create(): JsonResponse
     {
-        $fields = $this->model()->getCreateScaffold();
+        $fields = $this->scaffolder()->getCreateScaffold();
         return Response::json($fields, '200');
     }
 

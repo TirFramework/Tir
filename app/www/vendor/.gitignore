@@ -1,4 +1,4 @@
 *
 !.gitignore
 !tir/
-!tir/**
+!tir/crud/**

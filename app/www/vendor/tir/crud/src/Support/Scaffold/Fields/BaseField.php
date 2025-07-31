@@ -250,31 +250,50 @@ abstract class BaseField
         return $this;
     }
 
+    /**
+     * Helper method to normalize variadic arguments
+     * Handles both array and individual parameters
+     */
+    private function normalizeVariadicArgs(...$args): array
+    {
+        // Handle single array input: ->method(['item1', 'item2'])
+        if (count($args) === 1 && is_array($args[0])) {
+            return $args[0];
+        }
+        
+        // Handle multiple parameters: ->method('item1', 'item2')
+        return $args;
+    }
+
     public function rules(...$rules): BaseField
     {
-        $this->creationRules = array_merge($this->creationRules, $rules);
-        $this->updateRules = array_merge($this->updateRules, $rules);
-        $this->rules = $rules;
+        $flattenedRules = $this->normalizeVariadicArgs(...$rules);
+        
+        $this->creationRules = array_merge($this->creationRules, $flattenedRules);
+        $this->updateRules = array_merge($this->updateRules, $flattenedRules);
+        $this->rules = $flattenedRules;
         return $this;
     }
 
     public function creationRules(...$rules): BaseField
     {
-        //TODO::need to fix in front-end
-        $this->creationRules = array_merge($this->rules, $rules);
+        $normalizedRules = $this->normalizeVariadicArgs(...$rules);
+        $this->creationRules = array_merge($this->rules, $normalizedRules);
         return $this;
     }
 
     public function updateRules(...$rules): BaseField
     {
-        $this->updateRules = array_merge($this->rules, $rules);
+        $normalizedRules = $this->normalizeVariadicArgs(...$rules);
+        $this->updateRules = array_merge($this->rules, $normalizedRules);
         return $this;
     }
 
     public function data(...$data): BaseField
     {
-        $this->data = $data;
-        $this->dataSet = collect($data)->pluck('label', 'value')->toArray();
+        $normalizedData = $this->normalizeVariadicArgs(...$data);
+        $this->data = $normalizedData;
+        $this->dataSet = collect($normalizedData)->pluck('label', 'value')->toArray();
         return $this;
     }
 
@@ -282,9 +301,11 @@ abstract class BaseField
     public function filter(...$items): BaseField
     {
         $this->filterable = true;
+        
+        $normalizedItems = $this->normalizeVariadicArgs(...$items);
 
-        if (count($items)) {
-            $this->filter = $items;
+        if (count($normalizedItems)) {
+            $this->filter = $normalizedItems;
             return $this;
         }
 

@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Scaffolders\UserScaffolder;
 use Tir\Crud\Controllers\CrudController;
 
 
 class UserController extends CrudController
 {
-
-    public function setModel(): string
+    public function setScaffolder(): string
     {
-        return User::class;
+        return UserScaffolder::class;
     }
 
 }

@@ -3,10 +3,9 @@
 namespace Tir\Crud\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
 
-abstract Class CrudController extends Controller
+abstract class CrudController extends Controller
 {
-    use Crud;
+    use CrudInitTrait, IndexTrait, DataTrait, ShowTrait, CreateTrait, EditTrait, DestroyTrait;
 
 }

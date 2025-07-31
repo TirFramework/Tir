@@ -12,10 +12,8 @@ trait EditTrait
     public function edit(int|string $id)
     {
         $dataModel = $this->model()->findOrFail($id);
-        return $dataModel->getEditScaffold();
+        return $this->scaffolder()->getEditScaffold($dataModel);
     }
-
-
 
     public function update(CrudRequest $request, int|string $id): JsonResponse
     {

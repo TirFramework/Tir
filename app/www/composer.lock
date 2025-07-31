@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d3f75e325dd466ba55f1b1f31f8ae09",
+    "content-hash": "24226de5bb70e0e22881201ef06829fe",
     "packages": [
         {
             "name": "brick/math",
@@ -5674,6 +5674,53 @@
                 "source": "https://github.com/TirFramework/crud/tree/v8.2"
             },
             "time": "2025-02-15T13:58:04+00:00"
+        },
+        {
+            "name": "tir/mehr-panel",
+            "version": "v8.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TirFramework/mehr-panel.git",
+                "reference": "5a8f199f11277984a8ff015af0b6eb16c49b02f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TirFramework/mehr-panel/zipball/5a8f199f11277984a8ff015af0b6eb16c49b02f7",
+                "reference": "5a8f199f11277984a8ff015af0b6eb16c49b02f7",
+                "shasum": ""
+            },
+            "require": {
+                "tir/crud": "^3.0 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tir\\MehrPanel\\MehrPanelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tir\\MehrPanel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehrdad Abbasi",
+                    "email": "javadabbasi@gmail.com"
+                }
+            ],
+            "description": "The admin panel for Tir framework",
+            "support": {
+                "issues": "https://github.com/TirFramework/mehr-panel/issues",
+                "source": "https://github.com/TirFramework/mehr-panel/tree/v8.1.4"
+            },
+            "time": "2025-02-08T22:49:41+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

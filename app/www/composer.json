@@ -10,7 +10,8 @@
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
-        "tir/crud": "v8.2"
+        "tir/crud": "v8.2",
+        "tir/mehr-panel": "^8.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

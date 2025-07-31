@@ -30,7 +30,7 @@ trait DataTrait
     public function getRelationFields($model): array
     {
         $relations = [];
-        foreach ($model->getIndexFields() as $field) {
+        foreach ($this->scaffolder()->getIndexFields() as $field) {
             if (isset($field->relation)) {
                 //                $relation = $field->relation->name . ':' . $field->relation->key . ',' . $field->relation->field. ' as text';
                 $relation = $field->relation->name . ':' . $field->relation->key;
@@ -48,7 +48,7 @@ trait DataTrait
 
     public function getRelations($query)
     {
-        foreach ($this->model()->getIndexFields() as $field) {
+        foreach ($this->scaffolder()->getIndexFields() as $field) {
             if (isset($field->relation)) {
                 if ($this->model()->getConnection()->getName() == 'mongodb') {
                     if ($field->multiple) {
@@ -86,7 +86,7 @@ trait DataTrait
             $this->selectFields = array_merge($this->selectFields, collect($this->model()->getIndexFields())->pluck('name')->toArray());
         } else {
             $this->selectFields[] = $this->model()->getTable() . '.' . $this->model()->getKeyName();
-            foreach ($this->model()->getIndexFields() as $field) {
+            foreach ($this->scaffolder()->getIndexFields() as $field) {
                 //Check if field is many to many relation or not
                 if (!$field->virtual) {
                     if (!isset($field->relation) || !$field->multiple) {
@@ -96,7 +96,7 @@ trait DataTrait
             }
         }
         //get selectable columns from model and merge with selectFields
-        $selecable = array_merge($this->model()->getAppendedSelectableColumns(), $this->selectFields);
+        $selecable = array_merge($this->scaffolder()->getAppendedSelectableColumns(), $this->selectFields);
         $query = $this->model->select($selecable);
 
         $query = $this->getRelations($query);

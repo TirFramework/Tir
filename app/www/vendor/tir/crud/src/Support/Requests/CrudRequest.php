@@ -17,6 +17,14 @@ class CrudRequest extends FormRequest
     private array $updateRules;
     private array $onlyFields;
 
+    private mixed $scaffolder;
+
+    public function __construct($model, $scaffolder) {
+        parent::__construct();
+        $this->model = $model;
+        $this->scaffolder = $scaffolder;
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *

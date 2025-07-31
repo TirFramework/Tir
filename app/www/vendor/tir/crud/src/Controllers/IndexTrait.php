@@ -11,20 +11,20 @@ trait IndexTrait
     public function index(): JsonResponse
     {
         $cols = [];
-        $scaffold = $this->model()->getIndexScaffold();
+        $scaffold = $this->scaffolder()->getIndexScaffold();
         foreach ($scaffold['fields'] as $index => $field) {
             $cols[$index] = [
-                'title'     => $field->display,
-                'dataIndex' => $this->getDataIndex($field),
-                'fieldName' => $field->name,
-                'valueType' => $field->valueType,
-                'comment'   => $field->comment,
-                'dataSet' => $field->dataSet,
-                'dataKey' => $field->relation->key ?? null,
-                'dataField' => $field->relation->field ?? null,
+                'title'      => $field->display,
+                'dataIndex'  => $this->dataIndex($field),
+                'fieldName'  => $field->name,
+                'valueType'  => $field->valueType,
+                'comment'    => $field->comment,
+                'dataSet'    => $field->dataSet,
+                'dataKey'    => $field->relation->key ?? null,
+                'dataField'  => $field->relation->field ?? null,
                 'relational' => isset($field->relation),
-                'type'    => $field->type,
-                'field' => $field,
+                'type'       => $field->type,
+                'field'      => $field,
             ];
             if($field->filterable){
                 $cols[$index]['filters'] = $field->filter;
@@ -33,17 +33,17 @@ trait IndexTrait
         }
 
         $data = [
-            'actions'    => $this->model()->getActions(),
+            'actions'    => $this->scaffolder()->getActions(),
             'configs'    => $scaffold['configs'],
             'cols'       => $cols,
-            'dataRoute'  => route('admin.' . $this->model()->getmoduleName() . '.data'),
-            'trashRoute' => route('admin.' . $this->model()->getmoduleName() . '.trashData'),
+            'dataRoute'  => route('admin.' . $this->scaffolder()->moduleName() . '.data'),
+            'trashRoute' => route('admin.' . $this->scaffolder()->moduleName() . '.trashData'),
         ];
 
         return Response::json($data, '200');
     }
 
-    private function getDataIndex($field)
+    private function dataIndex($field)
     {
         if(isset($field->relation) && $field->multiple){
             return $field->relation->name;
