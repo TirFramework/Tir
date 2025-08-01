@@ -33,6 +33,9 @@ class SampleModelSeeder extends Seeder
         $this->createParentChildRelationships();
         $this->createItemsWithFiles();
         $this->createArchivedItems();
+
+        // Attach authors to existing sample models
+        $this->attachAuthorsToSampleModels();
     }
 
     /**
@@ -244,5 +247,24 @@ class SampleModelSeeder extends Seeder
         ]);
 
         $this->command->info('Created specific example items for documentation');
+    }
+
+    /**
+     * Attach random authors to existing sample models
+     */
+    private function attachAuthorsToSampleModels(): void
+    {
+        $sampleModels = SampleModel::all();
+        $users = User::all();
+
+        $sampleModels->each(function ($sampleModel) use ($users) {
+            // Attach 1-3 random authors to each sample model
+            $authorsCount = rand(1, 3);
+            $randomAuthors = $users->random($authorsCount)->pluck('id');
+
+            $sampleModel->authors()->attach($randomAuthors);
+        });
+
+        $this->command->info('Attached random authors to all sample models');
     }
 }

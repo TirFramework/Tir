@@ -33,3 +33,4 @@ Route::get('/v1/admin/sidebar', function () {
 
 Route::resource('/v1/admin/user',UserController::class)->names('admin.user');
 Route::resource('/v1/admin/minimal-example',MinimalExampleController::class)->names('admin.minimal-example');
+Route::resource('/v1/admin/sample-model', \App\Http\Controllers\SampleModelController::class)->names('admin.sample-model');

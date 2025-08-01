@@ -29,52 +29,8 @@ class MinimalExample extends Model
      */
     protected $fillable = []; // Framework will auto-generate this!
 
-    /**
-     * Alternative: Don't define $fillable at all
-     *
-     * If you completely omit the $fillable property, the framework
-     * will detect this and generate it automatically.
-     */
+    protected $casts = [
+        'active' => 'boolean',
+    ];
 
-    /**
-     * Get the module name for CRUD operations
-     */
-    public function getModuleName(): string
-    {
-        return 'minimal-example';
-    }
 }
-
-/**
- * Example Scaffolder demonstrating fillable control:
- *
- * class MinimalExampleScaffolder extends BaseScaffolder
- * {
- *     public function setFields(): array
- *     {
- *         return [
- *             Text::make('title')
- *                 ->rules(['required']),              // fillable(true) by default
- *
- *             Text::make('description')
- *                 ->rules(['nullable']),              // fillable(true) by default
- *
- *             Text::make('internal_notes')
- *                 ->fillable(false)                   // Excluded from mass assignment
- *                 ->onlyOnDetail(),                   // Read-only field
- *
- *             Text::make('computed_field')
- *                 ->virtual(true)                     // Automatically excluded
- *                 ->hideFromIndex(),
- *
- *             FileUploader::make('avatar')            // fillable(true) by default
- *                 ->rules(['image']),                 // Stores file path
- *         ];
- *     }
- * }
- *
- * Result: Framework will generate this fillable array automatically:
- * $fillable = ['title', 'description', 'avatar'];
- *
- * Notice how 'internal_notes' and 'computed_field' are excluded!
- */

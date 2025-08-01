@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Tir\Crud\Support\Scaffold\FieldsHelper;
 
 /**
@@ -211,6 +212,14 @@ class SampleModel extends Model
     public function children(): HasMany
     {
         return $this->hasMany(SampleModel::class, 'parent_id');
+    }
+
+    /**
+     * Get the authors (many-to-many relationship with users).
+     */
+    public function authors(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'sample_model_user', 'sample_model_id', 'user_id');
     }
 
     // Accessors & Mutators

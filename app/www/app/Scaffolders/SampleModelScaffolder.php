@@ -249,6 +249,17 @@ class SampleModelScaffolder extends BaseScaffolder
                 ->searchable()
                 ->col(12),
 
+            // Many-to-many relationship with users (authors)
+            Select::make('authors')
+                ->display('Authors')
+                ->rules(['nullable', 'array'])
+                ->data($this->getUserOptions())
+                ->filter()
+                ->relation('authors','name')
+                ->multiple()
+                ->searchable()
+                ->col(12),
+
             Select::make('parent_id')
                 ->display('Parent Item')
                 ->rules(['nullable', 'exists:sample_models,id'])
@@ -260,24 +271,24 @@ class SampleModelScaffolder extends BaseScaffolder
             // FILE UPLOAD FIELDS
             // =================================================================
 
-            FileUploader::make('avatar')
-                ->display('Avatar Image')
-                ->rules(['nullable', 'image', 'max:2048']) // 2MB max
-                ->hideFromIndex()
-                ->col(12),
+            // FileUploader::make('avatar')
+            //     ->display('Avatar Image')
+            //     ->rules(['nullable', 'image', 'max:2048']) // 2MB max
+            //     ->hideFromIndex()
+            //     ->col(12),
 
-            FileUploader::make('cover_image')
-                ->display('Cover Image')
-                ->rules(['nullable', 'image', 'max:5120']) // 5MB max
-                ->hideFromIndex()
-                ->col(12),
+            // FileUploader::make('cover_image')
+            //     ->display('Cover Image')
+            //     ->rules(['nullable', 'image', 'max:5120']) // 5MB max
+            //     ->hideFromIndex()
+            //     ->col(12),
 
-            FileUploader::make('document_file')
-                ->display('Document File')
-                ->rules(['nullable', 'file', 'mimes:pdf,doc,docx', 'max:10240']) // 10MB max
-                ->hideFromIndex()
-                ->hideFromDetail()
-                ->col(24),
+            // FileUploader::make('document_file')
+            //     ->display('Document File')
+            //     ->rules(['nullable', 'file', 'mimes:pdf,doc,docx', 'max:10240']) // 10MB max
+            //     ->hideFromIndex()
+            //     ->hideFromDetail()
+            //     ->col(24),
 
             // =================================================================
             // JSON/ADDITIONAL FIELDS
@@ -399,6 +410,6 @@ class SampleModelScaffolder extends BaseScaffolder
      */
     protected function setAcl(): bool
     {
-        return true; // Enable access control
+        return false; // Enable access control
     }
 }

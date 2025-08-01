@@ -2,7 +2,6 @@
 
 namespace Tir\Crud\Support\Scaffold;
 
-use Tir\Crud\Support\Scaffold\Fields\Button;
 
 trait FieldsHelper
 {

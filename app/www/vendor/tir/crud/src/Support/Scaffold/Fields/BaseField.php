@@ -44,6 +44,8 @@ abstract class BaseField
     protected bool $requestable = true;
     protected bool $virtual = false;
     protected mixed $filterQuery;
+    protected object $relation;
+
 
 
 
@@ -260,7 +262,7 @@ abstract class BaseField
         if (count($args) === 1 && is_array($args[0])) {
             return $args[0];
         }
-        
+
         // Handle multiple parameters: ->method('item1', 'item2')
         return $args;
     }
@@ -268,7 +270,7 @@ abstract class BaseField
     public function rules(...$rules): BaseField
     {
         $flattenedRules = $this->normalizeVariadicArgs(...$rules);
-        
+
         $this->creationRules = array_merge($this->creationRules, $flattenedRules);
         $this->updateRules = array_merge($this->updateRules, $flattenedRules);
         $this->rules = $flattenedRules;
@@ -301,7 +303,7 @@ abstract class BaseField
     public function filter(...$items): BaseField
     {
         $this->filterable = true;
-        
+
         $normalizedItems = $this->normalizeVariadicArgs(...$items);
 
         if (count($normalizedItems)) {
@@ -331,6 +333,37 @@ abstract class BaseField
     }
 
 
+        /**
+     * Add multiple option to select box
+     *
+     * @param bool $check
+     * @return $this
+     */
+    public function multiple(bool $check = true): Select
+    {
+        $this->multiple = $check;
+        $this->valueType = 'array';
+
+        return $this;
+    }
+
+    public function relation(string $name, string $field, string $primaryKey = 'id'): Select
+    {
+        $this->relation = (object)['name' => $name, 'field' => $field, 'key' => $primaryKey];
+        $this->name = $this->relation->name;
+        $this->multiple(true);
+
+        return $this;
+    }
+
+
+    private function setRelationalValue($model)
+    {
+        return $model->{$this->relation->name}->map(function ($value) {
+            return $value->{$this->relation->key};
+        })->toArray();
+    }
+
     protected function setValue($model): void
     {
         if (isset($model)) {
@@ -338,7 +371,16 @@ abstract class BaseField
             if (isset($value)) {
                 $this->value = $value;
             }
+
+            if (isset($this->relation) && $this->multiple) {
+                $value = $this->setRelationalValue($model);
+                if (count($value) > 0) {
+                    $this->value = $value;
+                }
+
+            }
         }
+
     }
 
     public function get($dataModel)
