@@ -2,114 +2,92 @@
 
 namespace Tir\Crud\Support\Hooks;
 
-trait HasCrudHooks
+trait IndexHooks
 {
     use BaseHooks;
 
+
+
     /**
-     * Set custom initQuery hook
+     * Set custom hook for initializing query
      */
     protected function onInitQuery(callable $callback): self
     {
-        $this->crudHookCallbacks['modifyInitQuery'] = $callback;
+        $this->crudHookCallbacks['onInitQuery'] = $callback;
+        return $this;
+    }
+
+    protected function onSelect(callable $callback): self
+    {
+        $this->crudHookCallbacks['onSelect'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom search hook
+     * Set custom hook for search
      */
     protected function onSearch(callable $callback): self
     {
-        $this->crudHookCallbacks['modifySearch'] = $callback;
+        $this->crudHookCallbacks['onSearch'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom filters hook
+     * Set custom hook for filters
      */
-    protected function onFilters(callable $callback): self
+    protected function onFilter(callable $callback): self
     {
-        $this->crudHookCallbacks['modifyFilters'] = $callback;
+        $this->crudHookCallbacks['onFilter'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom sort hook
+     * Set custom hook for sort
      */
     protected function onSort(callable $callback): self
     {
-        $this->crudHookCallbacks['modifySort'] = $callback;
+        $this->crudHookCallbacks['onSort'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom relations hook
+     * Set custom hook for relations
      */
-    protected function onRelations(callable $callback): self
+    protected function onRelation(callable $callback): self
     {
-        $this->crudHookCallbacks['modifyRelations'] = $callback;
+        $this->crudHookCallbacks['onRelation'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom columns selection hook
+     * Set custom hook for custom query modifications
      */
-    protected function onColumns(callable $callback): self
+    protected function onModifyQuery(callable $callback): self
     {
-        $this->crudHookCallbacks['modifyColumns'] = $callback;
+        $this->crudHookCallbacks['onModifyQuery'] = $callback;
         return $this;
     }
 
+
+
     /**
-     * Set custom pagination hook
+     * Set custom hook for pagination
      */
     protected function onPaginate(callable $callback): self
     {
-        $this->crudHookCallbacks['modifyPaginate'] = $callback;
+        $this->crudHookCallbacks['onPaginate'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom pagination hook (alias for onPaginate for backward compatibility)
+     * Set custom hook for index response
      */
-    protected function onPagination(callable $callback): self
+    protected function onIndexResponse(callable $callback): self
     {
-        return $this->onPaginate($callback);
-    }
-
-    /**
-     * Set custom hook for before query execution
-     */
-    protected function onBeforeExecuteQuery(callable $callback): self
-    {
-        $this->crudHookCallbacks['onBeforeExecuteQuery'] = $callback;
+        $this->crudHookCallbacks['onIndexResponse'] = $callback;
         return $this;
     }
 
-    /**
-     * Set custom hook for after query execution
-     */
-    protected function onAfterExecuteQuery(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterExecuteQuery'] = $callback;
-        return $this;
-    }
 
-    /**
-     * Set custom with hook
-     */
-    protected function onWith(callable $callback): self
-    {
-        $this->crudHookCallbacks['modifyWith'] = $callback;
-        return $this;
-    }
 
-    /**
-     * Set custom columns selection hook
-     */
-    protected function onSelect(callable $callback): self
-    {
-        $this->crudHookCallbacks['modifySelect'] = $callback;
-        return $this;
-    }
 }

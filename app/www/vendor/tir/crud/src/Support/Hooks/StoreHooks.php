@@ -15,23 +15,6 @@ trait StoreHooks
         return $this;
     }
 
-    /**
-     * Set custom hook for handling relationships during store
-     */
-    protected function onStoreRelations(callable $callback): self
-    {
-        $this->crudHookCallbacks['storeRelations'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for before filling model with data
-     */
-    protected function onBeforeFillModel(callable $callback): self
-    {
-        $this->crudHookCallbacks['onBeforeFillModel'] = $callback;
-        return $this;
-    }
 
     /**
      * Set hook for before saving model
@@ -95,4 +78,24 @@ trait StoreHooks
         $this->crudHookCallbacks['onAfterStoreCompleted'] = $callback;
         return $this;
     }
+
+    /**
+     * Set custom hook for handling relationships during store
+     */
+    protected function onStoreRelations(callable $callback): self
+    {
+        $this->crudHookCallbacks['storeRelations'] = $callback;
+        return $this;
+    }
+
+    /**
+     * Set hook for before filling model with data
+     */
+    protected function onBeforeFillModel(callable $callback): self
+    {
+        $this->crudHookCallbacks['onBeforeFillModel'] = $callback;
+        return $this;
+    }
+
+
 }

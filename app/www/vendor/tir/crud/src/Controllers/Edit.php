@@ -24,7 +24,7 @@ trait Edit
         $processedRequest = $this->processRequest($request);
 
         // Then validate the request
-        $this->validateUpdateRequest($processedRequest);
+        $this->validateUpdateRequest($processedRequest, $id);
 
         // Finally update the data
         return $this->updateCrud($processedRequest, $id);
@@ -34,7 +34,7 @@ trait Edit
     {
         $item = $this->model()->findOrFail($id);
         $item = $this->updateTransaction($request, $item);
-        return $this->response()->update($item, $this->model());
+        return $this->response()->update($item, $this->scaffolder());
     }
 
     final function updateTransaction($request, $item)
@@ -48,7 +48,13 @@ trait Edit
 
     final function updateModel($request, $item)
     {
-        $item->fillable($this->model()->getFillableColumns());
+
+                // Store model
+        $modelFillable = $this->model()->getFillable();
+        $modelGuarded = $this->model()->getGuarded();
+
+
+        $item->fillable($this->scaffolder()->getFillableColumns());
 
         // Allow hook before updating model data
         $request = $this->callHookIfExists('onBeforeUpdateModel', $request, $item);
@@ -72,7 +78,7 @@ trait Edit
         // Allow hook before updating relations
         $this->callHookIfExists('onBeforeUpdateRelations', $item, $request);
 
-        foreach ($this->model()->getAllDataFields() as $field) {
+        foreach ($this->scaffolder()->getAllDataFields() as $field) {
             if (isset($field->relation) && $field->multiple) {
                 $data = $request->input($field->name);
                 if (isset($data)) {

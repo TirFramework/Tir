@@ -3,105 +3,350 @@
 namespace Tir\Crud\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Log;
 use Tir\Crud\Support\Enums\FilterType;
+use Tir\Crud\Support\Hooks\IndexHooks;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Database\Eloquent\Builder;
 
 
 trait Data
 {
+    use IndexHooks;
+
     private array $selectFields = [];
     private mixed $query;
 
     public final function data()
     {
-        // $relations = $this->getRelationFields($this->model());
-        $query = $this->dataQuery();
-        $paginatedItems = $this->applyPagination($query);
+        $items = $this->dataQuery();
+        $response = $this->indexResponse($items);
 
-        return Response::Json($paginatedItems, 200);
+        return $response;
+
     }
 
-    private function applyPagination($query)
+    public function query(): mixed
     {
-        // Check if there's a custom pagination hook
-        if (isset($this->crudHookCallbacks['modifyPaginate'])) {
-            $customPagination = call_user_func($this->crudHookCallbacks['modifyPaginate'], $query);
-            if ($customPagination !== null) {
-                return $customPagination;
-            }
-        }
-
-        // Default pagination behavior
-        return $query->paginate(request()->input('result'));
+        return $this->query;
     }
 
 
 
-
-    private function getRelations($query)
-    {
-        // Check if there's a custom modify method
-        if (isset($this->crudHookCallbacks['modifyRelations'])) {
-            $customResult = call_user_func($this->crudHookCallbacks['modifyRelations'], $query);
-            if ($customResult !== null) {
-                return $customResult;
-            }
-        }
-
-        // Default behavior
-        foreach ($this->scaffolder()->getIndexFields() as $field) {
-            if (isset($field->relation)) {
-                if ($this->model()->getConnection()->getName() == 'mongodb') {
-                    if ($field->multiple) {
-                        // mongoDB need foreign key in many-to-many relation
-                        $foreignKey = $this->model()->{$field->relation->name}()->getForeignKey();
-                        $otherKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
-                        $query = $query->with($field->relation->name, function ($q) use ($field, $foreignKey, $otherKey) {
-                            $q->select($foreignKey, $otherKey, $field->relation->field);
-                        });
-                    } else {
-                        $otherKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
-                        $query = $query->with($field->relation->name, function ($q) use ($field, $otherKey) {
-                            $q->select($otherKey, $field->relation->field);
-                        });
-                    }
-                } else {
-                    $relationTable = $this->model()->{$field->relation->name}()->getRelated()->getTable();
-                    $relationKey = $relationTable . '.' . $field->relation->key;
-                    $query = $query->with($field->relation->name, function ($q) use ($field, $relationKey) {
-                        $q->select($relationKey, $field->relation->field);
-                    });
-                }
-            }
-        }
-        return $query;
-    }
 
     /**
      * Build the main data query with all modifications
      */
-    private function dataQuery(): Builder
+    private function dataQuery()
     {
-        $columns = $this->selectColumns();
+        // Define the default behavior as a closure
+            $this->query = $this->initQuery();
+            $this->query  = $this->select($this->query);
+            $this->query  = $this->getRelations($this->query);
+            $this->query  = $this->applySearch($this->query);
+            $this->query  = $this->applyFilters($this->query);
+            $this->query  = $this->applySort($this->query);
+            $this->query = $this->applyModifiedQuery($this->query);
+            Log::debug('Data query initialized', [
+                'query' => $this->query->toSql(),
+            ]);
+            $this->query = $this->applyPaginate($this->query);
 
-        return $this->initQuery()
-            ->select($columns)
-            ->tap(fn($query) => $this->getRelations($query))
-            ->tap(fn($query) => $this->applySearch($query))
-            ->tap(fn($query) => $this->applyFilters($query))
-            ->tap(fn($query) => $this->applySort($query));
+
+            return $this->query;
     }
+
+
+    private function initQuery(): mixed
+    {
+
+        // Define the default behavior as a closure
+        $defaultInitQuery = function() {
+            return $this->model()->query();
+        };
+
+        // Pass the closure to the hook
+        $customQuery = $this->callHook('onInitQuery', $defaultInitQuery);
+        if($customQuery === null) {
+            return $defaultInitQuery();
+        }
+
+
+        // Otherwise, return the result directly
+        return $customQuery;
+    }
+
+
+
+    private function select($query): mixed
+    {
+        // Define the default behavior as a closure
+        $defaultSelect = function($q = null) use ($query) {
+            if ($q !== null) {
+                $query = $q;
+            }
+            $columns = $this->selectColumns();
+            return $query->select($columns);
+        };
+
+        // Pass the closure to the hook
+        $customSelect = $this->callHook('onSelect', $defaultSelect, $query);
+        if($customSelect !== null) {
+            return $customSelect;
+        }
+
+        // Otherwise, return the result directly
+        return $defaultSelect();
+    }
+
+
+    private function getRelations($query)
+    {
+        // Define the default behavior as a closure
+        $defaultRelations = function($q = null) use ($query) {
+            if ($q !== null) {
+                $query = $q;
+            }
+
+            foreach ($this->scaffolder()->getIndexFields() as $field) {
+                if (isset($field->relation)) {
+                    if ($this->model()->getConnection()->getName() == 'mongodb') {
+                        if ($field->multiple) {
+                            // mongoDB need foreign key in many-to-many relation
+                            $foreignKey = $this->model()->{$field->relation->name}()->getForeignKey();
+                            $otherKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
+                            $query = $query->with($field->relation->name, function ($q) use ($field, $foreignKey, $otherKey) {
+                                $q->select($foreignKey, $otherKey, $field->relation->field);
+                            });
+                        } else {
+                            $otherKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
+                            $query = $query->with($field->relation->name, function ($q) use ($field, $otherKey) {
+                                $q->select($otherKey, $field->relation->field);
+                            });
+                        }
+                    } else {
+                        $relationTable = $this->model()->{$field->relation->name}()->getRelated()->getTable();
+                        $relationKey = $relationTable . '.' . $field->relation->key;
+                        $query = $query->with($field->relation->name, function ($q) use ($field, $relationKey) {
+                            $q->select($relationKey, $field->relation->field);
+                        });
+                    }
+                }
+            }
+            return $query;
+        };
+
+        // Pass the closure to the hook
+        $customRelations = $this->callHook('onRelation', $defaultRelations, $query);
+        if($customRelations !== null) {
+            return $customRelations;
+        }
+
+
+
+        // Otherwise, return the result directly
+        return $defaultRelations();
+    }
+
+
+
+    private function applySearch($query)
+    {
+
+        $defaultSearch = function($q = null) use ($query) {
+            if ($q !== null) {
+                $query = $q;
+            }
+            $req = request()->input('search');
+            if ($req == null) {
+                return $query;
+            }
+            $searchableFields = $this->scaffolder()->getSearchableFields();
+            if (empty($searchableFields)) {
+                return $query;
+            }
+
+            foreach ($searchableFields as $field) {
+                $query->orWhere($field->name, 'like', "%$req%");
+            }
+            return $query;
+        };
+
+        // Pass the closure to the hook
+        $customSearch = $this->callHook('onSearch', $defaultSearch, $query);
+        if($customSearch !== null) {
+            return $customSearch;
+        }
+
+
+        // Otherwise, return the result directly
+        return $defaultSearch();
+    }
+
+
+    private function applyFilters($query)
+    {
+
+        $defaultFilters = function($q = null)use ($query) {
+            if ($q !== null) {
+                $query = $q;
+            }
+            $req = json_decode(request()->input('filters'));
+            if ($req == null) {
+                return $query;
+            }
+
+            $filters = $this->getFilter($req);
+
+            foreach ($filters['original'] as $filter) {
+                if ($filter['type'] == FilterType::Select) {
+                    $query->whereIn($filter['column'], $filter['value']);
+                } elseif ($filter['type'] == FilterType::Slider) {
+                    $query->where($filter['column'], '>=', $filter['value'][0]);
+                    $query->where($filter['column'], '<=', $filter['value'][1]);
+                } elseif ($filter['type'] == FilterType::DatePicker) {
+                    if ($this->model()->getConnection()->getName() == 'mongodb') {
+                        $query->where(function ($query) use ($filter) {
+                            $query->where($filter['column'], '>=', new \MongoDB\BSON\UTCDateTime(Carbon::make($filter['value'][0])->startOfDay()));
+                            $query->orWhere($filter['column'], '>=', Carbon::make($filter['value'][0])->startOfDay()->toDateString());
+                        });
+                        $query->where(function ($query) use ($filter) {
+                            $query->where($filter['column'], '<=', new \MongoDB\BSON\UTCDateTime(Carbon::make($filter['value'][1])->endOfDay()));
+                            $query->orWhere($filter['column'], '<=', Carbon::make($filter['value'][1])->endOfDay()->toDateString());
+                        });
+                    } else {
+                        $query->whereDate($filter['column'], '>=', Carbon::make($filter['value'][0])->startOfDay());
+                        $query->whereDate($filter['column'], '<=', Carbon::make($filter['value'][1])->endOfDay());
+                    }
+                } elseif ($filter['type'] == FilterType::Search) {
+                    $query->where($filter['column'], 'like', "%" . $filter['value'] . "%");
+                }
+            }
+
+            foreach ($filters['relational'] as $filter) {
+                $query->whereHas($filter['relation'], function (Builder  $q) use ($filter) {
+                    $q->whereIn($filter['primaryKey'], $filter['value']);
+                });
+            }
+
+            foreach ($filters['customQuery'] as $filter) {
+                $query = $filter['query']($query, $filter['req']);
+            }
+
+            return $query;
+        };
+
+        // Pass the closure to the hook
+        $customFilters = $this->callHook('onFilter', $defaultFilters, $query);
+        if($customFilters !== null) {
+            return $customFilters;
+        }
+
+
+
+       // Otherwise, return the result directly
+        return $defaultFilters();
+    }
+
+
+    private function applySort($query)
+    {
+        // Define the default behavior as a closure
+        $defaultSort = function($q = null) use ($query) {
+
+            if ($q !== null) {
+                $query = $q;
+            }
+
+            $req = request()->input('sorter');
+            if ($req == null) {
+                return $query->orderBy('created_at', 'DESC');
+            }
+
+            $sort = json_decode($req);
+
+            if (!isset($sort->field)) {
+                return $query->orderBy('created_at', 'DESC');
+            }
+            $sort->order = $sort->order == 'ascend' ? 'ASC' : 'DESC';
+            return $query->orderBy($sort->field, $sort->order);
+        };
+
+        // Pass the closure to the hook
+        $customSort = $this->callHook('onSort', $defaultSort, $query);
+        if($customSort !== null) {
+            return $customSort;
+        }
+
+
+        return $defaultSort();
+    }
+
+    private function applyModifiedQuery($query)
+    {
+        // Define the default behavior as a closure
+        $defaultModifiedQuery = function($q = null) use ($query) {
+            if ($q !== null) {
+                $query = $q;
+            }
+            return $query;
+        };
+
+        $customModifiedQuery = $this->callHook('onModifyQuery', $defaultModifiedQuery, $query);
+        if($customModifiedQuery !== null) {
+            return $customModifiedQuery;
+        }
+
+        return $defaultModifiedQuery();
+    }
+
+    private function applyPaginate($query)
+    {
+        $defaultPagination = function($q = null) use ($query) {
+            if ($q !== null) {
+                $query = $q;
+            }
+            $perPage = request()->input('result', 15); // Default to 15 if not provided
+            return $query->paginate($perPage);
+        };
+        $customPagination = $this->callHook('onPaginate', $defaultPagination, $query);
+        if ($customPagination !== null) {
+            return $customPagination;
+        }
+
+        return $defaultPagination();
+    }
+
+
+
+    private function indexResponse($items)
+    {
+        // Define the default behavior as a closure
+        $defaultResponse = function($i = null) use ($items) {
+            if ($i !== null) {
+                $items = $i;
+            }
+            return Response::json($items, 200);
+        };
+
+        // Pass the closure to the hook
+        $customResponse = $this->callHook('onIndexResponse', $defaultResponse, $items);
+
+        if($customResponse !== null) {
+            return $customResponse;
+        }
+
+        // Otherwise, return the result directly
+        return $defaultResponse();
+    }
+
+
+
+
 
     private function selectColumns()
     {
-        // Check if there's a custom modify method
-        if (isset($this->crudHookCallbacks['modifySelect'])) {
-            $customColumns = call_user_func($this->crudHookCallbacks['modifySelect']);
-            if ($customColumns !== null) {
-                return $customColumns;
-            }
-        }
+
 
         // Default behavior
         if ($this->model()->getConnection()->getName() == 'mongodb') {
@@ -121,148 +366,6 @@ trait Data
         $selecable = array_merge($this->scaffolder()->getAppendedSelectableColumns(), $this->selectFields);
         return $selecable;
 
-    }
-
-    private function initQuery()
-    {
-        // Check if there's a custom modify method
-        if (isset($this->crudHookCallbacks['modifyInitQuery'])) {
-            $customQuery = call_user_func($this->crudHookCallbacks['modifyInitQuery']);
-            if ($customQuery !== null) {
-                return $customQuery;
-            }
-        }
-
-        // Default behavior
-        return $this->model()->query();
-    }
-
-
-
-    private function selectQuery($query, $columns): Builder
-    {
-        return $this->model()->select($columns);
-    }
-
-
-
-    private function applySearch($query)
-    {
-        // Check if there's a custom modify method
-        if (isset($this->crudHookCallbacks['modifySearch'])) {
-            $customQuery = call_user_func($this->crudHookCallbacks['modifySearch'], $query);
-            if ($customQuery !== null) {
-                return $customQuery;
-            }
-        }
-
-        // Default behavior
-        $req = request()->input('search');
-        if ($req == null) {
-            return $query;
-        }
-        $searchableFields = $this->model()->getSearchableFields();
-
-        foreach ($searchableFields as $field) {
-            $query->orWhere($field->name, 'like', "%$req%");
-        }
-
-        return $query;
-    }
-
-
-    private function applyFilters($query)
-    {
-        // Check if there's a custom modify method
-        if (isset($this->crudHookCallbacks['modifyFilters'])) {
-            $customQuery = call_user_func($this->crudHookCallbacks['modifyFilters'], $query);
-            if ($customQuery !== null) {
-                return $customQuery;
-            }
-        }
-
-        // Default behavior
-        $req = json_decode(request()->input('filters'));
-        if ($req == null) {
-            return $query;
-        }
-
-
-        $filters = $this->getFilter($req);
-
-        foreach ($filters['original'] as $filter) {
-
-            if ($filter['type'] == FilterType::Select) {
-                $query->whereIn($filter['column'], $filter['value']);
-            } elseif ($filter['type'] == FilterType::Slider) {
-                $query->where($filter['column'], '>=', $filter['value'][0]);
-                $query->where($filter['column'], '<=', $filter['value'][1]);
-            } elseif ($filter['type'] == FilterType::DatePicker) {
-                if ($this->model()->getConnection()->getName() == 'mongodb') {
-
-                    $query->where(function ($query) use ($filter) {
-                        $query->where($filter['column'], '>=', new \MongoDB\BSON\UTCDateTime(Carbon::make($filter['value'][0])->startOfDay()));
-                        $query->orWhere($filter['column'], '>=', Carbon::make($filter['value'][0])->startOfDay()->toDateString());
-                    });
-                    $query->where(function ($query) use ($filter) {
-                        $query->where($filter['column'], '<=', new \MongoDB\BSON\UTCDateTime(Carbon::make($filter['value'][1])->endOfDay()));
-                        $query->orWhere($filter['column'], '<=', Carbon::make($filter['value'][1])->endOfDay()->toDateString());
-                    });
-                } else {
-                    $query->whereDate($filter['column'], '>=', Carbon::make($filter['value'][0])->startOfDay());
-                    $query->whereDate($filter['column'], '<=', Carbon::make($filter['value'][1])->endOfDay());
-                }
-            } elseif ($filter['type'] == FilterType::Search) {
-                $query->where($filter['column'], 'like', "%" . $filter['value'] . "%");
-            }
-        }
-
-        foreach ($filters['relational'] as $filter) {
-            $query->whereHas($filter['relation'], function (Builder  $q) use ($filter) {
-                $q->whereIn($filter['primaryKey'], $filter['value']);
-            });
-        }
-
-        foreach ($filters['customQuery'] as $filter) {
-
-            //  Here we call the callback function from the field definition
-            //  It's like this:
-            //   $model->query(function($query, $value){
-            //       return $query->where('column', $value);
-            //   })
-
-            // the filter value comes from the request and the query comes form field definition
-
-            $query = $filter['query']($query, $filter['req']);
-        }
-        return $query;
-    }
-
-
-    private function applySort($query)
-    {
-        // Check if there's a custom modify method
-        if (isset($this->crudHookCallbacks['modifySort'])) {
-            $customQuery = call_user_func($this->crudHookCallbacks['modifySort'], $query);
-            if ($customQuery !== null) {
-                return $customQuery;
-            }
-        }
-
-        // Default behavior
-        $req = request()->input('sorter');
-        if ($req == null) {
-            return $query->orderBy('created_at', 'DESC');
-        }
-
-        $sort = json_decode($req);
-
-        if (!isset($sort->field)) {
-            return $query->orderBy('created_at', 'DESC');
-        }
-        $sort->order = $sort->order == 'ascend' ? 'ASC' : 'DESC';
-        $query->orderBy($sort->field, $sort->order);
-        return $query;
     }
 
     private function getFilter($req): array
@@ -308,14 +411,11 @@ trait Data
         return $filters;
     }
 
-
-
     private function getRelationFields($model): array
     {
         $relations = [];
         foreach ($this->scaffolder()->getIndexFields() as $field) {
             if (isset($field->relation)) {
-                //                $relation = $field->relation->name . ':' . $field->relation->key . ',' . $field->relation->field. ' as text';
                 $relation = $field->relation->name . ':' . $field->relation->key;
 
                 if ($model->getConnection()->getName() == 'mongodb') {

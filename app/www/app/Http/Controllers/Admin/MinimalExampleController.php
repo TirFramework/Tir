@@ -19,35 +19,52 @@ class MinimalExampleController extends CrudController
 
     protected function setup()
     {
-        $this->onInitQuery(function() {
-            return $this->model()->query()->where('is_active', true);
+
+
+        $this->onSelect(function ($defaultSelect, $query) {
+            $defaultSelect();
+            $col = $query->getQuery()->columns;
+
+            $col[] = \DB::raw(value: "CONCAT(title, description) as x");
+            $query->select($col);
+            return $query;
         });
 
-        $this->onSearch(function($query) {
-            $search = request()->input('search');
-            if ($search) {
-                return $query->where(function($q) use ($search) {
-                    $q->where('title', 'like', "%$search%")
-                      ->orWhere('description', 'like', "%$search%");
-                });
-            }
-            return null; // Use default behavior
-        });
+        // $this->onSearch(function ($defaultSearch, $query) {
+        //     $query = $defaultSearch();
 
-        // Custom columns selection
-        $this->onColumns(function() {
-            return ['id', 'title', 'is_active', 'created_at'];
-        });
+        //     // Add a where condition on the calculated column 'x'
+        //     // Using havingRaw since 'x' is a calculated column
+        //     $searchTerm = request()->input('search');
+        //     if ($searchTerm) {
+        //         $query->orHavingRaw('x LIKE ?', ['%' . $searchTerm . '%']);
+        //     }
 
-        // Custom relations loading
-        // $this->onRelations(function($query) {
-        //     return $query->with(['user:id,name', 'category:id,name']);
+        //     return $query;
         // });
 
-        // Custom pagination
-        $this->onPaginate(function($query) {
-            return $query->simplePaginate(5); // Use simple pagination with 5 items
+
+        $this->onFilter(function ($defaultFilter) {
+            return $defaultFilter();
         });
+
+        $this->onSort(function ($defaultSort, $query) {
+            return $query->orderBy('id', 'asc');
+        });
+
+        // $this->onPaginate(function ($defaultPaginate, $query) {
+        //     return $query->paginate(1);
+        // });
+
+        $this->onIndexResponse(function ($defaultIndex, $items) {
+            $test = [];
+            return $defaultIndex();
+        });
+
+
 
     }
 }
+
+
+

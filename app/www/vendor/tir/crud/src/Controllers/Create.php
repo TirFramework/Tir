@@ -13,23 +13,6 @@ trait Create
     use ProcessRequest;
     use StoreHooks;
 
-    /**
-     * Set custom validation hook for create
-     */
-    protected function onValidateCreate(callable $callback): self
-    {
-        $this->crudHookCallbacks['validateCreateRequest'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set custom hook for request processing
-     */
-    protected function onProcessRequest(callable $callback): self
-    {
-        $this->crudHookCallbacks['processRequest'] = $callback;
-        return $this;
-    }
 
     public function create(): JsonResponse
     {
@@ -51,8 +34,9 @@ trait Create
 
     protected final function storeCrud($request): \Illuminate\Http\JsonResponse
     {
+        $this->callHookIfExists('onStore', $request);
         $model = $this->storeTransaction($request);
-        return $this->response()->store($model);
+        return $this->response()->store($model, $this->scaffolder());
     }
 
     protected final function storeTransaction($request)
@@ -70,20 +54,27 @@ trait Create
     protected final function storeModel($request)
     {
         // Store model
-        $this->model()->fillable($this->scaffolder()->getFillableColumns());
+        $modelFillable = $this->model()->getFillable();
+        $modelGuarded = $this->model()->getGuarded();
+
+        $model = $this->model();
+
+        // Fillable columns from scaffolder and model
+        $model = $model->fillable($this->scaffolder()->getFillableColumns($modelFillable, $modelGuarded));
 
         // Allow hook before filling model data
-        $request = $this->callHookIfExists('onBeforeFillModel', $request);
+        $model = $this->callHookIfExists('onBeforeFillModel',$model, $request);
 
-        $this->model()->fill($request->all());
+        $model->fill($request->all());
 
         // Allow hook before saving the model
-        $model = $this->callHookIfExists('onBeforeSaveModel', $this->model(), $request);
+        $model = $this->callHookIfExists('onBeforeSaveModel', $model, $request);
 
         $model->save();
 
         // Allow hook after saving the model
         $model = $this->callHookIfExists('onAfterSaveModel', $model, $request);
+
 
         // Store relations
         $this->storeRelations($request);

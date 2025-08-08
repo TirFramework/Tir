@@ -24,9 +24,20 @@ trait BaseHooks
      */
     protected function callHookIfExists(string $hookName, ...$args)
     {
+
+        if (isset($this->crudHookCallbacks[$hookName])) {
+
+            call_user_func_array($this->crudHookCallbacks[$hookName], $args);
+        }
+
+        return $args[0] ?? null; // Return first argument if no hook exists
+    }
+
+    protected function callHook(string $hookName, ...$args)
+    {
         if (isset($this->crudHookCallbacks[$hookName])) {
             return call_user_func_array($this->crudHookCallbacks[$hookName], $args);
         }
-        return $args[0] ?? null; // Return first argument if no hook exists
+        return null; // Return first argument if no hook exists
     }
 }

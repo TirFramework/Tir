@@ -41,6 +41,7 @@ class MinimalExampleScaffolder extends BaseScaffolder
                 ->rules('required', 'max:255')
                 ->fillable(true),
 
+
             TextArea::make('description')
                 ->display('Description')
                 ->rules('nullable')
@@ -53,7 +54,8 @@ class MinimalExampleScaffolder extends BaseScaffolder
 
             // Auto-label example: "user_email" becomes "User Email"
             Text::make('user_email')
-                ->rules(['email', 'nullable']),
+                ->rules(['email', 'nullable'])
+                ->searchable(),
 
             // Auto-label example: "created_at" becomes "Created At"
             Text::make('created_at')
@@ -67,13 +69,10 @@ class MinimalExampleScaffolder extends BaseScaffolder
                 ->hideFromIndex(),
 
             // This virtual field will be automatically EXCLUDED
-            // Text::make('computed_value')
-            //     ->display('Computed Value')
-            //     ->virtual(true)
-            //     ->hideFromIndex()
-            //     ->value(function ($resource) {
-            //         return 'Computed: ' . $resource->title;
-            //     }),
+            Text::make('x')
+                ->display('Computed Value')
+                ->virtual(true),
+
 
             CheckBox::make('is_active')
                 ->display('Active')

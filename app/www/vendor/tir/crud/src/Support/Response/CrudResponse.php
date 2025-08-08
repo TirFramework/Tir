@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Response;
 
 class CrudResponse extends Response
 {
-    public function update($item): JsonResponse
+    public function update($item, $scaffolder): JsonResponse
     {
-        $moduleName = $item->getModuleName();
+        $moduleName = $scaffolder->getModuleName();
         $message = trans('core::message.item-updated', ['item' => trans("message.item.$moduleName")]); //translate message
         return Response::Json(
             [
@@ -21,9 +21,9 @@ class CrudResponse extends Response
     }
 
 
-    public function store($model): \Illuminate\Http\JsonResponse
+    public function store($model, $scaffolder): \Illuminate\Http\JsonResponse
     {
-        $moduleName = $model->getModuleName();
+        $moduleName = $scaffolder->getModuleName();
         $message = trans('core::message.item-created', ['item' => trans("message.item.$moduleName")]); //translate message
         return Response::Json(
             [

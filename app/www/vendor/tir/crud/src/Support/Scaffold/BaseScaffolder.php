@@ -90,6 +90,11 @@ abstract class BaseScaffolder
         return $this->currentModel;
     }
 
+    public final function getModuleName(): mixed
+    {
+        // Return the current model instance
+        return $this->moduleName;
+    }
     public function scaffold($page = '', $model = null): static
     {
         if ($this->isScaffolded) {
@@ -236,9 +241,9 @@ abstract class BaseScaffolder
         ];
     }
 
-    final function getDetailScaffold(): array
+    final function getDetailScaffold($model): array
     {
-        $this->scaffold('detail');
+        $this->scaffold('detail', $model);
         return [
             'fields'        => $this->getDetailFields(),
             'buttons'       => $this->getDetailButtons(),

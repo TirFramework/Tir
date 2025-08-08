@@ -32,13 +32,12 @@ trait FieldsHelper
     }
 
 
-    final function getFillableColumns()
+    final function getFillableColumns($modelFillable = [], $modelGuarded = [])
     {
-        $modelFillable = $this->getFillable();
+
         $scafoldFillable =  collect($this->getAllDataFields())->where('fillable',true)->pluck('request')->flatten()->unique()->toArray();
         $fillables = array_merge($scafoldFillable, $modelFillable);
-        $modelGaured = $this->getGuarded();
-        $finalFillables = array_diff($fillables, $modelGaured);
+        $finalFillables = array_diff($fillables, $modelGuarded);
         return $finalFillables;
     }
 

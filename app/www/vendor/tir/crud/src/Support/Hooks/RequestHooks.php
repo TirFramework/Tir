@@ -27,25 +27,25 @@ trait RequestHooks
     /**
      * Set hook for before validation on create
      */
-    protected function onBeforeValidateCreate(callable $callback): self
+    protected function onBeforeStoreValidation(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeValidateCreate'] = $callback;
+        $this->crudHookCallbacks['onBeforeStoreValidation'] = $callback;
         return $this;
     }
 
     /**
      * Set hook for after validation on create
      */
-    protected function onAfterValidateCreate(callable $callback): self
+    protected function onAfterStoreValidation(callable $callback): self
     {
-        $this->crudHookCallbacks['onAfterValidateCreate'] = $callback;
+        $this->crudHookCallbacks['onAfterStoreValidation'] = $callback;
         return $this;
     }
 
     /**
      * Set hook for before validation on update
      */
-    protected function onBeforeValidateUpdate(callable $callback): self
+    protected function onBeforeUpdateValidation(callable $callback): self
     {
         $this->crudHookCallbacks['onBeforeValidateUpdate'] = $callback;
         return $this;
@@ -54,18 +54,10 @@ trait RequestHooks
     /**
      * Set hook for after validation on update
      */
-    protected function onAfterValidateUpdate(callable $callback): self
+    protected function onAfterUpdateValidation(callable $callback): self
     {
-        $this->crudHookCallbacks['onAfterValidateUpdate'] = $callback;
+        $this->crudHookCallbacks['onAfterUpdateValidation'] = $callback;
         return $this;
     }
 
-    /**
-     * Set hook for when validator is created
-     */
-    protected function onValidatorCreated(callable $callback): self
-    {
-        $this->crudHookCallbacks['onValidatorCreated'] = $callback;
-        return $this;
-    }
 }

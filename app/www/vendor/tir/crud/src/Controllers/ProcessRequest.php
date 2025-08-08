@@ -16,22 +16,36 @@ trait ProcessRequest
     protected function processRequest(Request $request)
     {
         // Allow hook to preprocess request data
-        $data = $this->callHookIfExists('onBeforeProcessRequest', $request->all(), $request);
+        $$request = $this->callHookIfExists('onBeforeProcessRequest', $request);
 
-        if (is_array($data)) {
-            // Replace relations with their IDs
-            foreach ($this->getRelations() as $relation => $config) {
-                if (isset($data[$relation]) && is_array($data[$relation])) {
-                    $relationKey = $config['key'] ?? 'id';
-                    $data[$relation] = collect($data[$relation])->pluck($relationKey)->toArray();
-                }
+
+        $dataFields = collect($this->scaffolder()->getAllDataFields())
+            ->pluck('request')->flatten()->unique()->toArray();
+
+        //get only request that has equal field in scaffold
+        $clearedRequest = [];
+        $requestAll = $request->all();
+        foreach ($requestAll as $key => $value) {
+            if (in_array($key, $dataFields)) {
+                $clearedRequest[$key] = $value;
             }
-
-            // Allow custom manipulation of request data
-            $data = $this->callHookIfExists('onAfterProcessRequest', $data, $request);
         }
 
-        return $data;
+        // Replace request data with an empty array
+        $request->replace([]);
+
+        //convert dot string request to array
+        $unDoted = Arr::undot($clearedRequest);
+
+        $request->merge($unDoted);
+
+
+        // Allow custom manipulation of request data
+        $request = $this->callHookIfExists('onAfterProcessRequest', $request);
+
+
+        return $request;
+
     }
 
     /**
@@ -39,21 +53,17 @@ trait ProcessRequest
      */
     protected function validateCreateRequest(Request $request)
     {
-        $rules = $this->getValidationRules();
-        $messages = $this->getValidationMessages();
+        $rules = $this->scaffolder()->getCreationRules();
 
         // Allow hook to modify validation rules
-        $rules = $this->callHookIfExists('onBeforeValidateCreate', $rules, $request);
+        $rules = $this->callHookIfExists('onBeforeStoreValidation', $rules, $request);
 
-        $validator = Validator::make($request->all(), $rules, $messages);
-
-        // Allow hook to modify validator
-        $validator = $this->callHookIfExists('onValidatorCreated', $validator, $request);
+        $validator = Validator::make($request->all(), $rules);
 
         $validator->validate();
 
         // Allow hook after validation passes
-        $this->callHookIfExists('onAfterValidateCreate', $request);
+        $this->callHookIfExists('onAfterStoreValidation', $request);
 
         return true;
     }
@@ -63,21 +73,20 @@ trait ProcessRequest
      */
     protected function validateUpdateRequest(Request $request, $id)
     {
-        $rules = $this->getValidationRules(false);
-        $messages = $this->getValidationMessages();
+        $rules = $this->scaffolder()->getUpdateRules();
+        // $messages = $this->getValidationMessages();
 
         // Allow hook to modify validation rules
-        $rules = $this->callHookIfExists('onBeforeValidateUpdate', $rules, $request, $id);
+        $rules = $this->callHookIfExists('onBeforeUpdateValidation', $rules, $request, $id);
 
-        $validator = Validator::make($request->all(), $rules, $messages);
-
-        // Allow hook to modify validator
-        $validator = $this->callHookIfExists('onValidatorCreated', $validator, $request);
+        $validator = Validator::make($request->all(), $rules);
 
         $validator->validate();
 
         // Allow hook after validation passes
-        $this->callHookIfExists('onAfterValidateUpdate', $request, $id);
+        $this->callHookIfExists('onAfterUpdateValidation', $request, $id);
+
+        $request = $this->passedValidation($request);
 
         return true;
     }
@@ -108,5 +117,23 @@ trait ProcessRequest
         }
 
         return $result;
+    }
+
+
+
+
+    protected function passedValidation($request)
+    {
+        //make ready request for mongodb
+        if ($this->model->getConnection()->getDriverName() === 'mongodb') {
+             $requestTemp = $request->all();
+
+            foreach ($request->all() as $offset => $value) {
+                $request->offsetUnset($offset);
+            }
+            $request->merge($this->groupByNumber($requestTemp));
+        }
+
+        return $request;
     }
 }
