@@ -4,98 +4,61 @@ namespace Tir\Crud\Support\Hooks;
 
 trait StoreHooks
 {
-    use RequestHooks;
+    use \Tir\Crud\Support\Hooks\BaseHooks;
 
     /**
      * Set custom hook for storing model data
      */
     protected function onStore(callable $callback): self
     {
-        $this->crudHookCallbacks['store'] = $callback;
+        $this->crudHookCallbacks['onStore'] = $callback;
         return $this;
     }
 
-
     /**
-     * Set hook for before saving model
+     * Set custom hook for saving model
      */
-    protected function onBeforeSaveModel(callable $callback): self
+    protected function onSaveModel(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeSaveModel'] = $callback;
+        $this->crudHookCallbacks['onSaveModel'] = $callback;
         return $this;
     }
 
+
     /**
-     * Set hook for after saving model
+     * Set custom hook for filling model for store
      */
-    protected function onAfterSaveModel(callable $callback): self
+    protected function onFillModelForStore(callable $callback): self
     {
-        $this->crudHookCallbacks['onAfterSaveModel'] = $callback;
+        $this->crudHookCallbacks['onFillModelForStore'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for before storing relations
-     */
-    protected function onBeforeStoreRelations(callable $callback): self
-    {
-        $this->crudHookCallbacks['onBeforeStoreRelations'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for before storing a specific relation
-     */
-    protected function onBeforeStoreRelation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onBeforeStoreRelation'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after storing a specific relation
-     */
-    protected function onAfterStoreRelation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterStoreRelation'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after storing all relations
-     */
-    protected function onAfterStoreRelations(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterStoreRelations'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after store operation is completed
-     */
-    protected function onAfterStoreCompleted(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterStoreCompleted'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set custom hook for handling relationships during store
+     * Set custom hook for storing relations
      */
     protected function onStoreRelations(callable $callback): self
     {
-        $this->crudHookCallbacks['storeRelations'] = $callback;
+        $this->crudHookCallbacks['onStoreRelations'] = $callback;
+        return $this;
+    }
+
+
+    /**
+     * Set custom hook for after store operation is completed
+     */
+    protected function onStoreCompleted(callable $callback): self
+    {
+        $this->crudHookCallbacks['onStoreCompleted'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for before filling model with data
+     * Set custom hook for store response
      */
-    protected function onBeforeFillModel(callable $callback): self
+    protected function onStoreResponse(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeFillModel'] = $callback;
+        $this->crudHookCallbacks['onStoreResponse'] = $callback;
         return $this;
     }
-
-
 }

@@ -2,16 +2,14 @@
 
 namespace Tir\Crud\Controllers;
 
-use Illuminate\Http\JsonResponse;
 use Tir\Crud\Support\Hooks\IndexHooks;
 use Illuminate\Support\Facades\Response;
 
 trait Index
 {
-    use Data;
-    use IndexHooks;
+    use IndexData;
 
-    public function index(): JsonResponse
+    public final function index()
     {
         $cols = [];
         $scaffold = $this->scaffolder()->getIndexScaffold();

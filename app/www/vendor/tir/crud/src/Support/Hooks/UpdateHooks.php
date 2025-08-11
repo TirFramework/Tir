@@ -4,86 +4,70 @@ namespace Tir\Crud\Support\Hooks;
 
 trait UpdateHooks
 {
-    use RequestHooks;
+    use \Tir\Crud\Support\Hooks\BaseHooks;
 
     /**
      * Set custom hook for updating model data
      */
     protected function onUpdate(callable $callback): self
     {
-        $this->crudHookCallbacks['update'] = $callback;
+        $this->crudHookCallbacks['onUpdate'] = $callback;
+        return $this;
+    }
+
+
+    /**
+     * Set custom hook for filling model for update
+     */
+    protected function onFillModelForUpdate(callable $callback): self
+    {
+        $this->crudHookCallbacks['onFillModelForUpdate'] = $callback;
+        return $this;
+    }
+
+
+    /**
+     * Set custom hook for updating model
+     */
+    protected function onUpdateModel(callable $callback): self
+    {
+        $this->crudHookCallbacks['onUpdateModel'] = $callback;
         return $this;
     }
 
     /**
-     * Set custom hook for handling relationships during update
+     * Set custom hook for updating relations
      */
     protected function onUpdateRelations(callable $callback): self
     {
-        $this->crudHookCallbacks['updateRelations'] = $callback;
+        $this->crudHookCallbacks['onUpdateRelations'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for before updating model
+     * Set custom hook for updating a specific relation
      */
-    protected function onBeforeUpdateModel(callable $callback): self
+    protected function onUpdateRelation(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeUpdateModel'] = $callback;
+        $this->crudHookCallbacks['onUpdateRelation'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for after updating model
+     * Set custom hook for after update operation is completed
      */
-    protected function onAfterUpdateModel(callable $callback): self
+    protected function onUpdateCompleted(callable $callback): self
     {
-        $this->crudHookCallbacks['onAfterUpdateModel'] = $callback;
+        $this->crudHookCallbacks['onUpdateCompleted'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for before updating relations
+     * Set custom hook for update response
      */
-    protected function onBeforeUpdateRelations(callable $callback): self
+    protected function onUpdateResponse(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeUpdateRelations'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for before updating a specific relation
-     */
-    protected function onBeforeUpdateRelation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onBeforeUpdateRelation'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after updating a specific relation
-     */
-    protected function onAfterUpdateRelation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterUpdateRelation'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after updating all relations
-     */
-    protected function onAfterUpdateRelations(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterUpdateRelations'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after update operation is completed
-     */
-    protected function onAfterUpdateCompleted(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterUpdateCompleted'] = $callback;
+        $this->crudHookCallbacks['onUpdateResponse'] = $callback;
         return $this;
     }
 }

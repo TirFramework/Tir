@@ -2,9 +2,6 @@
 
 namespace Tir\Crud\Controllers;
 
-use Tir\Crud\Support\Hooks\HasCrudHooks;
-use Illuminate\Support\Facades\Route;
-use Tir\Crud\Support\Requests\CrudRequest;
 use Tir\Crud\Support\Response\CrudResponse;
 
 trait CrudInit
@@ -27,12 +24,12 @@ trait CrudInit
         }
     }
 
-    protected function model()
+    protected final function model()
     {
         return $this->model;
     }
 
-    protected function scaffolder()
+    protected final function scaffolder()
     {
         return $this->scaffolder;
     }

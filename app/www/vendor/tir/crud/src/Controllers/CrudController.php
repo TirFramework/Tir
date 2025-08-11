@@ -1,7 +1,6 @@
 <?php
 
 namespace Tir\Crud\Controllers;
-
 use App\Http\Controllers\Controller;
 
 abstract class CrudController extends Controller

@@ -2,31 +2,48 @@
 
 namespace Tir\Crud\Controllers;
 
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Response;
 use Tir\Crud\Support\Hooks\ShowHooks;
 
 trait Show
 {
     use ShowHooks;
 
-    public function show(int|string $id)
+    public function show(int|string $id): JsonResponse
     {
-        // Execute hook for complete override of the show process
-        $customResult = $this->callHookIfExists('onShow', $id);
-        if ($customResult !== null && $customResult !== $id) {
-            return $customResult;
+        // Define the default behavior as a closure
+        $defaultShow = function($modelId = null) use ($id) {
+            if ($modelId !== null) {
+                $id = $modelId;
+            }
+            return $this->model()->findOrFail($id);
+        };
+
+        // Pass the closure to the hook
+        $customShow = $this->callHook('onShow', $defaultShow, $id);
+        if($customShow !== null) {
+            $dataModel = $customShow;
+        } else {
+            $dataModel = $defaultShow();
         }
 
-        // Execute hook for retrieving the model (override the query)
-        $dataModel = $this->callHookIfExists('onShowGetModel', $id);
+        // Define the default response behavior as a closure
+        $defaultResponse = function($model = null) use ($dataModel) {
+            if ($model !== null) {
+                $dataModel = $model;
+            }
+            $scaffold = $this->scaffolder()->getDetailScaffold($dataModel);
+            return Response::json($scaffold, 200);
+        };
 
-        // Check if the hook was actually executed and returned a model
-        // If not, or if it just returned the original $id, use the default behavior
-        if ($dataModel === $id || $dataModel === null) {
-            // Default behavior for retrieving the model
-            $dataModel = $this->model()->findOrFail($id);
+        // Pass the closure to the response hook
+        $customResponse = $this->callHook('onShowResponse', $defaultResponse, $dataModel);
+        if($customResponse !== null) {
+            return $customResponse;
         }
 
-        // Prepare and return the response
-        return $this->scaffolder()->getDetailScaffold($dataModel);
+        // Prepare and return the default response
+        return $defaultResponse();
     }
 }

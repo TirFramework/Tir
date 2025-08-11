@@ -134,6 +134,7 @@ abstract class BaseField
     public function virtual(bool $value = true): BaseField
     {
         $this->virtual = $value;
+        $this->fillable = !$value;
         return $this;
     }
 

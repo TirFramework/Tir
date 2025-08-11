@@ -4,60 +4,32 @@ namespace Tir\Crud\Support\Hooks;
 
 trait RequestHooks
 {
-    use BaseHooks;
+    use \Tir\Crud\Support\Hooks\BaseHooks;
 
     /**
-     * Set hook for before processing request
+     * Set custom hook for processing request
      */
-    protected function onBeforeProcessRequest(callable $callback): self
+    protected function onProcessRequest(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeProcessRequest'] = $callback;
+        $this->crudHookCallbacks['onProcessRequest'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for after processing request
+     * Set custom hook for store validation
      */
-    protected function onAfterProcessRequest(callable $callback): self
+    protected function onStoreValidation(callable $callback): self
     {
-        $this->crudHookCallbacks['onAfterProcessRequest'] = $callback;
+        $this->crudHookCallbacks['onStoreValidation'] = $callback;
         return $this;
     }
 
     /**
-     * Set hook for before validation on create
+     * Set custom hook for update validation
      */
-    protected function onBeforeStoreValidation(callable $callback): self
+    protected function onUpdateValidation(callable $callback): self
     {
-        $this->crudHookCallbacks['onBeforeStoreValidation'] = $callback;
+        $this->crudHookCallbacks['onUpdateValidation'] = $callback;
         return $this;
     }
-
-    /**
-     * Set hook for after validation on create
-     */
-    protected function onAfterStoreValidation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterStoreValidation'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for before validation on update
-     */
-    protected function onBeforeUpdateValidation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onBeforeValidateUpdate'] = $callback;
-        return $this;
-    }
-
-    /**
-     * Set hook for after validation on update
-     */
-    protected function onAfterUpdateValidation(callable $callback): self
-    {
-        $this->crudHookCallbacks['onAfterUpdateValidation'] = $callback;
-        return $this;
-    }
-
 }

@@ -93,7 +93,11 @@ abstract class BaseScaffolder
     public final function getModuleName(): mixed
     {
         // Return the current model instance
-        return $this->moduleName;
+        if (isset($this->moduleName)) {
+            return $this->moduleName;
+        }else{
+            return $this->setModuleName();
+        }
     }
     public function scaffold($page = '', $model = null): static
     {
@@ -251,5 +255,17 @@ abstract class BaseScaffolder
             'configs'       => $this->getConfigs()
         ];
     }
+
+
+    final function getDeleteScaffold($model): array
+    {
+        $this->scaffold('delete', $model);
+        return [
+            'fields'  => $this->getDeleteFields(),
+            'buttons' => $this->getDeleteButtons(),
+            'configs' => $this->getConfigs()
+        ];
+    }
+
 
 }
