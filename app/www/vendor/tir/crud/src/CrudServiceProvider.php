@@ -29,6 +29,11 @@ class CrudServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/Resources/Lang/', 'core');
 
 
+        $this->app->bind('crud.fields', function () {
+            return new \Tir\Crud\Facades\Fields();
+        });
+
+
         $this->registerNewRouteResource();
 
         $this->registerModulesSingleton();

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Tir\Crud\Controllers\Crud;
+use Tir\Crud\Controllers\Traits\Crud;
 use App\Http\Controllers\Controller;
 
 

@@ -5,6 +5,13 @@
 .env
 .env.backup
 .phpunit.result.cache
+
+# Code Coverage Reports
+coverage-html/
+coverage.txt
+coverage.xml
+.phpunit.cache/
+
 Homestead.json
 Homestead.yaml
 npm-debug.log
