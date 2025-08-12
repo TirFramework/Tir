@@ -32,9 +32,14 @@ Tests automatically generate comprehensive coverage reports:
 
 ### Performance
 
-The Docker setup uses a pre-built image with all dependencies for fast test execution (~6 seconds vs ~20 seconds for installing dependencies each time).
+The Docker setup uses a pre-built image with all dependencies for fast test execution (~1.85 seconds total time).
+
+### Test Results
+
+- **170 tests** with **704 assertions**
+- **18.42% line coverage** (344/1868 lines)
+- **10.91% method coverage** (37/339 methods)
 
 ## Documentation
 
-- [Docker Testing Guide](DOCKER-PERFORMANCE.md)
 - [Testing Documentation](TESTING.md)

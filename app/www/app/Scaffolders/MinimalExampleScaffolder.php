@@ -6,13 +6,16 @@ use Tir\Crud\Support\Scaffold\BaseScaffolder;
 use Tir\Crud\Support\Scaffold\Fields\Text;
 use Tir\Crud\Support\Scaffold\Fields\TextArea;
 use Tir\Crud\Support\Scaffold\Fields\CheckBox;
+use Tir\Crud\Support\Scaffold\Fields\Select;
 use App\Models\MinimalExample;
+use App\Models\User;
 
 /**
- * MinimalExampleScaffolder - Demonstrating Auto-Fillable Generation
+ * MinimalExampleScaffolder - Demonstrating Auto-Fillable Generation with Many-to-Many Relationship
  *
  * This scaffolder shows how the framework automatically generates
- * the $fillable array based on field definitions.
+ * the $fillable array based on field definitions and includes
+ * a many-to-many relationship with users.
  */
 class MinimalExampleScaffolder extends BaseScaffolder
 {
@@ -29,18 +32,17 @@ class MinimalExampleScaffolder extends BaseScaffolder
     protected function setAcl(): bool
     {
         // Enable ACL for this module
-        return false;
+        return true;
     }
 
     public function setFields(): array
     {
         return [
-            // These fields will be automatically included in $fillable
+            // Basic fields that will be automatically included in $fillable
             Text::make('title')
                 ->display('Title')
                 ->rules('required', 'max:255')
                 ->fillable(true),
-
 
             TextArea::make('description')
                 ->display('Description')
@@ -52,12 +54,17 @@ class MinimalExampleScaffolder extends BaseScaffolder
                 ->rules('nullable', 'unique:minimal_examples,slug')
                 ->showOnIndex(false),
 
-            // Auto-label example: "user_email" becomes "User Email"
-            Text::make('user_email')
-                ->rules(['email', 'nullable'])
+            // Many-to-many relationship with users
+            Select::make('users')
+                ->display('Users')
+                ->relation('users', 'email')
+                ->data(User::select('id as value', 'email as label')->get()->toArray())
+                ->filter()
+                ->multiple(true)
+                ->rules('required')
                 ->searchable(),
 
-            // Auto-label example: "created_at" becomes "Created At"
+
             Text::make('created_at')
                 ->onlyOnDetail(),
 
@@ -67,12 +74,6 @@ class MinimalExampleScaffolder extends BaseScaffolder
                 ->fillable(false)
                 ->onlyOnDetail()
                 ->hideFromIndex(),
-
-            // This virtual field will be automatically EXCLUDED
-            Text::make('x')
-                ->display('Computed Value')
-                ->virtual(true),
-
 
             CheckBox::make('is_active')
                 ->display('Active')
@@ -113,19 +114,25 @@ class MinimalExampleScaffolder extends BaseScaffolder
  *
  * $fillable = [
  *     'title',        // fillable(true) - included
- *     'description',  // fillable(true) - included
- *     'slug',         // fillable(true) - included
- *     'user_email',   // fillable(true) - included (auto-label: "User Email")
- *     'is_active',    // fillable(true) - included
+ *     'description',  // fillable(true) - included (default)
+ *     'slug',         // fillable(true) - included (default)
+ *     'users',        // fillable(true) - included (many-to-many relationship)
+ *     'is_active',    // fillable(true) - included (default)
  *     // 'internal_notes' - EXCLUDED because fillable(false)
- *     // 'computed_value' - EXCLUDED because virtual(true)
+ *     // 'user_emails' - EXCLUDED because virtual(true)
  *     // 'created_at' - EXCLUDED because it's a timestamp (auto-managed)
  * ];
  *
+ * Many-to-Many Relationship:
+ * - 'users' field creates a many-to-many relationship with User model
+ * - Uses the 'users' relationship method on MinimalExample model
+ * - Displays user emails in select dropdown
+ * - Allows multiple user selection
+ * - 'user_emails' virtual field shows selected user emails as comma-separated string
+ *
  * Auto-Label Examples:
- * - 'user_email' → "User Email" (snake_case converted)
- * - 'created_at' → "Created At" (snake_case converted)
  * - 'is_active' → "Is Active" (snake_case converted)
+ * - 'user_emails' → "User Emails" (snake_case converted)
  * - Custom labels override auto-generation
  *
  * This happens automatically when:

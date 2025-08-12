@@ -55,4 +55,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(SampleModel::class, 'sample_model_user', 'user_id', 'sample_model_id');
     }
+
+    /**
+     * Get the minimal examples associated with this user.
+     */
+    public function minimalExamples(): BelongsToMany
+    {
+        return $this->belongsToMany(MinimalExample::class);
+    }
 }

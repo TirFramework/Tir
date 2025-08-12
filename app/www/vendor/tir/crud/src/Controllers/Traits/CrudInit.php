@@ -3,20 +3,21 @@
 namespace Tir\Crud\Controllers\Traits;
 
 use Tir\Crud\Support\Response\CrudResponse;
+use Tir\Crud\Support\Actions\AccessControlService;
 
 trait CrudInit
 {
 
-
     private mixed $model;
     private mixed $scaffolder;
+    private ?AccessControlService $accessControl = null;
 
     protected abstract function setScaffolder(): string;
 
     public function __construct()
     {
         $this->scaffolderInit();
-        // $this->checkAccess();
+        $this->initAccessControl();
 
         // Auto setup crud hooks if method exists
         if (method_exists($this, 'setup')) {
@@ -59,14 +60,47 @@ trait CrudInit
         $this->model = new $m;
     }
 
+    /**
+     * Initialize access control service
+     */
+    private function initAccessControl(): void
+    {
+        $this->accessControl = AccessControlService::fromScaffolder($this->scaffolder);
+        
+        // Apply middleware if access control is enabled
+        if ($this->accessControl->isEnabled()) {
+            $this->middleware($this->accessControl->getMiddleware());
+        }
+    }
 
+    /**
+     * Get access control service
+     */
+    protected function accessControl(): AccessControlService
+    {
+        return $this->accessControl;
+    }
+
+    /**
+     * Check if user can perform action (programmatic check)
+     */
+    protected function canPerform(string $action): bool
+    {
+        return $this->accessControl->canPerform($action);
+    }
+
+    /**
+     * Enforce access control or abort with 403
+     */
+    protected function enforceAccess(string $action): void
+    {
+        $this->accessControl->enforce($action);
+    }
 
     private function checkAccess(): void
     {
-        // if($this->model()->getAccessLevelStatus() && config('crud.accessLevelControl') != 'off'){
-        //     $this->middleware('acl:'.$this->model()->getModuleName());
-        //  }
-
+        // This method is now deprecated in favor of the new AccessControlService
+        // The new system automatically applies middleware in initAccessControl()
     }
 
 

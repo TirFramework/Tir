@@ -13,14 +13,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create admin user first
-        User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-        ]);
+        // Create admin user first (only if it doesn't exist)
+        if (!User::where('email', 'admin@example.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Admin User',
+                'email' => 'admin@example.com',
+            ]);
+        }
 
-        // Create additional test users
-        User::factory(10)->create();
+        // Create additional test users (only if we have less than 5 users)
+        $userCount = User::count();
+        if ($userCount < 5) {
+            User::factory(5 - $userCount)->create();
+        }
 
         // Run specific seeders
         $this->call([

@@ -30,7 +30,7 @@ class MinimalExampleSeeder extends Seeder
     {
         // Get existing users to attach to examples
         $users = User::take(3)->get();
-        
+
         if ($users->count() === 0) {
             // Create some users if none exist
             $users = collect([
@@ -40,13 +40,13 @@ class MinimalExampleSeeder extends Seeder
                     'password' => bcrypt('password'),
                 ]),
                 User::create([
-                    'name' => 'Test User 2', 
+                    'name' => 'Test User 2',
                     'email' => 'user2@example.com',
                     'password' => bcrypt('password'),
                 ]),
                 User::create([
                     'name' => 'Test User 3',
-                    'email' => 'user3@example.com', 
+                    'email' => 'user3@example.com',
                     'password' => bcrypt('password'),
                 ]),
             ]);
@@ -114,7 +114,7 @@ class MinimalExampleSeeder extends Seeder
         foreach ($examples as $exampleData) {
             $userIds = $exampleData['users'];
             unset($exampleData['users']); // Remove users from mass assignment data
-            
+
             $example = MinimalExample::create($exampleData);
             $example->users()->attach($userIds); // Attach users via relationship
         }
@@ -129,16 +129,16 @@ class MinimalExampleSeeder extends Seeder
     {
         // Only create factory examples if we don't have many records already
         $existingCount = MinimalExample::count();
-        
+
         if ($existingCount < 20) {
             $factoryCount = 15;
-            
+
             MinimalExample::factory($factoryCount)->create()->each(function ($example) {
                 // Attach random users to each factory-created example
                 $users = User::inRandomOrder()->take(rand(1, 3))->pluck('id');
                 $example->users()->attach($users);
             });
-            
+
             $this->command->info("Created {$factoryCount} additional examples using factory.");
         } else {
             $this->command->info('Skipped factory examples - sufficient records already exist.');

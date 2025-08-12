@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Tir\Crud\Support\Scaffold\FieldsHelper;
+use App\Models\User;
 
 /**
- * MinimalExample - Demonstrating Auto-Fillable Generation
+ * MinimalExample - Demonstrating Auto-Fillable Generation with Many-to-Many Relationship
  *
  * This model shows how the Tir framework automatically handles
- * fillable attributes when they're not manually defined.
+ * fillable attributes when they're not manually defined, and includes
+ * a many-to-many relationship with users.
  */
 class MinimalExample extends Model
 {
@@ -30,7 +33,22 @@ class MinimalExample extends Model
     protected $fillable = []; // Framework will auto-generate this!
 
     protected $casts = [
-        'active' => 'boolean',
+        'is_active' => 'boolean',
     ];
 
+    /**
+     * The users that belong to the minimal example.
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * Get user emails as a comma-separated string
+     */
+    public function getUserEmailsAttribute(): string
+    {
+        return $this->users->pluck('email')->implode(', ');
+    }
 }

@@ -30,7 +30,6 @@ class MinimalExampleFactory extends Factory
             'title' => $title,
             'description' => fake()->paragraph(rand(2, 4)),
             'slug' => fake()->unique()->slug(),
-            'user_email' => fake()->unique()->safeEmail(),
             'is_active' => fake()->boolean(80), // 80% chance of being active
             'internal_notes' => fake()->optional(0.7)->sentence(), // 70% chance of having notes
         ];
