@@ -23,7 +23,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tir\\Crud\\Tests\\": "tests/"
+            "Tir\\Crud\\Tests\\": "tests/",
+            "App\\": "tests/App/"
         }
     },
 

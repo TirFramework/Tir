@@ -1,0 +1,84 @@
+# CRUD Package Testing Environment
+#
+# Optimized Docker testing with pre-built image and code coverage
+# Usage: ./test-docker.sh
+
+services:
+  # Main test service with code coverage
+  crud-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    image: crud-test-image:latest
+    working_dir: /app
+    volumes:
+      - .:/app
+      - composer-cache:/tmp/composer
+      - ./coverage:/app/coverage
+    environment:
+      APP_ENV: testing
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ":memory:"
+      COMPOSER_HOME: /tmp/composer
+      XDEBUG_MODE: coverage
+    command: |
+      bash -c "
+        echo '🧪 CRUD Package Tests with Coverage'
+        echo '===================================='
+        echo 'ℹ️  Using optimized pre-built image'
+        echo ''
+
+        # Quick dependency sync (very fast with cached layers)
+        echo '📦 Syncing dependencies...'
+        composer install --no-interaction --prefer-dist --optimize-autoloader --dev --quiet
+
+        echo '🏃 Running tests with coverage...'
+        ./vendor/bin/phpunit --colors=always --coverage-html coverage/html --coverage-clover coverage/clover.xml
+
+        echo ''
+        echo '📈 Coverage reports generated:'
+        echo '  HTML: coverage/html/index.html'
+        echo '  XML:  coverage/clover.xml'
+      "
+    networks:
+      - crud-test-network
+
+  # Interactive shell for debugging
+  crud-test-interactive:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    image: crud-test-image:latest
+    working_dir: /app
+    volumes:
+      - .:/app
+      - composer-cache:/tmp/composer
+      - ./coverage:/app/coverage
+    environment:
+      APP_ENV: testing
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ":memory:"
+      COMPOSER_HOME: /tmp/composer
+      XDEBUG_MODE: coverage
+    command: |
+      bash -c "
+        echo '🐚 CRUD Package Interactive Shell'
+        echo 'Available commands:'
+        echo '  ./vendor/bin/phpunit                          # Run tests'
+        echo '  ./vendor/bin/phpunit --coverage-html coverage # Run with coverage'
+        echo '  composer install --dev                        # Update dependencies'
+        echo ''
+
+        bash
+      "
+    stdin_open: true
+    tty: true
+    networks:
+      - crud-test-network
+
+networks:
+  crud-test-network:
+    driver: bridge
+
+volumes:
+  composer-cache:

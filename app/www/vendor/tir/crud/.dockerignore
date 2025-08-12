@@ -1,0 +1,35 @@
+# Ignore files that don't need to be in Docker build context
+# This makes builds faster by reducing context size
+
+# Test artifacts
+coverage/
+coverage-html/
+.phpunit.cache/
+coverage.txt
+coverage.xml
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation that doesn't affect tests
+*.md
+docs/
+
+# Runtime logs
+*.log
+
+# Temporary files
+tmp/
+temp/

@@ -1,0 +1,49 @@
+# Test environment for CRUD package
+FROM php:8.2-cli
+
+# Arguments
+ARG INSTALL_XDEBUG=true
+
+# Install system dependencies in one layer
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev \
+    sqlite3 \
+    curl \
+    && docker-php-ext-install zip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+# Always install Xdebug for better development experience
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && echo "xdebug.mode=coverage,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+# Set working directory
+WORKDIR /app
+
+# Set environment variables
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_HOME=/tmp/composer
+ENV COMPOSER_CACHE_DIR=/tmp/composer/cache
+
+# Copy composer files for dependency caching
+COPY composer.json composer.lock* ./
+
+# Install dependencies in a separate layer for better caching
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --dev --no-scripts --no-autoloader
+
+# Copy the rest of the application
+COPY . .
+
+# Generate optimized autoloader
+RUN composer dump-autoload --optimize
+
+# Make scripts executable
+RUN chmod +x run-tests.sh test-docker.sh
+
+# Default command
+CMD ["./vendor/bin/phpunit", "--colors=always"]
