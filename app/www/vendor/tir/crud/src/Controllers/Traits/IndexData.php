@@ -10,7 +10,7 @@ use Tir\Crud\Support\Hooks\IndexDataHooks;
 trait IndexData
 {
     use IndexDataHooks;
-    
+
 
     private array $selectFields = [];
 

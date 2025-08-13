@@ -39,7 +39,6 @@ trait Index
         }
 
         $data = [
-            'actions'    => $this->scaffolder()->getActions(),
             'configs'    => $scaffold['configs'],
             'cols'       => $cols,
             'dataRoute'  => route('admin.' . $this->scaffolder()->moduleName() . '.data'),

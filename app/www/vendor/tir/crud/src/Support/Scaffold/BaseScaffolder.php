@@ -9,6 +9,7 @@ use Tir\Crud\Support\Scaffold\Traits\FieldImports;
 use Tir\Crud\Support\Scaffold\Traits\FieldsHelper;
 use Tir\Crud\Support\Scaffold\Traits\ButtonsHelper;
 use Tir\Crud\Support\Scaffold\Traits\ModelIntegration;
+use Tir\Crud\Support\Scaffold\FieldsHandler;
 
 abstract class BaseScaffolder
 {
@@ -98,27 +99,21 @@ abstract class BaseScaffolder
 
 
 
-    //Getters functions:
-    public final function getModuleName(): mixed
+    // Getters functions:
+    public final function getModuleName(): string
     {
-        // Return the current model instance
-        if (isset($this->moduleName)) {
-            return $this->moduleName;
-        }else{
-            return $this->setModuleName();
-        }
+        return $this->moduleName;
     }
 
 
     private function getConfigs(): array
     {
-        $m =  $this->model();
-        $model = new $m;
+        $modelClass = $this->model();
 
         return [
             'actions'      => $this->getActions(),
             'module_title' => $this->moduleTitle,
-            'primary_key'  => $model->getKeyName(),
+            'primary_key'  => (new $modelClass)->getKeyName(),
         ];
     }
 
@@ -134,32 +129,51 @@ abstract class BaseScaffolder
 
     final function moduleName(): string
     {
-        if (isset($this->moduleName)) {
-            return $this->moduleName;
-        }
-        return $this->setModuleName();
+        return $this->moduleName;
     }
 
 
     final function getIndexFields(): array
     {
         $this->scaffold('index');
+
+        if (!$this->fieldsHandler) {
+            throw new \RuntimeException('Fields handler not initialized. Call scaffold() first.');
+        }
+
         return $this->fieldsHandler->getIndexFields();
     }
+
     final function getCreateFields(): array
     {
         $this->scaffold('create');
+
+        if (!$this->fieldsHandler) {
+            throw new \RuntimeException('Fields handler not initialized. Call scaffold() first.');
+        }
+
         return $this->fieldsHandler->getCreateFields();
     }
+
     final function getEditFields(): array
     {
         $this->scaffold('edit');
+
+        if (!$this->fieldsHandler) {
+            throw new \RuntimeException('Fields handler not initialized. Call scaffold() first.');
+        }
+
         return $this->fieldsHandler->getEditFields();
     }
 
     final function getDetailFields(): array
     {
         $this->scaffold('detail');
+
+        if (!$this->fieldsHandler) {
+            throw new \RuntimeException('Fields handler not initialized. Call scaffold() first.');
+        }
+
         return $this->fieldsHandler->getDetailFields();
     }
 

@@ -8,6 +8,7 @@ use Tir\Crud\Support\Enums\FilterType;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Database\Eloquent\Builder;
 use Tir\Crud\Support\Hooks\IndexDataHooks;
+use Tir\Crud\Support\Database\DatabaseAdapterFactory;
 
 class DataService
 {
@@ -132,31 +133,15 @@ class DataService
                 $query = $q;
             }
 
+            // Use database adapter for relation handling
+            $adapter = DatabaseAdapterFactory::create($this->model()->getConnection());
+
             foreach ($this->scaffolder()->getIndexFields() as $field) {
                 if (isset($field->relation)) {
-                    if ($this->model()->getConnection()->getName() == 'mongodb') {
-                        if ($field->multiple) {
-                            // mongoDB need foreign key in many-to-many relation
-                            $foreignKey = $this->model()->{$field->relation->name}()->getForeignKey();
-                            $otherKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
-                            $query = $query->with($field->relation->name, function ($q) use ($field, $foreignKey, $otherKey) {
-                                $q->select($foreignKey, $otherKey, $field->relation->field);
-                            });
-                        } else {
-                            $otherKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
-                            $query = $query->with($field->relation->name, function ($q) use ($field, $otherKey) {
-                                $q->select($otherKey, $field->relation->field);
-                            });
-                        }
-                    } else {
-                        $relationTable = $this->model()->{$field->relation->name}()->getRelated()->getTable();
-                        $relationKey = $relationTable . '.' . $field->relation->key;
-                        $query = $query->with($field->relation->name, function ($q) use ($field, $relationKey) {
-                            $q->select($relationKey, $field->relation->field);
-                        });
-                    }
+                    $query = $adapter->configureRelations($query, $field);
                 }
             }
+
             return $query;
         };
 
@@ -222,32 +207,21 @@ class DataService
 
             $filters = $this->getFilter($req);
 
-            foreach ($filters['original'] as $filter) {
-                if ($filter['type'] == FilterType::Select) {
-                    $query->whereIn($filter['column'], $filter['value']);
-                } elseif ($filter['type'] == FilterType::Slider) {
-                    $query->where($filter['column'], '>=', $filter['value'][0]);
-                    $query->where($filter['column'], '<=', $filter['value'][1]);
-                } elseif ($filter['type'] == FilterType::DatePicker) {
-                    if ($this->model()->getConnection()->getName() == 'mongodb') {
-                        $query->where(function ($query) use ($filter) {
-                            $query->where($filter['column'], '>=', new \MongoDB\BSON\UTCDateTime(Carbon::make($filter['value'][0])->startOfDay()));
-                            $query->orWhere($filter['column'], '>=', Carbon::make($filter['value'][0])->startOfDay()->toDateString());
-                        });
-                        $query->where(function ($query) use ($filter) {
-                            $query->where($filter['column'], '<=', new \MongoDB\BSON\UTCDateTime(Carbon::make($filter['value'][1])->endOfDay()));
-                            $query->orWhere($filter['column'], '<=', Carbon::make($filter['value'][1])->endOfDay()->toDateString());
-                        });
-                    } else {
-                        $query->whereDate($filter['column'], '>=', Carbon::make($filter['value'][0])->startOfDay());
-                        $query->whereDate($filter['column'], '<=', Carbon::make($filter['value'][1])->endOfDay());
-                    }
-                } elseif ($filter['type'] == FilterType::Search) {
-                    $query->where($filter['column'], 'like', "%" . $filter['value'] . "%");
-                }
-            }
+        // Use database adapter for filtering
+        $adapter = DatabaseAdapterFactory::create($this->model()->getConnection());
 
-            foreach ($filters['relational'] as $filter) {
+        foreach ($filters['original'] as $filter) {
+            if ($filter['type'] == FilterType::Select) {
+                $query->whereIn($filter['column'], $filter['value']);
+            } elseif ($filter['type'] == FilterType::Slider) {
+                $query->where($filter['column'], '>=', $filter['value'][0]);
+                $query->where($filter['column'], '<=', $filter['value'][1]);
+            } elseif ($filter['type'] == FilterType::DatePicker) {
+                $query = $adapter->applyDateFilter($query, $filter['column'], $filter['value']);
+            } elseif ($filter['type'] == FilterType::Search) {
+                $query->where($filter['column'], 'like', "%" . $filter['value'] . "%");
+            }
+        }            foreach ($filters['relational'] as $filter) {
                 $query->whereHas($filter['relation'], function (Builder  $q) use ($filter) {
                     $q->whereIn($filter['primaryKey'], $filter['value']);
                 });
@@ -365,25 +339,11 @@ class DataService
 
     private function selectColumns(): array
     {
+        // Use database adapter for column selection
+        $adapter = DatabaseAdapterFactory::create($this->model()->getConnection());
+        $this->selectFields = $adapter->getSelectColumns($this->model(), $this->scaffolder()->getIndexFields());
 
-
-        // Default behavior
-        if ($this->model()->getConnection()->getName() == 'mongodb') {
-            $this->selectFields =  collect($this->model()->getIndexFields())->pluck('name')->toArray();
-        } else {
-            $this->selectFields[] = $this->model()->getTable() . '.' . $this->model()->getKeyName();
-            foreach ($this->scaffolder()->getIndexFields() as $field) {
-                //Check if field is many to many relation or not
-                if (!$field->virtual) {
-                    if (!isset($field->relation) || !$field->multiple) {
-                        $this->selectFields[] = $this->model()->getTable() . '.' . $field->name;
-                    }
-                }
-            }
-        }
-
-        return $this->selectFields;;
-
+        return $this->selectFields;
     }
 
     private function getFilter($req): array
@@ -404,17 +364,9 @@ class DataService
             }
             //if filter is manyToMany relation
             if (isset($field->relation) && $field->multiple ?? null == true) {
-                //get table name from relation
-                $table = $this->model()->{$field->relation->name}()->getRelated()->getTable();
-
-                //get primary key from relation
-                $primaryKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
-
-                $primaryKey = $table . '.' . $primaryKey;
-
-                if ($this->model()->getConnection()->getName() == 'mongodb') {
-                    $primaryKey = $this->model()->{$field->relation->name}()->getRelated()->getKeyName();
-                }
+                // Use database adapter for many-to-many filtering
+                $adapter = DatabaseAdapterFactory::create($this->model()->getConnection());
+                $primaryKey = $adapter->getRelationPrimaryKey($this->model(), $field);
 
                 $relational[] = ['relation' => $field->relation->name, 'value' => $value, 'primaryKey' => $primaryKey];
             } else {
@@ -432,12 +384,15 @@ class DataService
     private function getRelationFields($model): array
     {
         $relations = [];
+        $adapter = DatabaseAdapterFactory::create($model->getConnection());
+
         foreach ($this->scaffolder()->getIndexFields() as $field) {
             if (isset($field->relation)) {
-                $relation = $field->relation->name . ':' . $field->relation->key;
-
-                if ($model->getConnection()->getName() == 'mongodb') {
+                // Different databases handle relations differently
+                if ($adapter->getDriverName() === 'mongodb') {
                     $relation = $field->relation->name;
+                } else {
+                    $relation = $field->relation->name . ':' . $field->relation->key;
                 }
                 $relations[] = $relation;
             }

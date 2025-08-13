@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Tir\Crud\Support\Hooks\RequestHooks;
+use Tir\Crud\Support\Database\DatabaseAdapterFactory;
 
 trait ProcessRequest
 {
@@ -115,46 +116,19 @@ trait ProcessRequest
         return $defaultUpdateValidation();
     }
 
-    /**
-     * Group array items with numeric indexes
-     */
-    private function groupByNumber(array $array): array
-    {
-        $result = array();
-
-        foreach ($array as $key => $value) {
-            $parts = preg_split('/\.\d+\./', $key);
-            if (count($parts) == 1) {
-                $result[$key] = $value;
-            } else {
-                preg_match('/\.\d+\./', $key, $matches);
-                $index = str_replace('.', '', $matches)[0] ?? null;
-                $prefix = $parts[0] ?? null;
-                $suffix = $parts[1] ?? null;
-
-                if ($suffix) {
-                    $result[$prefix][$index][$suffix] = $value;
-                } else {
-                    $result[$prefix][$index] = $value;
-                }
-            }
-        }
-
-        return $result;
-    }
-
-
     private function passedValidation($request)
     {
-        //make ready request for mongodb
-        if ($this->model->getConnection()->getDriverName() === 'mongodb') {
-             $requestTemp = $request->all();
+        // Use database adapter for database-specific request processing
+        $adapter = DatabaseAdapterFactory::create($this->model->getConnection());
 
-            foreach ($request->all() as $offset => $value) {
-                $request->offsetUnset($offset);
-            }
-            $request->merge($this->groupByNumber($requestTemp));
+        $requestData = $request->all();
+        $processedData = $adapter->processRequestData($requestData);
+
+        // Clear and merge the processed data
+        foreach ($request->all() as $offset => $value) {
+            $request->offsetUnset($offset);
         }
+        $request->merge($processedData);
 
         return $request;
     }

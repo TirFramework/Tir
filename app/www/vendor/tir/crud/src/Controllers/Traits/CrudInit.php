@@ -2,13 +2,11 @@
 
 namespace Tir\Crud\Controllers\Traits;
 
-use Illuminate\Support\Facades\Route;
-use Tir\Crud\Support\Scaffold\Actions;
 
 
 trait CrudInit
 {
-    use AccessControlTrait;
+    use AccessControl;
 
     private mixed $model;
     private mixed $scaffolder;
@@ -47,16 +45,20 @@ trait CrudInit
     public function callAction($method, $parameters)
     {
         // Auto-check access before calling ANY method
-        if ($this->shouldCheckAccess($method)) {
-            $this->performAccessCheck($method);
-        }
+        $this->enforceAccess($method);
 
         // Check if parent has callAction method (Laravel's routing controller)
         if (method_exists(parent::class, 'callAction')) {
             return parent::callAction($method, $parameters);
         }
 
-        // Fallback: manually call the method
+        // Fallback: manually call the method with proper parameter handling
+        // Convert associative array to positional parameters if needed
+        if (!empty($parameters) && array_keys($parameters) !== range(0, count($parameters) - 1)) {
+            // Has named parameters, convert to positional
+            $parameters = array_values($parameters);
+        }
+
         return $this->$method(...$parameters);
     }
 
