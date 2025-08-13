@@ -8,6 +8,7 @@ use Tir\Crud\Support\Scaffold\Actions;
 
 trait CrudInit
 {
+    use AccessControlTrait;
 
     private mixed $model;
     private mixed $scaffolder;
@@ -36,7 +37,6 @@ trait CrudInit
 
     private function scaffolderInit(): void
     {
-
         $s = $this->setScaffolder();
         $this->scaffolder = new $s;
 
@@ -47,9 +47,17 @@ trait CrudInit
     public function callAction($method, $parameters)
     {
         // Auto-check access before calling ANY method
+        if ($this->shouldCheckAccess($method)) {
+            $this->performAccessCheck($method);
+        }
 
-        // Then call the actual method
-        return parent::callAction($method, $parameters);
+        // Check if parent has callAction method (Laravel's routing controller)
+        if (method_exists(parent::class, 'callAction')) {
+            return parent::callAction($method, $parameters);
+        }
+
+        // Fallback: manually call the method
+        return $this->$method(...$parameters);
     }
 
 }

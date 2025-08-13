@@ -8,14 +8,16 @@ use Illuminate\Support\Facades\Response;
 trait Index
 {
     use IndexData;
-    use ActionValidation;
 
     public final function index()
     {
-        $this->checkAction('index');
+        // Access check is now handled automatically in callAction()
 
         $cols = [];
         $scaffold = $this->scaffolder()->getIndexScaffold();
+
+        // Override actions with access-filtered ones
+        $scaffold['configs']['actions'] = $this->getAvailableActions();
         foreach ($scaffold['fields'] as $index => $field) {
             $cols[$index] = [
                 'title'      => $field->display,

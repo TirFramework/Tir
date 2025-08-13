@@ -14,11 +14,10 @@ trait Store
     use ProcessRequest;
     use StoreHooks;
     use RequestHooks;
-    use ActionValidation;
 
     public final function store(Request $request): JsonResponse
     {
-        $this->checkAction('create');
+        // Access check is now handled automatically in callAction()
 
         // First process the request
         $processedRequest = $this->processRequest($request);

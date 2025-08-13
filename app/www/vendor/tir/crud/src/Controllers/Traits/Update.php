@@ -13,12 +13,11 @@ trait Update
     use ProcessRequest;
     use UpdateHooks;
     use RequestHooks;
-    use ActionValidation;
+    
 
 
     public final function update(Request $request, int|string $id): mixed
     {
-        $this->checkAction('edit');
 
         // First process the request data
         $processedRequest = $this->processRequest($request);

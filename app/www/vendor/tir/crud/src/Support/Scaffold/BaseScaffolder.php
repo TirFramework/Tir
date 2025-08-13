@@ -4,7 +4,6 @@ namespace Tir\Crud\Support\Scaffold;
 
 use Tir\Crud\Support\Scaffold\Actions;
 use Tir\Crud\Support\Scaffold\Fields\Button;
-use Tir\Crud\Support\Scaffold\Traits\Scaffolder;
 use Tir\Crud\Support\Scaffold\Traits\RulesHelper;
 use Tir\Crud\Support\Scaffold\Traits\FieldImports;
 use Tir\Crud\Support\Scaffold\Traits\FieldsHelper;

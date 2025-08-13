@@ -9,11 +9,10 @@ use Tir\Crud\Support\Hooks\EditHooks;
 trait Edit
 {
     use EditHooks;
-    use ActionValidation;
 
     public final function edit(int|string $id): JsonResponse
     {
-        $this->checkAction('edit');
+        // Access check is now handled automatically in callAction()
 
         // Define the default behavior as a closure
         $defaultEdit = function($modelId = null) use ($id) {
@@ -43,6 +42,10 @@ trait Edit
                 $dataModel = $model;
             }
             $scaffold = $this->scaffolder()->getEditScaffold($dataModel);
+
+            // Override actions with access-filtered ones
+            $scaffold['configs']['actions'] = $this->getAvailableActions();
+
             return Response::json($scaffold, 200);
         };
 

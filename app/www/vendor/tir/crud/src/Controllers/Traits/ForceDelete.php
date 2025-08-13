@@ -9,11 +9,10 @@ use Tir\Crud\Support\Hooks\ForceDeleteHooks;
 trait ForceDelete
 {
     use ForceDeleteHooks;
-    use ActionValidation;
+    
 
     public final function forceDelete($id): JsonResponse
     {
-        $this->checkAction('forceDelete');
 
         // Define the default behavior as a closure
         $defaultForceDelete = function($modelId = null) use ($id) {

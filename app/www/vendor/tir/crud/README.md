@@ -42,4 +42,5 @@ The Docker setup uses a pre-built image with all dependencies for fast test exec
 
 ## Documentation
 
+- [Access Control System](docs/ACCESS_CONTROL.md) - Comprehensive guide to the access control system
 - [Testing Documentation](TESTING.md)

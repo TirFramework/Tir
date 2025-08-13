@@ -9,15 +9,19 @@ use Tir\Crud\Support\Hooks\CreateHooks;
 trait Create
 {
     use CreateHooks;
-    use ActionValidation;
 
     public final function create(): JsonResponse
     {
-        $this->checkAction('create');
+        // Access check is now handled automatically in callAction()
 
         // Define the default behavior as a closure
         $defaultCreate = function() {
-            return $this->scaffolder()->getCreateScaffold();
+            $scaffold = $this->scaffolder()->getCreateScaffold();
+
+            // Override actions with access-filtered ones
+            $scaffold['configs']['actions'] = $this->getAvailableActions();
+
+            return $scaffold;
         };
 
         // Pass the closure to the hook

@@ -26,6 +26,21 @@ class MinimalExampleController extends Controller
 
     protected function setup()
     {
+        // Access Control Hook - disable access check for specific methods
+        $this->onAccessCheck(function($method) {
+            // Make 'create' method public (no access check)
+            if ($method === 'create') {
+                return false;
+            }
+
+            // Force access check for admin methods
+            if (in_array($method, ['destroy', 'forceDelete'])) {
+                return true;
+            }
+
+            // Use default behavior for other methods
+            return null;
+        });
 
         // Index hooks
         $this->onSelect(function ($defaultSelect, $query) {
