@@ -31,12 +31,6 @@ class MinimalExampleScaffolder extends BaseScaffolder
         return 'minimal-example';
     }
 
-    protected function setAcl(): bool
-    {
-        // Enable ACL for this module
-        return false;
-    }
-
     /**
      * ✨ NEW: Configure actions using type-safe ActionType enum
      *
@@ -49,7 +43,6 @@ class MinimalExampleScaffolder extends BaseScaffolder
             ActionType::INDEX,
             ActionType::CREATE,
             ActionType::SHOW,
-            ActionType::EDIT,
             'inline-edit',          // ✅ Custom action for inline editing
             'bulk-export',          // ✅ Custom action for bulk operations
             'send-notification'     // ✅ Custom action for notifications

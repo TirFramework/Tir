@@ -7,17 +7,15 @@ use Tir\Crud\Controllers\Traits\Crud;
 use Tir\Crud\Support\Scaffold\Actions;
 use Tir\Crud\Support\Scaffold\ActionType;
 
-
 /**
- * MinimalExampleController - Demonstrating Clean Architecture
+ * MinimalExampleController - Demonstrating Clean Access Control
  *
- * This controller demonstrates how simple CRUD controllers become
- * when using the new clean architecture approach.
+ * This controller demonstrates the improved access control system
+ * with clear, intuitive APIs that eliminate confusion.
  */
 class MinimalExampleController extends Controller
 {
     use Crud;
-
 
     protected function setScaffolder(): string
     {
@@ -26,20 +24,11 @@ class MinimalExampleController extends Controller
 
     protected function setup()
     {
-        // Access Control Hook - disable access check for specific methods
-        $this->onAccessCheck(function($method) {
-            // Make 'create' method public (no access check)
-            if ($method === 'create') {
-                return false;
-            }
+        // Simple: Disable access control for this entire controller
+        // $this->accessControlEnabled = false;
 
-            // Force access check for admin methods
-            if (in_array($method, ['destroy', 'forceDelete'])) {
-                return true;
-            }
-
-            // Use default behavior for other methods
-            return null;
+        $this->onCheckAccess(function ($action) {
+            return false;
         });
 
         // Index hooks
@@ -111,10 +100,43 @@ class MinimalExampleController extends Controller
             \Log::info('Update completed for model with ID: ' . $model->id);
             return $model;
         });
-
-
-
-
     }
 
+    /**
+     * ===================================================================
+     * SIMPLIFIED ACCESS CONTROL - THREE SIMPLE OPTIONS!
+     * ===================================================================
+     *
+     * OPTION 1: Disable access control entirely (current)
+     * protected function setup()
+     * {
+     *     $this->accessControlEnabled = false;
+     * }
+     *
+     * OPTION 2: Enable access control with default system checks
+     * protected function setup()
+     * {
+     *     $this->accessControlEnabled = true;
+     * }
+     *
+     * OPTION 3: Enable access control with custom logic
+     * protected function setup()
+     * {
+     *     $this->accessControlEnabled = true;
+     *     $this->onCheckAccess(function ($action) {
+     *         if ($action === 'destroy') {
+     *             return auth()->user()->isAdmin(); // Only admins can delete
+     *         }
+     *         if ($action === 'store') {
+     *             return auth()->user()->canCreate(); // Check create permission
+     *         }
+     *         return true; // Allow all other actions (index, show, update)
+     *     });
+     * }
+     *
+     * That's it! Simple, clear, and intuitive:
+     * - Set accessControlEnabled property in setup() to avoid trait conflicts
+     * - true = allow access, false = deny access
+     * - No more confusing hooks or complex logic!
+     */
 }
