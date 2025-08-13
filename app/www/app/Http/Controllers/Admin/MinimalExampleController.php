@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Tir\Crud\Controllers\Traits\Crud;
 use App\Http\Controllers\Controller;
+use Tir\Crud\Controllers\Traits\Crud;
+use Tir\Crud\Support\Scaffold\Actions;
+use Tir\Crud\Support\Scaffold\ActionType;
 
 
 /**
@@ -15,6 +17,7 @@ use App\Http\Controllers\Controller;
 class MinimalExampleController extends Controller
 {
     use Crud;
+
 
     protected function setScaffolder(): string
     {

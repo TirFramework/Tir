@@ -11,9 +11,12 @@ use Tir\Crud\Support\Hooks\TrashHooks;
 trait Trash
 {
     use TrashHooks;
+    use ActionValidation;
 
     public final function trashData(): JsonResponse
     {
+        $this->checkAction('index'); // Viewing trash requires index permission
+
         // Create DataService with trash mode
         $CrudService = new DataService($this->scaffolder(), $this->model());
 

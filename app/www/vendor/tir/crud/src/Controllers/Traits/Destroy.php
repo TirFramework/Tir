@@ -11,9 +11,12 @@ trait Destroy
     use DestroyHooks;
     use Restore;
     use ForceDelete;
+    use ActionValidation;
 
     public final function destroy($id): JsonResponse
     {
+        $this->checkAction('delete');
+
         // Define the default behavior as a closure
         $defaultDestroy = function($modelId = null) use ($id) {
             if ($modelId !== null) {

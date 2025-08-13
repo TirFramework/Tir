@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Response;
 trait Index
 {
     use IndexData;
+    use ActionValidation;
 
     public final function index()
     {
+        $this->checkAction('index');
+
         $cols = [];
         $scaffold = $this->scaffolder()->getIndexScaffold();
         foreach ($scaffold['fields'] as $index => $field) {

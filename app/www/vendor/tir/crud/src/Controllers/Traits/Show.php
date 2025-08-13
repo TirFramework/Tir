@@ -9,9 +9,12 @@ use Tir\Crud\Support\Hooks\ShowHooks;
 trait Show
 {
     use ShowHooks;
+    use ActionValidation;
 
-    public function show(int|string $id): JsonResponse
+    public final function show($id): JsonResponse
     {
+        $this->checkAction('show');
+
         // Define the default behavior as a closure
         $defaultShow = function($modelId = null) use ($id) {
             if ($modelId !== null) {

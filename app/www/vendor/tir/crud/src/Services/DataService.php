@@ -369,7 +369,7 @@ class DataService
 
         // Default behavior
         if ($this->model()->getConnection()->getName() == 'mongodb') {
-            $this->selectFields = array_merge($this->selectFields, collect($this->model()->getIndexFields())->pluck('name')->toArray());
+            $this->selectFields =  collect($this->model()->getIndexFields())->pluck('name')->toArray();
         } else {
             $this->selectFields[] = $this->model()->getTable() . '.' . $this->model()->getKeyName();
             foreach ($this->scaffolder()->getIndexFields() as $field) {
@@ -382,8 +382,7 @@ class DataService
             }
         }
 
-        $selecable = array_merge($this->scaffolder()->getAppendedSelectableColumns(), $this->selectFields);
-        return $selecable;
+        return $this->selectFields;;
 
     }
 

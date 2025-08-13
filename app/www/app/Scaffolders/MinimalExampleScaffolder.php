@@ -7,6 +7,8 @@ use Tir\Crud\Support\Scaffold\Fields\Text;
 use Tir\Crud\Support\Scaffold\Fields\TextArea;
 use Tir\Crud\Support\Scaffold\Fields\CheckBox;
 use Tir\Crud\Support\Scaffold\Fields\Select;
+use Tir\Crud\Support\Scaffold\Actions;
+use Tir\Crud\Support\Scaffold\ActionType;
 use App\Models\MinimalExample;
 use App\Models\User;
 
@@ -32,7 +34,53 @@ class MinimalExampleScaffolder extends BaseScaffolder
     protected function setAcl(): bool
     {
         // Enable ACL for this module
-        return true;
+        return false;
+    }
+
+    /**
+     * ✨ NEW: Configure actions using type-safe ActionType enum
+     *
+     * @return array<string, bool>
+     */
+    protected function setActions(): array
+    {
+        // ✨ Mix core enum actions with custom actions for maximum flexibility!
+        return Actions::only(
+            ActionType::INDEX,
+            ActionType::CREATE,
+            ActionType::SHOW,
+            ActionType::EDIT,
+            'inline-edit',          // ✅ Custom action for inline editing
+            'bulk-export',          // ✅ Custom action for bulk operations
+            'send-notification'     // ✅ Custom action for notifications
+        );
+
+        // Alternative approaches:
+
+        // Start with basic actions and add custom ones:
+        // return Actions::addCustom(
+        //     Actions::basic(),
+        //     'inline-edit',
+        //     'bulk-operations',
+        //     'custom-workflow'
+        // );
+
+        // Use the mixed() method for cleaner syntax:
+        // return Actions::mixed(
+        //     [ActionType::INDEX, ActionType::EDIT, ActionType::SHOW],
+        //     ['inline-edit', 'quick-duplicate', 'export-pdf']
+        // );
+
+        // Or exclude specific actions:
+        // return Actions::except(
+        //     ActionType::FORCE_DELETE,  // No permanent deletion
+        //     ActionType::DESTROY,       // No soft delete
+        // );
+
+        // Other predefined options:
+        // return Actions::all();                    // All core actions enabled
+        // return Actions::basic();                  // INDEX, CREATE, SHOW, EDIT only
+        // return Actions::readOnly();               // INDEX, SHOW only
     }
 
     public function setFields(): array
@@ -41,8 +89,7 @@ class MinimalExampleScaffolder extends BaseScaffolder
             // Basic fields that will be automatically included in $fillable
             Text::make('title')
                 ->display('Title')
-                ->rules('required', 'max:255')
-                ->fillable(true),
+                ->rules('required', 'max:255'),
 
             TextArea::make('description')
                 ->display('Description')
@@ -81,64 +128,5 @@ class MinimalExampleScaffolder extends BaseScaffolder
         ];
     }
 
-    /**
-     * Example of accessing model properties in scaffolder
-     * using the new magic method approach
-     */
-    public function customAction()
-    {
-        // Both approaches work:
 
-        // Approach 1: Magic method (clean and simple)
-        $title = $this->title;
-        $isActive = $this->is_active;
-
-        // Approach 2: Helper methods (explicit and safe)
-        if ($this->hasValue('title')) {
-            $title = $this->getValue('title');
-        }
-
-        // Use the values...
-        return [
-            'title' => $title,
-            'is_active' => $isActive,
-        ];
-    }
 }
-
-/**
- * Expected Auto-Generated $fillable Array:
- *
- * Based on the field definitions above, the framework will automatically
- * generate this $fillable array for the MinimalExample model:
- *
- * $fillable = [
- *     'title',        // fillable(true) - included
- *     'description',  // fillable(true) - included (default)
- *     'slug',         // fillable(true) - included (default)
- *     'users',        // fillable(true) - included (many-to-many relationship)
- *     'is_active',    // fillable(true) - included (default)
- *     // 'internal_notes' - EXCLUDED because fillable(false)
- *     // 'user_emails' - EXCLUDED because virtual(true)
- *     // 'created_at' - EXCLUDED because it's a timestamp (auto-managed)
- * ];
- *
- * Many-to-Many Relationship:
- * - 'users' field creates a many-to-many relationship with User model
- * - Uses the 'users' relationship method on MinimalExample model
- * - Displays user emails in select dropdown
- * - Allows multiple user selection
- * - 'user_emails' virtual field shows selected user emails as comma-separated string
- *
- * Auto-Label Examples:
- * - 'is_active' → "Is Active" (snake_case converted)
- * - 'user_emails' → "User Emails" (snake_case converted)
- * - Custom labels override auto-generation
- *
- * This happens automatically when:
- * 1. The model's $fillable is empty []
- * 2. OR the model doesn't define $fillable at all
- * 3. The framework scans the scaffolder fields
- * 4. Includes fields where fillable !== false AND virtual !== true
- * 5. Auto-generates user-friendly labels from field names
- */

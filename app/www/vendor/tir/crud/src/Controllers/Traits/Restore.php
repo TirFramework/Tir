@@ -9,9 +9,12 @@ use Tir\Crud\Support\Hooks\RestoreHooks;
 trait Restore
 {
     use RestoreHooks;
+    use ActionValidation;
 
     public final function restore($id): JsonResponse
     {
+        $this->checkAction('restore');
+
         // Define the default behavior as a closure
         $defaultRestore = function($modelId = null) use ($id) {
             if ($modelId !== null) {

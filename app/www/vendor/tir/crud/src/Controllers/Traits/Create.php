@@ -9,9 +9,12 @@ use Tir\Crud\Support\Hooks\CreateHooks;
 trait Create
 {
     use CreateHooks;
+    use ActionValidation;
 
     public final function create(): JsonResponse
     {
+        $this->checkAction('create');
+
         // Define the default behavior as a closure
         $defaultCreate = function() {
             return $this->scaffolder()->getCreateScaffold();

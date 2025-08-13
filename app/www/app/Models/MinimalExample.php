@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Tir\Crud\Support\Scaffold\FieldsHelper;
 use App\Models\User;
 
 /**
@@ -17,7 +16,7 @@ use App\Models\User;
  */
 class MinimalExample extends Model
 {
-    use HasFactory, FieldsHelper;
+    use HasFactory;
 
     /**
      * Auto-Fillable Example
@@ -44,11 +43,4 @@ class MinimalExample extends Model
         return $this->belongsToMany(User::class);
     }
 
-    /**
-     * Get user emails as a comma-separated string
-     */
-    public function getUserEmailsAttribute(): string
-    {
-        return $this->users->pluck('email')->implode(', ');
-    }
 }

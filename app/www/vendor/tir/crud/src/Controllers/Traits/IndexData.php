@@ -9,13 +9,15 @@ use Tir\Crud\Support\Hooks\IndexDataHooks;
 
 trait IndexData
 {
-
     use IndexDataHooks;
+    use ActionValidation;
 
     private array $selectFields = [];
 
     public final function data(): mixed
     {
+        $this->checkAction('index');
+
         $CrudService = new DataService($this->scaffolder(), $this->model());
 
         // Pass hooks from controller to service

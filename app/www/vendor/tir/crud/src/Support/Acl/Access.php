@@ -17,14 +17,14 @@ class Access
     public static function check(string $module, string $action)
     {
         $action = static::getCrudAction($action);
-        $access = Auth::user()->permissions[$module][$action] ?? 'deny';
+        $access = Auth::user()->permissions[$module][$action] ?? false;
         return $access;
     }
 
     public static function execute(string $module, string $action): string
     {
         $access = Access::check($module, $action);
-        if ($access == 'deny') {
+        if ($access !== true) {
             abort(403, 'You have no access to this area');
         }
         return $access;

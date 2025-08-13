@@ -9,9 +9,12 @@ use Tir\Crud\Support\Hooks\EditHooks;
 trait Edit
 {
     use EditHooks;
+    use ActionValidation;
 
     public final function edit(int|string $id): JsonResponse
     {
+        $this->checkAction('edit');
+
         // Define the default behavior as a closure
         $defaultEdit = function($modelId = null) use ($id) {
             if ($modelId !== null) {
