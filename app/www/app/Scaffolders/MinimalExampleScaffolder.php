@@ -43,6 +43,7 @@ class MinimalExampleScaffolder extends BaseScaffolder
             ActionType::INDEX,
             ActionType::CREATE,
             ActionType::SHOW,
+            ActionType::EDIT,
             'inline-edit',          // ✅ Custom action for inline editing
             'bulk-export',          // ✅ Custom action for bulk operations
             'send-notification'     // ✅ Custom action for notifications

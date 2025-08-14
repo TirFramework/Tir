@@ -25,10 +25,13 @@ class MinimalExampleController extends Controller
     protected function setup()
     {
         // Simple: Disable access control for this entire controller
-        // $this->accessControlEnabled = false;
+        $this->accessControlEnabled = false;
 
         $this->onCheckAccess(function ($action) {
-            return false;
+            if($action == ActionType::INDEX->value) {
+                // Allow index action
+                return true;
+            }
         });
 
         // Index hooks

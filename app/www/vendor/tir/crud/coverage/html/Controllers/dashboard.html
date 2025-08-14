@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /app/src/Controllers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/app/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Controllers</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Traits/Data.php.html#10">Tir\Crud\Controllers\Traits\Data</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#11">Tir\Crud\Controllers\Traits\Update</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Traits/Store.php.html#12">Tir\Crud\Controllers\Traits\Store</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#9">Tir\Crud\Controllers\Traits\ForceDelete</a></td><td class="text-right">14%</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#10">Tir\Crud\Controllers\Traits\IndexData</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Traits/Restore.php.html#9">Tir\Crud\Controllers\Traits\Restore</a></td><td class="text-right">29%</td></tr>
+       <tr><td><a href="Traits/Trash.php.html#11">Tir\Crud\Controllers\Traits\Trash</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#7">Tir\Crud\Controllers\Traits\CrudInit</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#10">Tir\Crud\Controllers\Traits\ProcessRequest</a></td><td class="text-right">53%</td></tr>
+       <tr><td><a href="Traits/Show.php.html#9">Tir\Crud\Controllers\Traits\Show</a></td><td class="text-right">78%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Traits/Update.php.html#11">Tir\Crud\Controllers\Traits\Update</a></td><td class="text-right">861</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#9">Tir\Crud\Controllers\Traits\ForceDelete</a></td><td class="text-right">86</td></tr>
+       <tr><td><a href="Traits/Store.php.html#12">Tir\Crud\Controllers\Traits\Store</a></td><td class="text-right">58</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#10">Tir\Crud\Controllers\Traits\ProcessRequest</a></td><td class="text-right">54</td></tr>
+       <tr><td><a href="Traits/Data.php.html#10">Tir\Crud\Controllers\Traits\Data</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#10">Tir\Crud\Controllers\Traits\IndexData</a></td><td class="text-right">19</td></tr>
+       <tr><td><a href="Traits/Restore.php.html#9">Tir\Crud\Controllers\Traits\Restore</a></td><td class="text-right">18</td></tr>
+       <tr><td><a href="Traits/Trash.php.html#11">Tir\Crud\Controllers\Traits\Trash</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/Show.php.html#9">Tir\Crud\Controllers\Traits\Show</a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Traits/CrudInit.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::scaffolder">scaffolder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#36"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::setRequest">setRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#41"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::setResponse">setResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#47"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#64"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::checkAccess">checkAccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Data.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\Data::data">data</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Data.php.html#33"><abbr title="Tir\Crud\Controllers\Traits\Data::indexResponse">indexResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDeleteResponse">forceDeleteResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#64"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrash">emptyTrash</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#85"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrashResponse">emptyTrashResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#33"><abbr title="Tir\Crud\Controllers\Traits\IndexData::query">query</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#39"><abbr title="Tir\Crud\Controllers\Traits\IndexData::indexResponse">indexResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#121"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::groupByNumber">groupByNumber</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#147"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::passedValidation">passedValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Restore.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\Restore::restoreResponse">restoreResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Store.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Store::storeCrud">storeCrud</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Store.php.html#62"><abbr title="Tir\Crud\Controllers\Traits\Store::storeResponse">storeResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Trash.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Trash::trashResponse">trashResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Update::updateCrud">updateCrud</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#56"><abbr title="Tir\Crud\Controllers\Traits\Update::updateTransaction">updateTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#65"><abbr title="Tir\Crud\Controllers\Traits\Update::updateModel">updateModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#103"><abbr title="Tir\Crud\Controllers\Traits\Update::fillForUpdate">fillForUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#128"><abbr title="Tir\Crud\Controllers\Traits\Update::saveForUpdate">saveForUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#152"><abbr title="Tir\Crud\Controllers\Traits\Update::updateRelations">updateRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDelete">forceDelete</abbr></a></td><td class="text-right">58%</td></tr>
+       <tr><td><a href="Traits/Restore.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Restore::restore">restore</abbr></a></td><td class="text-right">58%</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::__construct">__construct</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Traits/Index.php.html#47"><abbr title="Tir\Crud\Controllers\Traits\Index::dataIndex">dataIndex</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#17"><abbr title="Tir\Crud\Controllers\Traits\IndexData::data">data</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#88"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateUpdateRequest">validateUpdateRequest</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Traits/Store.php.html#18"><abbr title="Tir\Crud\Controllers\Traits\Store::store">store</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Traits/Update.php.html#18"><abbr title="Tir\Crud\Controllers\Traits\Update::update">update</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#60"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateCreateRequest">validateCreateRequest</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Traits/Create.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Create::createResponse">createResponse</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Traits/Show.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Show::show">show</abbr></a></td><td class="text-right">78%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Traits/Update.php.html#152"><abbr title="Tir\Crud\Controllers\Traits\Update::updateRelations">updateRelations</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#121"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::groupByNumber">groupByNumber</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Traits/Store.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Store::storeCrud">storeCrud</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Traits/Update.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Update::updateCrud">updateCrud</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Traits/Update.php.html#65"><abbr title="Tir\Crud\Controllers\Traits\Update::updateModel">updateModel</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Traits/Update.php.html#103"><abbr title="Tir\Crud\Controllers\Traits\Update::fillForUpdate">fillForUpdate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Traits/Update.php.html#128"><abbr title="Tir\Crud\Controllers\Traits\Update::saveForUpdate">saveForUpdate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Traits/Data.php.html#33"><abbr title="Tir\Crud\Controllers\Traits\Data::indexResponse">indexResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDeleteResponse">forceDeleteResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#85"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrashResponse">emptyTrashResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#39"><abbr title="Tir\Crud\Controllers\Traits\IndexData::indexResponse">indexResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#147"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::passedValidation">passedValidation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/Restore.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\Restore::restoreResponse">restoreResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/Store.php.html#62"><abbr title="Tir\Crud\Controllers\Traits\Store::storeResponse">storeResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/Trash.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Trash::trashResponse">trashResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Traits/Data.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\Data::data">data</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#64"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrash">emptyTrash</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Traits/Show.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Show::show">show</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#88"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateUpdateRequest">validateUpdateRequest</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Traits/ForceDelete.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDelete">forceDelete</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Traits/Restore.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Restore::restore">restore</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Traits/Index.php.html#47"><abbr title="Tir\Crud\Controllers\Traits\Index::dataIndex">dataIndex</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Traits/ProcessRequest.php.html#60"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateCreateRequest">validateCreateRequest</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Traits/Create.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Create::createResponse">createResponse</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Traits/CrudInit.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::__construct">__construct</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Traits/IndexData.php.html#17"><abbr title="Tir\Crud\Controllers\Traits\IndexData::data">data</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 10.5.51</a> at Tue Aug 12 10:15:09 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([1,2,1,2,1,0,2,0,1,4,0,2], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([24,0,0,0,0,0,2,6,3,8,0,3], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"CrudController.php.html#22\">Tir\\Crud\\Controllers\\CrudController<\/a>"],[82.35294117647058,5,"<a href=\"Traits\/Create.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Create<\/a>"],[100,0,"<a href=\"Traits\/Crud.php.html#6\">Tir\\Crud\\Controllers\\Traits\\Crud<\/a>"],[50,9,"<a href=\"Traits\/CrudInit.php.html#7\">Tir\\Crud\\Controllers\\Traits\\CrudInit<\/a>"],[0,5,"<a href=\"Traits\/Data.php.html#10\">Tir\\Crud\\Controllers\\Traits\\Data<\/a>"],[84.61538461538461,6,"<a href=\"Traits\/Destroy.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Destroy<\/a>"],[80,6,"<a href=\"Traits\/Edit.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Edit<\/a>"],[14.583333333333334,11,"<a href=\"Traits\/ForceDelete.php.html#9\">Tir\\Crud\\Controllers\\Traits\\ForceDelete<\/a>"],[86.66666666666667,6,"<a href=\"Traits\/Index.php.html#8\">Tir\\Crud\\Controllers\\Traits\\Index<\/a>"],[28.57142857142857,6,"<a href=\"Traits\/IndexData.php.html#10\">Tir\\Crud\\Controllers\\Traits\\IndexData<\/a>"],[53.84615384615385,19,"<a href=\"Traits\/ProcessRequest.php.html#10\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest<\/a>"],[29.166666666666668,6,"<a href=\"Traits\/Restore.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Restore<\/a>"],[78.94736842105263,5,"<a href=\"Traits\/Show.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Show<\/a>"],[7.4074074074074066,8,"<a href=\"Traits\/Store.php.html#12\">Tir\\Crud\\Controllers\\Traits\\Store<\/a>"],[33.33333333333333,5,"<a href=\"Traits\/Trash.php.html#11\">Tir\\Crud\\Controllers\\Traits\\Trash<\/a>"],[2.5974025974025974,30,"<a href=\"Traits\/Update.php.html#11\">Tir\\Crud\\Controllers\\Traits\\Update<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[87.5,2,"<a href=\"Traits\/Create.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Create::create<\/a>"],[77.77777777777779,3,"<a href=\"Traits\/Create.php.html#32\">Tir\\Crud\\Controllers\\Traits\\Create::createResponse<\/a>"],[100,0,"<a href=\"Traits\/CrudInit.php.html#14\">Tir\\Crud\\Controllers\\Traits\\CrudInit::setScaffolder<\/a>"],[66.66666666666666,2,"<a href=\"Traits\/CrudInit.php.html#16\">Tir\\Crud\\Controllers\\Traits\\CrudInit::__construct<\/a>"],[100,1,"<a href=\"Traits\/CrudInit.php.html#27\">Tir\\Crud\\Controllers\\Traits\\CrudInit::model<\/a>"],[0,1,"<a href=\"Traits\/CrudInit.php.html#32\">Tir\\Crud\\Controllers\\Traits\\CrudInit::scaffolder<\/a>"],[0,1,"<a href=\"Traits\/CrudInit.php.html#36\">Tir\\Crud\\Controllers\\Traits\\CrudInit::setRequest<\/a>"],[0,1,"<a href=\"Traits\/CrudInit.php.html#41\">Tir\\Crud\\Controllers\\Traits\\CrudInit::setResponse<\/a>"],[0,1,"<a href=\"Traits\/CrudInit.php.html#47\">Tir\\Crud\\Controllers\\Traits\\CrudInit::response<\/a>"],[100,1,"<a href=\"Traits\/CrudInit.php.html#53\">Tir\\Crud\\Controllers\\Traits\\CrudInit::scaffolderInit<\/a>"],[0,1,"<a href=\"Traits\/CrudInit.php.html#64\">Tir\\Crud\\Controllers\\Traits\\CrudInit::checkAccess<\/a>"],[0,2,"<a href=\"Traits\/Data.php.html#16\">Tir\\Crud\\Controllers\\Traits\\Data::data<\/a>"],[0,3,"<a href=\"Traits\/Data.php.html#33\">Tir\\Crud\\Controllers\\Traits\\Data::indexResponse<\/a>"],[83.33333333333334,3,"<a href=\"Traits\/Destroy.php.html#15\">Tir\\Crud\\Controllers\\Traits\\Destroy::destroy<\/a>"],[85.71428571428571,3,"<a href=\"Traits\/Destroy.php.html#39\">Tir\\Crud\\Controllers\\Traits\\Destroy::destroyResponse<\/a>"],[80,3,"<a href=\"Traits\/Edit.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Edit::edit<\/a>"],[80,3,"<a href=\"Traits\/Edit.php.html#35\">Tir\\Crud\\Controllers\\Traits\\Edit::editResponse<\/a>"],[58.333333333333336,3,"<a href=\"Traits\/ForceDelete.php.html#13\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::forceDelete<\/a>"],[0,3,"<a href=\"Traits\/ForceDelete.php.html#37\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::forceDeleteResponse<\/a>"],[0,2,"<a href=\"Traits\/ForceDelete.php.html#64\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::emptyTrash<\/a>"],[0,3,"<a href=\"Traits\/ForceDelete.php.html#85\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::emptyTrashResponse<\/a>"],[88.88888888888889,3,"<a href=\"Traits\/Index.php.html#12\">Tir\\Crud\\Controllers\\Traits\\Index::index<\/a>"],[66.66666666666666,3,"<a href=\"Traits\/Index.php.html#47\">Tir\\Crud\\Controllers\\Traits\\Index::dataIndex<\/a>"],[66.66666666666666,2,"<a href=\"Traits\/IndexData.php.html#17\">Tir\\Crud\\Controllers\\Traits\\IndexData::data<\/a>"],[0,1,"<a href=\"Traits\/IndexData.php.html#33\">Tir\\Crud\\Controllers\\Traits\\IndexData::query<\/a>"],[0,3,"<a href=\"Traits\/IndexData.php.html#39\">Tir\\Crud\\Controllers\\Traits\\IndexData::indexResponse<\/a>"],[84.21052631578947,5,"<a href=\"Traits\/ProcessRequest.php.html#16\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::processRequest<\/a>"],[75,3,"<a href=\"Traits\/ProcessRequest.php.html#60\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::validateCreateRequest<\/a>"],[66.66666666666666,4,"<a href=\"Traits\/ProcessRequest.php.html#88\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::validateUpdateRequest<\/a>"],[0,4,"<a href=\"Traits\/ProcessRequest.php.html#121\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::groupByNumber<\/a>"],[0,3,"<a href=\"Traits\/ProcessRequest.php.html#147\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::passedValidation<\/a>"],[58.333333333333336,3,"<a href=\"Traits\/Restore.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Restore::restore<\/a>"],[0,3,"<a href=\"Traits\/Restore.php.html#37\">Tir\\Crud\\Controllers\\Traits\\Restore::restoreResponse<\/a>"],[78.94736842105263,5,"<a href=\"Traits\/Show.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Show::show<\/a>"],[66.66666666666666,1,"<a href=\"Traits\/Store.php.html#18\">Tir\\Crud\\Controllers\\Traits\\Store::store<\/a>"],[0,4,"<a href=\"Traits\/Store.php.html#30\">Tir\\Crud\\Controllers\\Traits\\Store::storeCrud<\/a>"],[0,3,"<a href=\"Traits\/Store.php.html#62\">Tir\\Crud\\Controllers\\Traits\\Store::storeResponse<\/a>"],[80,2,"<a href=\"Traits\/Trash.php.html#15\">Tir\\Crud\\Controllers\\Traits\\Trash::trashData<\/a>"],[0,3,"<a href=\"Traits\/Trash.php.html#32\">Tir\\Crud\\Controllers\\Traits\\Trash::trashResponse<\/a>"],[66.66666666666666,1,"<a href=\"Traits\/Update.php.html#18\">Tir\\Crud\\Controllers\\Traits\\Update::update<\/a>"],[0,4,"<a href=\"Traits\/Update.php.html#30\">Tir\\Crud\\Controllers\\Traits\\Update::updateCrud<\/a>"],[0,1,"<a href=\"Traits\/Update.php.html#56\">Tir\\Crud\\Controllers\\Traits\\Update::updateTransaction<\/a>"],[0,4,"<a href=\"Traits\/Update.php.html#65\">Tir\\Crud\\Controllers\\Traits\\Update::updateModel<\/a>"],[0,4,"<a href=\"Traits\/Update.php.html#103\">Tir\\Crud\\Controllers\\Traits\\Update::fillForUpdate<\/a>"],[0,4,"<a href=\"Traits\/Update.php.html#128\">Tir\\Crud\\Controllers\\Traits\\Update::saveForUpdate<\/a>"],[0,12,"<a href=\"Traits\/Update.php.html#152\">Tir\\Crud\\Controllers\\Traits\\Update::updateRelations<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

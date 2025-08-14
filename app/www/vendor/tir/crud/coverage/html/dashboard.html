@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /app/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/app/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Facades/Fields.php.html#18">Tir\Crud\Facades\Fields</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Scopes/PublishedScope.php.html#10">App\Modules\Crud\Scopes\PublishedScope</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#7">Tir\Crud\Support\Acl\Access</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#8">Tir\Crud\Support\Hooks\CrudHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Middleware/AclMiddleware.php.html#14">Tir\Crud\Support\Middleware\AclMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Middleware/AddUserIdToRequestsMiddleware.php.html#9">Tir\Crud\Support\Middleware\AddUserIdToRequestsMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Middleware/SetLocaleMiddleware.php.html#10">Tir\Crud\Support\Middleware\SetLocaleMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#7">Tir\Crud\Support\Module\AdminMenu</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#6">Tir\Crud\Support\Module\Module</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#11">Tir\Crud\Support\Requests\CrudRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#8">Tir\Crud\Support\Resource\ResourceRegistrar</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Response/CrudResponse.php.html#7">Tir\Crud\Support\Response\CrudResponse</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#8">Tir\Crud\Support\Scaffold\Fields\Additional</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Blank.php.html#6">Tir\Crud\Support\Scaffold\Fields\Blank</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Custom.php.html#5">Tir\Crud\Support\Scaffold\Fields\Custom</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#10">Tir\Crud\Support\Scaffold\Fields\DatePicker</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Editor.php.html#5">Tir\Crud\Support\Scaffold\Fields\Editor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/FileUploader.php.html#8">Tir\Crud\Support\Scaffold\Fields\FileUploader</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Group.php.html#6">Tir\Crud\Support\Scaffold\Fields\Group</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Link.php.html#6">Tir\Crud\Support\Scaffold\Fields\Link</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/TextArea.php.html#7">Tir\Crud\Support\Scaffold\Fields\TextArea</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Data.php.html#10">Tir\Crud\Controllers\Traits\Data</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Scopes/StatusTrait.php.html#5">App\Modules\Crud\Scopes\StatusTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#5">Tir\Crud\Support\Eloquent\HasDynamicRelation</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/IsTranslatable.php.html#8">Tir\Crud\Support\Eloquent\IsTranslatable</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CreateHooks.php.html#5">Tir\Crud\Support\Hooks\CreateHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/DestroyHooks.php.html#5">Tir\Crud\Support\Hooks\DestroyHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/EditHooks.php.html#5">Tir\Crud\Support\Hooks\EditHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ForceDeleteHooks.php.html#5">Tir\Crud\Support\Hooks\ForceDeleteHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#5">Tir\Crud\Support\Hooks\IndexDataHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RequestHooks.php.html#5">Tir\Crud\Support\Hooks\RequestHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RestoreHooks.php.html#5">Tir\Crud\Support\Hooks\RestoreHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ShowHooks.php.html#5">Tir\Crud\Support\Hooks\ShowHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#5">Tir\Crud\Support\Hooks\StoreHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/TrashHooks.php.html#5">Tir\Crud\Support\Hooks\TrashHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#5">Tir\Crud\Support\Hooks\UpdateHooks</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#5">Tir\Crud\Support\Scaffold\ButtonsHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#27">Tir\Crud\Support\Scaffold\FieldImports</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#6">Tir\Crud\Support\Scaffold\FieldsHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#5">Tir\Crud\Support\Scaffold\RulesHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#11">Tir\Crud\Controllers\Traits\Update</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#7">Tir\Crud\Support\Scaffold\BaseScaffolder</a></td><td class="text-right">3%</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#12">Tir\Crud\Controllers\Traits\Store</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#9">Tir\Crud\Services\StoreService</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#9">Tir\Crud\Controllers\Traits\ForceDelete</a></td><td class="text-right">14%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#12">Tir\Crud\Services\DataService</a></td><td class="text-right">26%</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#10">Tir\Crud\Controllers\Traits\IndexData</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Controllers/Traits/Restore.php.html#9">Tir\Crud\Controllers\Traits\Restore</a></td><td class="text-right">29%</td></tr>
+       <tr><td><a href="Support/Module/Modules.php.html#7">Tir\Crud\Support\Module\Modules</a></td><td class="text-right">30%</td></tr>
+       <tr><td><a href="Controllers/Traits/Trash.php.html#11">Tir\Crud\Controllers\Traits\Trash</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#14">Tir\Crud\Providers\CrudSeedServiceProvider</a></td><td class="text-right">38%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Button.php.html#6">Tir\Crud\Support\Scaffold\Fields\Button</a></td><td class="text-right">40%</td></tr>
+       <tr><td><a href="Support/Hooks/BaseHooks.php.html#5">Tir\Crud\Support\Hooks\BaseHooks</a></td><td class="text-right">42%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#8">Tir\Crud\Support\Scaffold\Fields\BaseField</a></td><td class="text-right">44%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#7">Tir\Crud\Controllers\Traits\CrudInit</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#10">Tir\Crud\Controllers\Traits\ProcessRequest</a></td><td class="text-right">53%</td></tr>
+       <tr><td><a href="Controllers/Traits/Show.php.html#9">Tir\Crud\Controllers\Traits\Show</a></td><td class="text-right">78%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Services/DataService.php.html#12">Tir\Crud\Services\DataService</a></td><td class="text-right">1891</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#7">Tir\Crud\Support\Scaffold\BaseScaffolder</a></td><td class="text-right">1770</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#11">Tir\Crud\Controllers\Traits\Update</a></td><td class="text-right">861</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#6">Tir\Crud\Support\Scaffold\FieldsHelper</a></td><td class="text-right">812</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#8">Tir\Crud\Support\Scaffold\Fields\BaseField</a></td><td class="text-right">763</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#9">Tir\Crud\Services\StoreService</a></td><td class="text-right">715</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#18">Tir\Crud\Facades\Fields</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#11">Tir\Crud\Support\Requests\CrudRequest</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#5">Tir\Crud\Support\Scaffold\ButtonsHelper</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#8">Tir\Crud\Support\Scaffold\Fields\Additional</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#7">Tir\Crud\Support\Module\AdminMenu</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#10">Tir\Crud\Support\Scaffold\Fields\DatePicker</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#9">Tir\Crud\Controllers\Traits\ForceDelete</a></td><td class="text-right">86</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#12">Tir\Crud\Controllers\Traits\Store</a></td><td class="text-right">58</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#5">Tir\Crud\Support\Eloquent\HasDynamicRelation</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#5">Tir\Crud\Support\Scaffold\RulesHelper</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#10">Tir\Crud\Controllers\Traits\ProcessRequest</a></td><td class="text-right">54</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#14">Tir\Crud\Providers\CrudSeedServiceProvider</a></td><td class="text-right">53</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#7">Tir\Crud\Support\Acl\Access</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#8">Tir\Crud\Support\Hooks\CrudHooks</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Support/Middleware/AclMiddleware.php.html#14">Tir\Crud\Support\Middleware\AclMiddleware</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Group.php.html#6">Tir\Crud\Support\Scaffold\Fields\Group</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controllers/Traits/Data.php.html#10">Tir\Crud\Controllers\Traits\Data</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Support/Module/Modules.php.html#7">Tir\Crud\Support\Module\Modules</a></td><td class="text-right">23</td></tr>
+       <tr><td><a href="Scopes/PublishedScope.php.html#10">App\Modules\Crud\Scopes\PublishedScope</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#10">Tir\Crud\Controllers\Traits\IndexData</a></td><td class="text-right">19</td></tr>
+       <tr><td><a href="Controllers/Traits/Restore.php.html#9">Tir\Crud\Controllers\Traits\Restore</a></td><td class="text-right">18</td></tr>
+       <tr><td><a href="Controllers/Traits/Trash.php.html#11">Tir\Crud\Controllers\Traits\Trash</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Eloquent/IsTranslatable.php.html#8">Tir\Crud\Support\Eloquent\IsTranslatable</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Hooks/BaseHooks.php.html#5">Tir\Crud\Support\Hooks\BaseHooks</a></td><td class="text-right">9</td></tr>
+       <tr><td><a href="Support/Middleware/SetLocaleMiddleware.php.html#10">Tir\Crud\Support\Middleware\SetLocaleMiddleware</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/Traits/Show.php.html#9">Tir\Crud\Controllers\Traits\Show</a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Facades/Fields.php.html#23"><abbr title="Tir\Crud\Facades\Fields::text">text</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#31"><abbr title="Tir\Crud\Facades\Fields::textArea">textArea</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#39"><abbr title="Tir\Crud\Facades\Fields::password">password</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#47"><abbr title="Tir\Crud\Facades\Fields::number">number</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#55"><abbr title="Tir\Crud\Facades\Fields::select">select</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#63"><abbr title="Tir\Crud\Facades\Fields::checkBox">checkBox</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#71"><abbr title="Tir\Crud\Facades\Fields::switchBox">switchBox</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#79"><abbr title="Tir\Crud\Facades\Fields::datePicker">datePicker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#87"><abbr title="Tir\Crud\Facades\Fields::fileUploader">fileUploader</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#95"><abbr title="Tir\Crud\Facades\Fields::additional">additional</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#103"><abbr title="Tir\Crud\Facades\Fields::colorPicker">colorPicker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#111"><abbr title="Tir\Crud\Facades\Fields::editor">editor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#119"><abbr title="Tir\Crud\Facades\Fields::radio">radio</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#127"><abbr title="Tir\Crud\Facades\Fields::slug">slug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#135"><abbr title="Tir\Crud\Facades\Fields::button">button</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#143"><abbr title="Tir\Crud\Facades\Fields::link">link</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#151"><abbr title="Tir\Crud\Facades\Fields::custom">custom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#161"><abbr title="Tir\Crud\Facades\Fields::__callStatic">__callStatic</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#18"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::setSeeders">setSeeders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#67"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::addSeedsAfterConsoleCommandFinished">addSeedsAfterConsoleCommandFinished</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#84"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::addSeedsFrom">addSeedsFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Scopes/PublishedScope.php.html#19"><abbr title="App\Modules\Crud\Scopes\PublishedScope::apply">apply</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#211"><abbr title="Tir\Crud\Services\DataService::applyFilters">applyFilters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#276"><abbr title="Tir\Crud\Services\DataService::applySort">applySort</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#309"><abbr title="Tir\Crud\Services\DataService::applyModifiedQuery">applyModifiedQuery</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#327"><abbr title="Tir\Crud\Services\DataService::applyPaginate">applyPaginate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#344"><abbr title="Tir\Crud\Services\DataService::indexResponse">indexResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#390"><abbr title="Tir\Crud\Services\DataService::getFilter">getFilter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#433"><abbr title="Tir\Crud\Services\DataService::getRelationFields">getRelationFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#30"><abbr title="Tir\Crud\Services\StoreService::scaffolder">scaffolder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#35"><abbr title="Tir\Crud\Services\StoreService::model">model</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#57"><abbr title="Tir\Crud\Services\StoreService::storeModel">storeModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#98"><abbr title="Tir\Crud\Services\StoreService::storeRelations">storeRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#147"><abbr title="Tir\Crud\Services\StoreService::fill">fill</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#171"><abbr title="Tir\Crud\Services\StoreService::save">save</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#17"><abbr title="Tir\Crud\Support\Acl\Access::check">check</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#24"><abbr title="Tir\Crud\Support\Acl\Access::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#33"><abbr title="Tir\Crud\Support\Acl\Access::getCrudAction">getCrudAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#20"><abbr title="Tir\Crud\Support\Hooks\CrudHooks::setHook">setHook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#29"><abbr title="Tir\Crud\Support\Hooks\CrudHooks::getHooks">getHooks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#37"><abbr title="Tir\Crud\Support\Hooks\CrudHooks::hasHook">hasHook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#45"><abbr title="Tir\Crud\Support\Hooks\CrudHooks::callHook">callHook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Middleware/AclMiddleware.php.html#23"><abbr title="Tir\Crud\Support\Middleware\AclMiddleware::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Middleware/AddUserIdToRequestsMiddleware.php.html#18"><abbr title="Tir\Crud\Support\Middleware\AddUserIdToRequestsMiddleware::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Middleware/SetLocaleMiddleware.php.html#19"><abbr title="Tir\Crud\Support\Middleware\SetLocaleMiddleware::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#14"><abbr title="Tir\Crud\Support\Module\AdminMenu::title">title</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#21"><abbr title="Tir\Crud\Support\Module\AdminMenu::clear">clear</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#26"><abbr title="Tir\Crud\Support\Module\AdminMenu::link">link</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#32"><abbr title="Tir\Crud\Support\Module\AdminMenu::route">route</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#38"><abbr title="Tir\Crud\Support\Module\AdminMenu::weight">weight</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#44"><abbr title="Tir\Crud\Support\Module\AdminMenu::icon">icon</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#50"><abbr title="Tir\Crud\Support\Module\AdminMenu::item">item</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#56"><abbr title="Tir\Crud\Support\Module\AdminMenu::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#15"><abbr title="Tir\Crud\Support\Module\Module::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#20"><abbr title="Tir\Crud\Support\Module\Module::setDefaultPermissions">setDefaultPermissions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#142"><abbr title="Tir\Crud\Support\Module\Module::setPermissions">setPermissions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#148"><abbr title="Tir\Crud\Support\Module\Module::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#155"><abbr title="Tir\Crud\Support\Module\Module::enable">enable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#162"><abbr title="Tir\Crud\Support\Module\Module::disable">disable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#169"><abbr title="Tir\Crud\Support\Module\Module::status">status</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Module.php.html#175"><abbr title="Tir\Crud\Support\Module\Module::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Modules.php.html#20"><abbr title="Tir\Crud\Support\Module\Modules::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Modules.php.html#26"><abbr title="Tir\Crud\Support\Module\Modules::list">list</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Module/Modules.php.html#31"><abbr title="Tir\Crud\Support\Module\Modules::find">find</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#22"><abbr title="Tir\Crud\Support\Requests\CrudRequest::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#33"><abbr title="Tir\Crud\Support\Requests\CrudRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#43"><abbr title="Tir\Crud\Support\Requests\CrudRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#49"><abbr title="Tir\Crud\Support\Requests\CrudRequest::getRules">getRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#64"><abbr title="Tir\Crud\Support\Requests\CrudRequest::prepareForValidation">prepareForValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#87"><abbr title="Tir\Crud\Support\Requests\CrudRequest::groupByNumber">groupByNumber</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#114"><abbr title="Tir\Crud\Support\Requests\CrudRequest::passedValidation">passedValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#30"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceTrash">addResourceTrash</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#52"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceData">addResourceData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#72"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceSelect">addResourceSelect</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#92"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceTrashData">addResourceTrashData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#112"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceRestore">addResourceRestore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#129"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceFullDestroy">addResourceFullDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#147"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceAction">addResourceAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Resource/ResourceRegistrar.php.html#165"><abbr title="Tir\Crud\Support\Resource\ResourceRegistrar::addResourceReorder">addResourceReorder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Response/CrudResponse.php.html#9"><abbr title="Tir\Crud\Support\Response\CrudResponse::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Response/CrudResponse.php.html#24"><abbr title="Tir\Crud\Support\Response\CrudResponse::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#37"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::scaffoldBoot">scaffoldBoot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#42"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::setAcl">setAcl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#47"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::setModuleTitle">setModuleTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#52"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::appendSelectableColumns">appendSelectableColumns</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#58"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::setActions">setActions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#64"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::__get">__get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#72"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::__isset">__isset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#78"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::hasValue">hasValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#83"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#88"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::currentModel">currentModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#93"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getModuleName">getModuleName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#102"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::scaffold">scaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#122"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::addFieldsToScaffold">addFieldsToScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#134"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getAccessLevelStatus">getAccessLevelStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#139"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getAppendedSelectableColumns">getAppendedSelectableColumns</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#144"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getConfigs">getConfigs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#155"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::initActions">initActions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#191"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::model">model</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#197"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getActions">getActions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#202"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::moduleName">moduleName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#210"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getRouteName">getRouteName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#215"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getIndexScaffold">getIndexScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#225"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getCreateScaffold">getCreateScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#236"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getEditScaffold">getEditScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#248"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getDetailScaffold">getDetailScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#260"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getDeleteScaffold">getDeleteScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#15"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::defaultChild">defaultChild</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#19"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::children">children</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#25"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::request">request</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#31"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::getChildren">getChildren</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#37"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::getChildrenWithValue">getChildrenWithValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#65"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#65"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::page">page</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#94"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::comment">comment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#197"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::hideFromAll">hideFromAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#208"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::onlyOnIndex">onlyOnIndex</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#215"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::onlyOnCreating">onlyOnCreating</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#222"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::onlyOnEditing">onlyOnEditing</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#233"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::onlyOnDetail">onlyOnDetail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#244"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::sortable">sortable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#250"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::searchable">searchable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#260"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::normalizeVariadicArgs">normalizeVariadicArgs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#271"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#281"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::creationRules">creationRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#288"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::updateRules">updateRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#295"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::data">data</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#304"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::filter">filter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#324"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::filterType">filterType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#330"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::filterQuery">filterQuery</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#351"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::relation">relation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#361"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::setRelationalValue">setRelationalValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Blank.php.html#13"><abbr title="Tir\Crud\Support\Scaffold\Fields\Blank::value">value</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Blank.php.html#19"><abbr title="Tir\Crud\Support\Scaffold\Fields\Blank::setValue">setValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Button.php.html#12"><abbr title="Tir\Crud\Support\Scaffold\Fields\Button::setValue">setValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Button.php.html#23"><abbr title="Tir\Crud\Support\Scaffold\Fields\Button::path">path</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Custom.php.html#10"><abbr title="Tir\Crud\Support\Scaffold\Fields\Custom::type">type</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#18"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::format">format</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#25"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::showTime">showTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#32"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::timezone">timezone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#38"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::picker">picker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#44"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::setValue">setValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#59"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::convertPHPToMomentFormat">convertPHPToMomentFormat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Editor.php.html#14"><abbr title="Tir\Crud\Support\Scaffold\Fields\Editor::height">height</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Editor.php.html#20"><abbr title="Tir\Crud\Support\Scaffold\Fields\Editor::basePath">basePath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Editor.php.html#26"><abbr title="Tir\Crud\Support\Scaffold\Fields\Editor::uploadUrl">uploadUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/FileUploader.php.html#17"><abbr title="Tir\Crud\Support\Scaffold\Fields\FileUploader::uploadUrl">uploadUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/FileUploader.php.html#23"><abbr title="Tir\Crud\Support\Scaffold\Fields\FileUploader::basePath">basePath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/FileUploader.php.html#30"><abbr title="Tir\Crud\Support\Scaffold\Fields\FileUploader::maxCount">maxCount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/FileUploader.php.html#36"><abbr title="Tir\Crud\Support\Scaffold\Fields\FileUploader::fileRules">fileRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Group.php.html#15"><abbr title="Tir\Crud\Support\Scaffold\Fields\Group::children">children</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Group.php.html#20"><abbr title="Tir\Crud\Support\Scaffold\Fields\Group::getChildren">getChildren</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Group.php.html#35"><abbr title="Tir\Crud\Support\Scaffold\Fields\Group::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Link.php.html#16"><abbr title="Tir\Crud\Support\Scaffold\Fields\Link::path">path</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/TextArea.php.html#14"><abbr title="Tir\Crud\Support\Scaffold\Fields\TextArea::row">row</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::scaffolder">scaffolder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#36"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::setRequest">setRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#41"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::setResponse">setResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#47"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#64"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::checkAccess">checkAccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Data.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\Data::data">data</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Data.php.html#33"><abbr title="Tir\Crud\Controllers\Traits\Data::indexResponse">indexResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDeleteResponse">forceDeleteResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#64"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrash">emptyTrash</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#85"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrashResponse">emptyTrashResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#33"><abbr title="Tir\Crud\Controllers\Traits\IndexData::query">query</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#39"><abbr title="Tir\Crud\Controllers\Traits\IndexData::indexResponse">indexResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#121"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::groupByNumber">groupByNumber</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#147"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::passedValidation">passedValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Restore.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\Restore::restoreResponse">restoreResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Store::storeCrud">storeCrud</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#62"><abbr title="Tir\Crud\Controllers\Traits\Store::storeResponse">storeResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Trash.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Trash::trashResponse">trashResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Update::updateCrud">updateCrud</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#56"><abbr title="Tir\Crud\Controllers\Traits\Update::updateTransaction">updateTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#65"><abbr title="Tir\Crud\Controllers\Traits\Update::updateModel">updateModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#103"><abbr title="Tir\Crud\Controllers\Traits\Update::fillForUpdate">fillForUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#128"><abbr title="Tir\Crud\Controllers\Traits\Update::saveForUpdate">saveForUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#152"><abbr title="Tir\Crud\Controllers\Traits\Update::updateRelations">updateRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Scopes/StatusTrait.php.html#9"><abbr title="App\Modules\Crud\Scopes\StatusTrait::scopeHideUnPublished">scopeHideUnPublished</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Scopes/StatusTrait.php.html#14"><abbr title="App\Modules\Crud\Scopes\StatusTrait::scopeHideDraft">scopeHideDraft</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#20"><abbr title="Tir\Crud\Support\Eloquent\HasDynamicRelation::addDynamicRelation">addDynamicRelation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#32"><abbr title="Tir\Crud\Support\Eloquent\HasDynamicRelation::hasDynamicRelation">hasDynamicRelation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#46"><abbr title="Tir\Crud\Support\Eloquent\HasDynamicRelation::__get">__get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#71"><abbr title="Tir\Crud\Support\Eloquent\HasDynamicRelation::__call">__call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Eloquent/IsTranslatable.php.html#10"><abbr title="Tir\Crud\Support\Eloquent\IsTranslatable::boot">boot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/BaseHooks.php.html#17"><abbr title="Tir\Crud\Support\Hooks\BaseHooks::crudHooks">crudHooks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/BaseHooks.php.html#25"><abbr title="Tir\Crud\Support\Hooks\BaseHooks::callHookIfExists">callHookIfExists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CreateHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\CreateHooks::onCreate">onCreate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/CreateHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\CreateHooks::onCreateResponse">onCreateResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/DestroyHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\DestroyHooks::onDestroy">onDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/DestroyHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\DestroyHooks::onDestroyResponse">onDestroyResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/EditHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\EditHooks::onEdit">onEdit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/EditHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\EditHooks::onEditResponse">onEditResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ForceDeleteHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\ForceDeleteHooks::onForceDelete">onForceDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ForceDeleteHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\ForceDeleteHooks::onForceDeleteResponse">onForceDeleteResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ForceDeleteHooks.php.html#30"><abbr title="Tir\Crud\Support\Hooks\ForceDeleteHooks::onEmptyTrash">onEmptyTrash</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ForceDeleteHooks.php.html#39"><abbr title="Tir\Crud\Support\Hooks\ForceDeleteHooks::onEmptyTrashResponse">onEmptyTrashResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#14"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onInitQuery">onInitQuery</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#20"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onSelect">onSelect</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#29"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onSearch">onSearch</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#38"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onFilter">onFilter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#47"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onSort">onSort</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#56"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onRelation">onRelation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#65"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onModifyQuery">onModifyQuery</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#76"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onPaginate">onPaginate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/IndexDataHooks.php.html#85"><abbr title="Tir\Crud\Support\Hooks\IndexDataHooks::onIndexResponse">onIndexResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RequestHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\RequestHooks::onProcessRequest">onProcessRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RequestHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\RequestHooks::onStoreValidation">onStoreValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RequestHooks.php.html#30"><abbr title="Tir\Crud\Support\Hooks\RequestHooks::onUpdateValidation">onUpdateValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RestoreHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\RestoreHooks::onRestore">onRestore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/RestoreHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\RestoreHooks::onRestoreResponse">onRestoreResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ShowHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\ShowHooks::onShow">onShow</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/ShowHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\ShowHooks::onShowResponse">onShowResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\StoreHooks::onStore">onStore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\StoreHooks::onSaveModel">onSaveModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#31"><abbr title="Tir\Crud\Support\Hooks\StoreHooks::onFillModelForStore">onFillModelForStore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#40"><abbr title="Tir\Crud\Support\Hooks\StoreHooks::onStoreRelations">onStoreRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#50"><abbr title="Tir\Crud\Support\Hooks\StoreHooks::onStoreCompleted">onStoreCompleted</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/StoreHooks.php.html#59"><abbr title="Tir\Crud\Support\Hooks\StoreHooks::onStoreResponse">onStoreResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/TrashHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\TrashHooks::onTrash">onTrash</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/TrashHooks.php.html#21"><abbr title="Tir\Crud\Support\Hooks\TrashHooks::onTrashResponse">onTrashResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/TrashHooks.php.html#30"><abbr title="Tir\Crud\Support\Hooks\TrashHooks::onTrashSelect">onTrashSelect</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/TrashHooks.php.html#39"><abbr title="Tir\Crud\Support\Hooks\TrashHooks::onTrashFilter">onTrashFilter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/TrashHooks.php.html#48"><abbr title="Tir\Crud\Support\Hooks\TrashHooks::onTrashSort">onTrashSort</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#12"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onUpdate">onUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#22"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onFillModelForUpdate">onFillModelForUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#32"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onUpdateModel">onUpdateModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#41"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onUpdateRelations">onUpdateRelations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#50"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onUpdateRelation">onUpdateRelation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#59"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onUpdateCompleted">onUpdateCompleted</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Hooks/UpdateHooks.php.html#68"><abbr title="Tir\Crud\Support\Hooks\UpdateHooks::onUpdateResponse">onUpdateResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#8"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getIndexButtons">getIndexButtons</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#19"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getCreateButtons">getCreateButtons</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#30"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getDetailButtons">getDetailButtons</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#41"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getEditButtons">getEditButtons</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#52"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::addButtonsToScaffold">addButtonsToScaffold</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#59"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getButtons">getButtons</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#32"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::text">text</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#40"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::textArea">textArea</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#48"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::password">password</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#56"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::number">number</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#64"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::select">select</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#72"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::checkBox">checkBox</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#80"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::switchBox">switchBox</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#88"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::datePicker">datePicker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#96"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::fileUploader">fileUploader</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#104"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::additional">additional</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#112"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::colorPicker">colorPicker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#120"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::editor">editor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#128"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::radio">radio</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#136"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::slug">slug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#144"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::button">button</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#152"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::link">link</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldImports.php.html#160"><abbr title="Tir\Crud\Support\Scaffold\FieldImports::custom">custom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#12"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getFields">getFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#20"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getAllFields">getAllFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#27"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getAllDataFields">getAllDataFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#35"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getFillableColumns">getFillableColumns</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#47"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getIndexFields">getIndexFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#53"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getEditFields">getEditFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#59"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getDetailFields">getDetailFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#65"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getCreateFields">getCreateFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#71"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getFieldByName">getFieldByName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#80"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getSearchableFields">getSearchableFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#92"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getSubFields">getSubFields</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#105"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getChildren">getChildren</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#121"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getAllChildren">getAllChildren</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#8"><abbr title="Tir\Crud\Support\Scaffold\RulesHelper::getCreationRules">getCreationRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#18"><abbr title="Tir\Crud\Support\Scaffold\RulesHelper::getUpdateRules">getUpdateRules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#29"><abbr title="Tir\Crud\Support\Scaffold\RulesHelper::getValidationMsg">getValidationMsg</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#60"><abbr title="Tir\Crud\Services\DataService::dataQuery">dataQuery</abbr></a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#127"><abbr title="Tir\Crud\Services\DataService::getRelations">getRelations</abbr></a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#45"><abbr title="Tir\Crud\Services\StoreService::storeTransaction">storeTransaction</abbr></a></td><td class="text-right">40%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#177"><abbr title="Tir\Crud\Services\DataService::applySearch">applySearch</abbr></a></td><td class="text-right">41%</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#368"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::setValue">setValue</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDelete">forceDelete</abbr></a></td><td class="text-right">58%</td></tr>
+       <tr><td><a href="Controllers/Traits/Restore.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Restore::restore">restore</abbr></a></td><td class="text-right">58%</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#30"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::boot">boot</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Services/DataService.php.html#38"><abbr title="Tir\Crud\Services\DataService::getData">getData</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::__construct">__construct</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/Index.php.html#47"><abbr title="Tir\Crud\Controllers\Traits\Index::dataIndex">dataIndex</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#17"><abbr title="Tir\Crud\Controllers\Traits\IndexData::data">data</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#88"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateUpdateRequest">validateUpdateRequest</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#18"><abbr title="Tir\Crud\Controllers\Traits\Store::store">store</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#18"><abbr title="Tir\Crud\Controllers\Traits\Update::update">update</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#60"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateCreateRequest">validateCreateRequest</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Controllers/Traits/Create.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Create::createResponse">createResponse</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Controllers/Traits/Show.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Show::show">show</abbr></a></td><td class="text-right">78%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Services/DataService.php.html#211"><abbr title="Tir\Crud\Services\DataService::applyFilters">applyFilters</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#98"><abbr title="Tir\Crud\Services\StoreService::storeRelations">storeRelations</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#152"><abbr title="Tir\Crud\Controllers\Traits\Update::updateRelations">updateRelations</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#155"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::initActions">initActions</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Services/DataService.php.html#276"><abbr title="Tir\Crud\Services\DataService::applySort">applySort</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Services/DataService.php.html#390"><abbr title="Tir\Crud\Services\DataService::getFilter">getFilter</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#37"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::getChildrenWithValue">getChildrenWithValue</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Support/Middleware/AclMiddleware.php.html#23"><abbr title="Tir\Crud\Support\Middleware\AclMiddleware::handle">handle</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#92"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getSubFields">getSubFields</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#105"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getChildren">getChildren</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Services/DataService.php.html#127"><abbr title="Tir\Crud\Services\DataService::getRelations">getRelations</abbr></a></td><td class="text-right">21</td></tr>
+       <tr><td><a href="Scopes/PublishedScope.php.html#19"><abbr title="App\Modules\Crud\Scopes\PublishedScope::apply">apply</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Services/DataService.php.html#433"><abbr title="Tir\Crud\Services\DataService::getRelationFields">getRelationFields</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#57"><abbr title="Tir\Crud\Services\StoreService::storeModel">storeModel</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#147"><abbr title="Tir\Crud\Services\StoreService::fill">fill</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Services/StoreService.php.html#171"><abbr title="Tir\Crud\Services\StoreService::save">save</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#49"><abbr title="Tir\Crud\Support\Requests\CrudRequest::getRules">getRules</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#87"><abbr title="Tir\Crud\Support\Requests\CrudRequest::groupByNumber">groupByNumber</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/DatePicker.php.html#44"><abbr title="Tir\Crud\Support\Scaffold\Fields\DatePicker::setValue">setValue</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#121"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::groupByNumber">groupByNumber</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Store::storeCrud">storeCrud</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#30"><abbr title="Tir\Crud\Controllers\Traits\Update::updateCrud">updateCrud</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#65"><abbr title="Tir\Crud\Controllers\Traits\Update::updateModel">updateModel</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#103"><abbr title="Tir\Crud\Controllers\Traits\Update::fillForUpdate">fillForUpdate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Traits/Update.php.html#128"><abbr title="Tir\Crud\Controllers\Traits\Update::saveForUpdate">saveForUpdate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#121"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getAllChildren">getAllChildren</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Services/DataService.php.html#177"><abbr title="Tir\Crud\Services\DataService::applySearch">applySearch</abbr></a></td><td class="text-right">13</td></tr>
+       <tr><td><a href="Services/DataService.php.html#309"><abbr title="Tir\Crud\Services\DataService::applyModifiedQuery">applyModifiedQuery</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Services/DataService.php.html#327"><abbr title="Tir\Crud\Services\DataService::applyPaginate">applyPaginate</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Services/DataService.php.html#344"><abbr title="Tir\Crud\Services\DataService::indexResponse">indexResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Module/Modules.php.html#31"><abbr title="Tir\Crud\Support\Module\Modules::find">find</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#114"><abbr title="Tir\Crud\Support\Requests\CrudRequest::passedValidation">passedValidation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#64"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::__get">__get</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#122"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::addFieldsToScaffold">addFieldsToScaffold</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Additional.php.html#65"><abbr title="Tir\Crud\Support\Scaffold\Fields\Additional::get">get</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#222"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::onlyOnEditing">onlyOnEditing</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#233"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::onlyOnDetail">onlyOnDetail</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#260"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::normalizeVariadicArgs">normalizeVariadicArgs</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#304"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::filter">filter</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/Group.php.html#20"><abbr title="Tir\Crud\Support\Scaffold\Fields\Group::getChildren">getChildren</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/Data.php.html#33"><abbr title="Tir\Crud\Controllers\Traits\Data::indexResponse">indexResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDeleteResponse">forceDeleteResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#85"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrashResponse">emptyTrashResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#39"><abbr title="Tir\Crud\Controllers\Traits\IndexData::indexResponse">indexResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#147"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::passedValidation">passedValidation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/Restore.php.html#37"><abbr title="Tir\Crud\Controllers\Traits\Restore::restoreResponse">restoreResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/Store.php.html#62"><abbr title="Tir\Crud\Controllers\Traits\Store::storeResponse">storeResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/Traits/Trash.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Trash::trashResponse">trashResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#46"><abbr title="Tir\Crud\Support\Eloquent\HasDynamicRelation::__get">__get</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Eloquent/IsTranslatable.php.html#10"><abbr title="Tir\Crud\Support\Eloquent\IsTranslatable::boot">boot</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#8"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getIndexButtons">getIndexButtons</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#19"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getCreateButtons">getCreateButtons</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#30"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getDetailButtons">getDetailButtons</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#41"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::getEditButtons">getEditButtons</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#71"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getFieldByName">getFieldByName</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/FieldsHelper.php.html#80"><abbr title="Tir\Crud\Support\Scaffold\FieldsHelper::getSearchableFields">getSearchableFields</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#8"><abbr title="Tir\Crud\Support\Scaffold\RulesHelper::getCreationRules">getCreationRules</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/RulesHelper.php.html#18"><abbr title="Tir\Crud\Support\Scaffold\RulesHelper::getUpdateRules">getUpdateRules</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#368"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::setValue">setValue</abbr></a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Facades/Fields.php.html#161"><abbr title="Tir\Crud\Facades\Fields::__callStatic">__callStatic</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#67"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::addSeedsAfterConsoleCommandFinished">addSeedsAfterConsoleCommandFinished</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#84"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::addSeedsFrom">addSeedsFrom</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#24"><abbr title="Tir\Crud\Support\Acl\Access::execute">execute</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Acl/Access.php.html#33"><abbr title="Tir\Crud\Support\Acl\Access::getCrudAction">getCrudAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Hooks/CrudHooks.php.html#45"><abbr title="Tir\Crud\Support\Hooks\CrudHooks::callHook">callHook</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Middleware/SetLocaleMiddleware.php.html#19"><abbr title="Tir\Crud\Support\Middleware\SetLocaleMiddleware::handle">handle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Module/AdminMenu.php.html#56"><abbr title="Tir\Crud\Support\Module\AdminMenu::add">add</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Requests/CrudRequest.php.html#64"><abbr title="Tir\Crud\Support\Requests\CrudRequest::prepareForValidation">prepareForValidation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#72"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::__isset">__isset</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#78"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::hasValue">hasValue</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#93"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::getModuleName">getModuleName</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#102"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::scaffold">scaffold</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/BaseScaffolder.php.html#202"><abbr title="Tir\Crud\Support\Scaffold\BaseScaffolder::moduleName">moduleName</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/Fields/BaseField.php.html#197"><abbr title="Tir\Crud\Support\Scaffold\Fields\BaseField::hideFromAll">hideFromAll</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/Traits/Data.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\Data::data">data</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#64"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::emptyTrash">emptyTrash</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Eloquent/HasDynamicRelation.php.html#71"><abbr title="Tir\Crud\Support\Eloquent\HasDynamicRelation::__call">__call</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Hooks/BaseHooks.php.html#25"><abbr title="Tir\Crud\Support\Hooks\BaseHooks::callHookIfExists">callHookIfExists</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Support/Scaffold/ButtonsHelper.php.html#52"><abbr title="Tir\Crud\Support\Scaffold\ButtonsHelper::addButtonsToScaffold">addButtonsToScaffold</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/Traits/Show.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Show::show">show</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#88"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateUpdateRequest">validateUpdateRequest</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Controllers/Traits/ForceDelete.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\ForceDelete::forceDelete">forceDelete</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controllers/Traits/Restore.php.html#13"><abbr title="Tir\Crud\Controllers\Traits\Restore::restore">restore</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Providers/CrudSeedServiceProvider.php.html#30"><abbr title="Tir\Crud\Providers\CrudSeedServiceProvider::boot">boot</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controllers/Traits/Index.php.html#47"><abbr title="Tir\Crud\Controllers\Traits\Index::dataIndex">dataIndex</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controllers/Traits/ProcessRequest.php.html#60"><abbr title="Tir\Crud\Controllers\Traits\ProcessRequest::validateCreateRequest">validateCreateRequest</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controllers/Traits/Create.php.html#32"><abbr title="Tir\Crud\Controllers\Traits\Create::createResponse">createResponse</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controllers/Traits/CrudInit.php.html#16"><abbr title="Tir\Crud\Controllers\Traits\CrudInit::__construct">__construct</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controllers/Traits/IndexData.php.html#17"><abbr title="Tir\Crud\Controllers\Traits\IndexData::data">data</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 10.5.51</a> at Tue Aug 12 10:15:09 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([40,4,1,3,3,3,2,0,1,4,1,13], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([271,0,0,0,2,2,3,8,3,11,2,41], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"Controllers\/CrudController.php.html#22\">Tir\\Crud\\Controllers\\CrudController<\/a>"],[0,19,"<a href=\"Facades\/Fields.php.html#18\">Tir\\Crud\\Facades\\Fields<\/a>"],[38.095238095238095,13,"<a href=\"Providers\/CrudSeedServiceProvider.php.html#14\">Tir\\Crud\\Providers\\CrudSeedServiceProvider<\/a>"],[0,4,"<a href=\"Scopes\/PublishedScope.php.html#10\">App\\Modules\\Crud\\Scopes\\PublishedScope<\/a>"],[26.666666666666668,68,"<a href=\"Services\/DataService.php.html#12\">Tir\\Crud\\Services\\DataService<\/a>"],[8.695652173913043,30,"<a href=\"Services\/StoreService.php.html#9\">Tir\\Crud\\Services\\StoreService<\/a>"],[92.3076923076923,5,"<a href=\"Services\/UpdateService.php.html#7\">Tir\\Crud\\Services\\UpdateService<\/a>"],[0,5,"<a href=\"Support\/Acl\/Access.php.html#7\">Tir\\Crud\\Support\\Acl\\Access<\/a>"],[100,0,"<a href=\"Support\/Eloquent\/BaseModel.php.html#11\">Tir\\Crud\\Support\\Eloquent\\BaseModel<\/a>"],[0,5,"<a href=\"Support\/Hooks\/CrudHooks.php.html#8\">Tir\\Crud\\Support\\Hooks\\CrudHooks<\/a>"],[0,5,"<a href=\"Support\/Middleware\/AclMiddleware.php.html#14\">Tir\\Crud\\Support\\Middleware\\AclMiddleware<\/a>"],[0,1,"<a href=\"Support\/Middleware\/AddUserIdToRequestsMiddleware.php.html#9\">Tir\\Crud\\Support\\Middleware\\AddUserIdToRequestsMiddleware<\/a>"],[0,2,"<a href=\"Support\/Middleware\/SetLocaleMiddleware.php.html#10\">Tir\\Crud\\Support\\Middleware\\SetLocaleMiddleware<\/a>"],[0,9,"<a href=\"Support\/Module\/AdminMenu.php.html#7\">Tir\\Crud\\Support\\Module\\AdminMenu<\/a>"],[0,8,"<a href=\"Support\/Module\/Module.php.html#6\">Tir\\Crud\\Support\\Module\\Module<\/a>"],[30,7,"<a href=\"Support\/Module\/Modules.php.html#7\">Tir\\Crud\\Support\\Module\\Modules<\/a>"],[0,16,"<a href=\"Support\/Requests\/CrudRequest.php.html#11\">Tir\\Crud\\Support\\Requests\\CrudRequest<\/a>"],[0,8,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#8\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar<\/a>"],[0,2,"<a href=\"Support\/Response\/CrudResponse.php.html#7\">Tir\\Crud\\Support\\Response\\CrudResponse<\/a>"],[3.7383177570093453,44,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#7\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder<\/a>"],[0,13,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#8\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional<\/a>"],[44.52554744525548,64,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#8\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/Fields\/Blank.php.html#6\">Tir\\Crud\\Support\\Scaffold\\Fields\\Blank<\/a>"],[40,3,"<a href=\"Support\/Scaffold\/Fields\/Button.php.html#6\">Tir\\Crud\\Support\\Scaffold\\Fields\\Button<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/CheckBox.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\CheckBox<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/ColorPicker.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\ColorPicker<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Custom.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\Custom<\/a>"],[0,9,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#10\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/Editor.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\Editor<\/a>"],[0,4,"<a href=\"Support\/Scaffold\/Fields\/FileUploader.php.html#8\">Tir\\Crud\\Support\\Scaffold\\Fields\\FileUploader<\/a>"],[0,5,"<a href=\"Support\/Scaffold\/Fields\/Group.php.html#6\">Tir\\Crud\\Support\\Scaffold\\Fields\\Group<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Link.php.html#6\">Tir\\Crud\\Support\\Scaffold\\Fields\\Link<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Number.php.html#8\">Tir\\Crud\\Support\\Scaffold\\Fields\\Number<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Password.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\Password<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Radio.php.html#6\">Tir\\Crud\\Support\\Scaffold\\Fields\\Radio<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Select.php.html#7\">Tir\\Crud\\Support\\Scaffold\\Fields\\Select<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Slug.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\Slug<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Step.php.html#6\">Tir\\Crud\\Support\\Scaffold\\Fields\\Step<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/SwitchBox.php.html#5\">Tir\\Crud\\Support\\Scaffold\\Fields\\SwitchBox<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/Fields\/Text.php.html#7\">Tir\\Crud\\Support\\Scaffold\\Fields\\Text<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/TextArea.php.html#7\">Tir\\Crud\\Support\\Scaffold\\Fields\\TextArea<\/a>"],[82.35294117647058,5,"<a href=\"Controllers\/Traits\/Create.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Create<\/a>"],[100,0,"<a href=\"Controllers\/Traits\/Crud.php.html#6\">Tir\\Crud\\Controllers\\Traits\\Crud<\/a>"],[50,9,"<a href=\"Controllers\/Traits\/CrudInit.php.html#7\">Tir\\Crud\\Controllers\\Traits\\CrudInit<\/a>"],[0,5,"<a href=\"Controllers\/Traits\/Data.php.html#10\">Tir\\Crud\\Controllers\\Traits\\Data<\/a>"],[84.61538461538461,6,"<a href=\"Controllers\/Traits\/Destroy.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Destroy<\/a>"],[80,6,"<a href=\"Controllers\/Traits\/Edit.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Edit<\/a>"],[14.583333333333334,11,"<a href=\"Controllers\/Traits\/ForceDelete.php.html#9\">Tir\\Crud\\Controllers\\Traits\\ForceDelete<\/a>"],[86.66666666666667,6,"<a href=\"Controllers\/Traits\/Index.php.html#8\">Tir\\Crud\\Controllers\\Traits\\Index<\/a>"],[28.57142857142857,6,"<a href=\"Controllers\/Traits\/IndexData.php.html#10\">Tir\\Crud\\Controllers\\Traits\\IndexData<\/a>"],[53.84615384615385,19,"<a href=\"Controllers\/Traits\/ProcessRequest.php.html#10\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest<\/a>"],[29.166666666666668,6,"<a href=\"Controllers\/Traits\/Restore.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Restore<\/a>"],[78.94736842105263,5,"<a href=\"Controllers\/Traits\/Show.php.html#9\">Tir\\Crud\\Controllers\\Traits\\Show<\/a>"],[7.4074074074074066,8,"<a href=\"Controllers\/Traits\/Store.php.html#12\">Tir\\Crud\\Controllers\\Traits\\Store<\/a>"],[33.33333333333333,5,"<a href=\"Controllers\/Traits\/Trash.php.html#11\">Tir\\Crud\\Controllers\\Traits\\Trash<\/a>"],[2.5974025974025974,30,"<a href=\"Controllers\/Traits\/Update.php.html#11\">Tir\\Crud\\Controllers\\Traits\\Update<\/a>"],[0,2,"<a href=\"Scopes\/StatusTrait.php.html#5\">App\\Modules\\Crud\\Scopes\\StatusTrait<\/a>"],[0,7,"<a href=\"Support\/Eloquent\/HasDynamicRelation.php.html#5\">Tir\\Crud\\Support\\Eloquent\\HasDynamicRelation<\/a>"],[0,3,"<a href=\"Support\/Eloquent\/IsTranslatable.php.html#8\">Tir\\Crud\\Support\\Eloquent\\IsTranslatable<\/a>"],[42.857142857142854,5,"<a href=\"Support\/Hooks\/BaseHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\BaseHooks<\/a>"],[0,2,"<a href=\"Support\/Hooks\/CreateHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\CreateHooks<\/a>"],[0,2,"<a href=\"Support\/Hooks\/DestroyHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\DestroyHooks<\/a>"],[0,2,"<a href=\"Support\/Hooks\/EditHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\EditHooks<\/a>"],[0,4,"<a href=\"Support\/Hooks\/ForceDeleteHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\ForceDeleteHooks<\/a>"],[0,9,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks<\/a>"],[0,3,"<a href=\"Support\/Hooks\/RequestHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\RequestHooks<\/a>"],[0,2,"<a href=\"Support\/Hooks\/RestoreHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\RestoreHooks<\/a>"],[0,2,"<a href=\"Support\/Hooks\/ShowHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\ShowHooks<\/a>"],[0,6,"<a href=\"Support\/Hooks\/StoreHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\StoreHooks<\/a>"],[0,5,"<a href=\"Support\/Hooks\/TrashHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\TrashHooks<\/a>"],[0,7,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#5\">Tir\\Crud\\Support\\Hooks\\UpdateHooks<\/a>"],[0,15,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#5\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper<\/a>"],[0,17,"<a href=\"Support\/Scaffold\/FieldImports.php.html#27\">Tir\\Crud\\Support\\Scaffold\\FieldImports<\/a>"],[0,28,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#6\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper<\/a>"],[0,7,"<a href=\"Support\/Scaffold\/RulesHelper.php.html#5\">Tir\\Crud\\Support\\Scaffold\\RulesHelper<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Facades\/Fields.php.html#23\">Tir\\Crud\\Facades\\Fields::text<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#31\">Tir\\Crud\\Facades\\Fields::textArea<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#39\">Tir\\Crud\\Facades\\Fields::password<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#47\">Tir\\Crud\\Facades\\Fields::number<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#55\">Tir\\Crud\\Facades\\Fields::select<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#63\">Tir\\Crud\\Facades\\Fields::checkBox<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#71\">Tir\\Crud\\Facades\\Fields::switchBox<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#79\">Tir\\Crud\\Facades\\Fields::datePicker<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#87\">Tir\\Crud\\Facades\\Fields::fileUploader<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#95\">Tir\\Crud\\Facades\\Fields::additional<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#103\">Tir\\Crud\\Facades\\Fields::colorPicker<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#111\">Tir\\Crud\\Facades\\Fields::editor<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#119\">Tir\\Crud\\Facades\\Fields::radio<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#127\">Tir\\Crud\\Facades\\Fields::slug<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#135\">Tir\\Crud\\Facades\\Fields::button<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#143\">Tir\\Crud\\Facades\\Fields::link<\/a>"],[0,1,"<a href=\"Facades\/Fields.php.html#151\">Tir\\Crud\\Facades\\Fields::custom<\/a>"],[0,2,"<a href=\"Facades\/Fields.php.html#161\">Tir\\Crud\\Facades\\Fields::__callStatic<\/a>"],[0,1,"<a href=\"Providers\/CrudSeedServiceProvider.php.html#18\">Tir\\Crud\\Providers\\CrudSeedServiceProvider::setSeeders<\/a>"],[66.66666666666666,3,"<a href=\"Providers\/CrudSeedServiceProvider.php.html#30\">Tir\\Crud\\Providers\\CrudSeedServiceProvider::boot<\/a>"],[85.71428571428571,5,"<a href=\"Providers\/CrudSeedServiceProvider.php.html#49\">Tir\\Crud\\Providers\\CrudSeedServiceProvider::isConsoleCommandContains<\/a>"],[0,2,"<a href=\"Providers\/CrudSeedServiceProvider.php.html#67\">Tir\\Crud\\Providers\\CrudSeedServiceProvider::addSeedsAfterConsoleCommandFinished<\/a>"],[0,2,"<a href=\"Providers\/CrudSeedServiceProvider.php.html#84\">Tir\\Crud\\Providers\\CrudSeedServiceProvider::addSeedsFrom<\/a>"],[0,4,"<a href=\"Scopes\/PublishedScope.php.html#19\">App\\Modules\\Crud\\Scopes\\PublishedScope::apply<\/a>"],[100,1,"<a href=\"Services\/DataService.php.html#23\">Tir\\Crud\\Services\\DataService::__construct<\/a>"],[100,1,"<a href=\"Services\/DataService.php.html#33\">Tir\\Crud\\Services\\DataService::setHooks<\/a>"],[66.66666666666666,1,"<a href=\"Services\/DataService.php.html#38\">Tir\\Crud\\Services\\DataService::getData<\/a>"],[100,1,"<a href=\"Services\/DataService.php.html#47\">Tir\\Crud\\Services\\DataService::model<\/a>"],[100,1,"<a href=\"Services\/DataService.php.html#52\">Tir\\Crud\\Services\\DataService::scaffolder<\/a>"],[33.33333333333333,1,"<a href=\"Services\/DataService.php.html#60\">Tir\\Crud\\Services\\DataService::dataQuery<\/a>"],[90,3,"<a href=\"Services\/DataService.php.html#80\">Tir\\Crud\\Services\\DataService::initQuery<\/a>"],[80,3,"<a href=\"Services\/DataService.php.html#105\">Tir\\Crud\\Services\\DataService::select<\/a>"],[33.33333333333333,7,"<a href=\"Services\/DataService.php.html#127\">Tir\\Crud\\Services\\DataService::getRelations<\/a>"],[41.17647058823529,6,"<a href=\"Services\/DataService.php.html#177\">Tir\\Crud\\Services\\DataService::applySearch<\/a>"],[0,12,"<a href=\"Services\/DataService.php.html#211\">Tir\\Crud\\Services\\DataService::applyFilters<\/a>"],[0,6,"<a href=\"Services\/DataService.php.html#276\">Tir\\Crud\\Services\\DataService::applySort<\/a>"],[0,3,"<a href=\"Services\/DataService.php.html#309\">Tir\\Crud\\Services\\DataService::applyModifiedQuery<\/a>"],[0,3,"<a href=\"Services\/DataService.php.html#327\">Tir\\Crud\\Services\\DataService::applyPaginate<\/a>"],[0,3,"<a href=\"Services\/DataService.php.html#344\">Tir\\Crud\\Services\\DataService::indexResponse<\/a>"],[88.88888888888889,6,"<a href=\"Services\/DataService.php.html#366\">Tir\\Crud\\Services\\DataService::selectColumns<\/a>"],[0,6,"<a href=\"Services\/DataService.php.html#390\">Tir\\Crud\\Services\\DataService::getFilter<\/a>"],[0,4,"<a href=\"Services\/DataService.php.html#433\">Tir\\Crud\\Services\\DataService::getRelationFields<\/a>"],[100,1,"<a href=\"Services\/StoreService.php.html#16\">Tir\\Crud\\Services\\StoreService::__construct<\/a>"],[100,1,"<a href=\"Services\/StoreService.php.html#25\">Tir\\Crud\\Services\\StoreService::setHooks<\/a>"],[0,1,"<a href=\"Services\/StoreService.php.html#30\">Tir\\Crud\\Services\\StoreService::scaffolder<\/a>"],[0,1,"<a href=\"Services\/StoreService.php.html#35\">Tir\\Crud\\Services\\StoreService::model<\/a>"],[100,1,"<a href=\"Services\/StoreService.php.html#40\">Tir\\Crud\\Services\\StoreService::store<\/a>"],[40,1,"<a href=\"Services\/StoreService.php.html#45\">Tir\\Crud\\Services\\StoreService::storeTransaction<\/a>"],[0,4,"<a href=\"Services\/StoreService.php.html#57\">Tir\\Crud\\Services\\StoreService::storeModel<\/a>"],[0,12,"<a href=\"Services\/StoreService.php.html#98\">Tir\\Crud\\Services\\StoreService::storeRelations<\/a>"],[0,4,"<a href=\"Services\/StoreService.php.html#147\">Tir\\Crud\\Services\\StoreService::fill<\/a>"],[0,4,"<a href=\"Services\/StoreService.php.html#171\">Tir\\Crud\\Services\\StoreService::save<\/a>"],[100,1,"<a href=\"Services\/UpdateService.php.html#14\">Tir\\Crud\\Services\\UpdateService::__construct<\/a>"],[100,1,"<a href=\"Services\/UpdateService.php.html#20\">Tir\\Crud\\Services\\UpdateService::setHooks<\/a>"],[90,3,"<a href=\"Services\/UpdateService.php.html#25\">Tir\\Crud\\Services\\UpdateService::edit<\/a>"],[0,1,"<a href=\"Support\/Acl\/Access.php.html#17\">Tir\\Crud\\Support\\Acl\\Access::check<\/a>"],[0,2,"<a href=\"Support\/Acl\/Access.php.html#24\">Tir\\Crud\\Support\\Acl\\Access::execute<\/a>"],[0,2,"<a href=\"Support\/Acl\/Access.php.html#33\">Tir\\Crud\\Support\\Acl\\Access::getCrudAction<\/a>"],[0,1,"<a href=\"Support\/Hooks\/CrudHooks.php.html#20\">Tir\\Crud\\Support\\Hooks\\CrudHooks::setHook<\/a>"],[0,1,"<a href=\"Support\/Hooks\/CrudHooks.php.html#29\">Tir\\Crud\\Support\\Hooks\\CrudHooks::getHooks<\/a>"],[0,1,"<a href=\"Support\/Hooks\/CrudHooks.php.html#37\">Tir\\Crud\\Support\\Hooks\\CrudHooks::hasHook<\/a>"],[0,2,"<a href=\"Support\/Hooks\/CrudHooks.php.html#45\">Tir\\Crud\\Support\\Hooks\\CrudHooks::callHook<\/a>"],[0,5,"<a href=\"Support\/Middleware\/AclMiddleware.php.html#23\">Tir\\Crud\\Support\\Middleware\\AclMiddleware::handle<\/a>"],[0,1,"<a href=\"Support\/Middleware\/AddUserIdToRequestsMiddleware.php.html#18\">Tir\\Crud\\Support\\Middleware\\AddUserIdToRequestsMiddleware::handle<\/a>"],[0,2,"<a href=\"Support\/Middleware\/SetLocaleMiddleware.php.html#19\">Tir\\Crud\\Support\\Middleware\\SetLocaleMiddleware::handle<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#14\">Tir\\Crud\\Support\\Module\\AdminMenu::title<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#21\">Tir\\Crud\\Support\\Module\\AdminMenu::clear<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#26\">Tir\\Crud\\Support\\Module\\AdminMenu::link<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#32\">Tir\\Crud\\Support\\Module\\AdminMenu::route<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#38\">Tir\\Crud\\Support\\Module\\AdminMenu::weight<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#44\">Tir\\Crud\\Support\\Module\\AdminMenu::icon<\/a>"],[0,1,"<a href=\"Support\/Module\/AdminMenu.php.html#50\">Tir\\Crud\\Support\\Module\\AdminMenu::item<\/a>"],[0,2,"<a href=\"Support\/Module\/AdminMenu.php.html#56\">Tir\\Crud\\Support\\Module\\AdminMenu::add<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#15\">Tir\\Crud\\Support\\Module\\Module::__construct<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#20\">Tir\\Crud\\Support\\Module\\Module::setDefaultPermissions<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#142\">Tir\\Crud\\Support\\Module\\Module::setPermissions<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#148\">Tir\\Crud\\Support\\Module\\Module::setName<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#155\">Tir\\Crud\\Support\\Module\\Module::enable<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#162\">Tir\\Crud\\Support\\Module\\Module::disable<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#169\">Tir\\Crud\\Support\\Module\\Module::status<\/a>"],[0,1,"<a href=\"Support\/Module\/Module.php.html#175\">Tir\\Crud\\Support\\Module\\Module::get<\/a>"],[100,2,"<a href=\"Support\/Module\/Modules.php.html#12\">Tir\\Crud\\Support\\Module\\Modules::init<\/a>"],[0,1,"<a href=\"Support\/Module\/Modules.php.html#20\">Tir\\Crud\\Support\\Module\\Modules::register<\/a>"],[0,1,"<a href=\"Support\/Module\/Modules.php.html#26\">Tir\\Crud\\Support\\Module\\Modules::list<\/a>"],[0,3,"<a href=\"Support\/Module\/Modules.php.html#31\">Tir\\Crud\\Support\\Module\\Modules::find<\/a>"],[0,1,"<a href=\"Support\/Requests\/CrudRequest.php.html#22\">Tir\\Crud\\Support\\Requests\\CrudRequest::__construct<\/a>"],[0,1,"<a href=\"Support\/Requests\/CrudRequest.php.html#33\">Tir\\Crud\\Support\\Requests\\CrudRequest::authorize<\/a>"],[0,1,"<a href=\"Support\/Requests\/CrudRequest.php.html#43\">Tir\\Crud\\Support\\Requests\\CrudRequest::rules<\/a>"],[0,4,"<a href=\"Support\/Requests\/CrudRequest.php.html#49\">Tir\\Crud\\Support\\Requests\\CrudRequest::getRules<\/a>"],[0,2,"<a href=\"Support\/Requests\/CrudRequest.php.html#64\">Tir\\Crud\\Support\\Requests\\CrudRequest::prepareForValidation<\/a>"],[0,4,"<a href=\"Support\/Requests\/CrudRequest.php.html#87\">Tir\\Crud\\Support\\Requests\\CrudRequest::groupByNumber<\/a>"],[0,3,"<a href=\"Support\/Requests\/CrudRequest.php.html#114\">Tir\\Crud\\Support\\Requests\\CrudRequest::passedValidation<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#30\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceTrash<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#52\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceData<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#72\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceSelect<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#92\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceTrashData<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#112\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceRestore<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#129\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceFullDestroy<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#147\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceAction<\/a>"],[0,1,"<a href=\"Support\/Resource\/ResourceRegistrar.php.html#165\">Tir\\Crud\\Support\\Resource\\ResourceRegistrar::addResourceReorder<\/a>"],[0,1,"<a href=\"Support\/Response\/CrudResponse.php.html#9\">Tir\\Crud\\Support\\Response\\CrudResponse::update<\/a>"],[0,1,"<a href=\"Support\/Response\/CrudResponse.php.html#24\">Tir\\Crud\\Support\\Response\\CrudResponse::store<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#23\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setModuleName<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#25\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setFields<\/a>"],[100,0,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#27\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setModel<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#29\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setButtons<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#37\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::scaffoldBoot<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#42\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setAcl<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#47\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setModuleTitle<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#52\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::appendSelectableColumns<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#58\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::setActions<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#64\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::__get<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#72\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::__isset<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#78\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::hasValue<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#83\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getValue<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#88\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::currentModel<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#93\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getModuleName<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#102\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::scaffold<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#122\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::addFieldsToScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#134\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getAccessLevelStatus<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#139\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getAppendedSelectableColumns<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#144\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getConfigs<\/a>"],[0,9,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#155\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::initActions<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#191\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::model<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#197\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getActions<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#202\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::moduleName<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#210\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getRouteName<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#215\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getIndexScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#225\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getCreateScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#236\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getEditScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#248\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getDetailScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/BaseScaffolder.php.html#260\">Tir\\Crud\\Support\\Scaffold\\BaseScaffolder::getDeleteScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#15\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional::defaultChild<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#19\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional::children<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#25\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional::request<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#31\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional::getChildren<\/a>"],[0,6,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#37\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional::getChildrenWithValue<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/Additional.php.html#65\">Tir\\Crud\\Support\\Scaffold\\Fields\\Additional::get<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#52\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::make<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#62\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::init<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#65\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::page<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#70\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::display<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#76\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::class<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#82\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::placeholder<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#88\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::col<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#94\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::comment<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#103\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::disable<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#109\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::readonly<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#115\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::fillable<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#121\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::options<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#127\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::default<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#134\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::virtual<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#141\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::showOnIndex<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#148\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::showOnCreating<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#155\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::showOnEditing<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#162\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::showOnDetail<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#169\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::hideFromIndex<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#176\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::hideWhenCreating<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#183\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::hideWhenEditing<\/a>"],[100,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#190\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::hideFromDetail<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#197\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::hideFromAll<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#208\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::onlyOnIndex<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#215\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::onlyOnCreating<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#222\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::onlyOnEditing<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#233\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::onlyOnDetail<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#244\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::sortable<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#250\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::searchable<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#260\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::normalizeVariadicArgs<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#271\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::rules<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#281\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::creationRules<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#288\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::updateRules<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#295\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::data<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#304\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::filter<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#324\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::filterType<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#330\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::filterQuery<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#343\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::multiple<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#351\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::relation<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#361\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::setRelationalValue<\/a>"],[50,6,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#368\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::setValue<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/BaseField.php.html#387\">Tir\\Crud\\Support\\Scaffold\\Fields\\BaseField::get<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Blank.php.html#13\">Tir\\Crud\\Support\\Scaffold\\Fields\\Blank::value<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Blank.php.html#19\">Tir\\Crud\\Support\\Scaffold\\Fields\\Blank::setValue<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Button.php.html#12\">Tir\\Crud\\Support\\Scaffold\\Fields\\Button::setValue<\/a>"],[100,1,"<a href=\"Support\/Scaffold\/Fields\/Button.php.html#17\">Tir\\Crud\\Support\\Scaffold\\Fields\\Button::action<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Button.php.html#23\">Tir\\Crud\\Support\\Scaffold\\Fields\\Button::path<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Custom.php.html#10\">Tir\\Crud\\Support\\Scaffold\\Fields\\Custom::type<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#18\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker::format<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#25\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker::showTime<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#32\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker::timezone<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#38\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker::picker<\/a>"],[0,4,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#44\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker::setValue<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/DatePicker.php.html#59\">Tir\\Crud\\Support\\Scaffold\\Fields\\DatePicker::convertPHPToMomentFormat<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Editor.php.html#14\">Tir\\Crud\\Support\\Scaffold\\Fields\\Editor::height<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Editor.php.html#20\">Tir\\Crud\\Support\\Scaffold\\Fields\\Editor::basePath<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Editor.php.html#26\">Tir\\Crud\\Support\\Scaffold\\Fields\\Editor::uploadUrl<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/FileUploader.php.html#17\">Tir\\Crud\\Support\\Scaffold\\Fields\\FileUploader::uploadUrl<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/FileUploader.php.html#23\">Tir\\Crud\\Support\\Scaffold\\Fields\\FileUploader::basePath<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/FileUploader.php.html#30\">Tir\\Crud\\Support\\Scaffold\\Fields\\FileUploader::maxCount<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/FileUploader.php.html#36\">Tir\\Crud\\Support\\Scaffold\\Fields\\FileUploader::fileRules<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Group.php.html#15\">Tir\\Crud\\Support\\Scaffold\\Fields\\Group::children<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/Fields\/Group.php.html#20\">Tir\\Crud\\Support\\Scaffold\\Fields\\Group::getChildren<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Group.php.html#35\">Tir\\Crud\\Support\\Scaffold\\Fields\\Group::get<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/Link.php.html#16\">Tir\\Crud\\Support\\Scaffold\\Fields\\Link::path<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/Fields\/TextArea.php.html#14\">Tir\\Crud\\Support\\Scaffold\\Fields\\TextArea::row<\/a>"],[87.5,2,"<a href=\"Controllers\/Traits\/Create.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Create::create<\/a>"],[77.77777777777779,3,"<a href=\"Controllers\/Traits\/Create.php.html#32\">Tir\\Crud\\Controllers\\Traits\\Create::createResponse<\/a>"],[100,0,"<a href=\"Controllers\/Traits\/CrudInit.php.html#14\">Tir\\Crud\\Controllers\\Traits\\CrudInit::setScaffolder<\/a>"],[66.66666666666666,2,"<a href=\"Controllers\/Traits\/CrudInit.php.html#16\">Tir\\Crud\\Controllers\\Traits\\CrudInit::__construct<\/a>"],[100,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#27\">Tir\\Crud\\Controllers\\Traits\\CrudInit::model<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#32\">Tir\\Crud\\Controllers\\Traits\\CrudInit::scaffolder<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#36\">Tir\\Crud\\Controllers\\Traits\\CrudInit::setRequest<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#41\">Tir\\Crud\\Controllers\\Traits\\CrudInit::setResponse<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#47\">Tir\\Crud\\Controllers\\Traits\\CrudInit::response<\/a>"],[100,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#53\">Tir\\Crud\\Controllers\\Traits\\CrudInit::scaffolderInit<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/CrudInit.php.html#64\">Tir\\Crud\\Controllers\\Traits\\CrudInit::checkAccess<\/a>"],[0,2,"<a href=\"Controllers\/Traits\/Data.php.html#16\">Tir\\Crud\\Controllers\\Traits\\Data::data<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/Data.php.html#33\">Tir\\Crud\\Controllers\\Traits\\Data::indexResponse<\/a>"],[83.33333333333334,3,"<a href=\"Controllers\/Traits\/Destroy.php.html#15\">Tir\\Crud\\Controllers\\Traits\\Destroy::destroy<\/a>"],[85.71428571428571,3,"<a href=\"Controllers\/Traits\/Destroy.php.html#39\">Tir\\Crud\\Controllers\\Traits\\Destroy::destroyResponse<\/a>"],[80,3,"<a href=\"Controllers\/Traits\/Edit.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Edit::edit<\/a>"],[80,3,"<a href=\"Controllers\/Traits\/Edit.php.html#35\">Tir\\Crud\\Controllers\\Traits\\Edit::editResponse<\/a>"],[58.333333333333336,3,"<a href=\"Controllers\/Traits\/ForceDelete.php.html#13\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::forceDelete<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/ForceDelete.php.html#37\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::forceDeleteResponse<\/a>"],[0,2,"<a href=\"Controllers\/Traits\/ForceDelete.php.html#64\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::emptyTrash<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/ForceDelete.php.html#85\">Tir\\Crud\\Controllers\\Traits\\ForceDelete::emptyTrashResponse<\/a>"],[88.88888888888889,3,"<a href=\"Controllers\/Traits\/Index.php.html#12\">Tir\\Crud\\Controllers\\Traits\\Index::index<\/a>"],[66.66666666666666,3,"<a href=\"Controllers\/Traits\/Index.php.html#47\">Tir\\Crud\\Controllers\\Traits\\Index::dataIndex<\/a>"],[66.66666666666666,2,"<a href=\"Controllers\/Traits\/IndexData.php.html#17\">Tir\\Crud\\Controllers\\Traits\\IndexData::data<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/IndexData.php.html#33\">Tir\\Crud\\Controllers\\Traits\\IndexData::query<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/IndexData.php.html#39\">Tir\\Crud\\Controllers\\Traits\\IndexData::indexResponse<\/a>"],[84.21052631578947,5,"<a href=\"Controllers\/Traits\/ProcessRequest.php.html#16\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::processRequest<\/a>"],[75,3,"<a href=\"Controllers\/Traits\/ProcessRequest.php.html#60\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::validateCreateRequest<\/a>"],[66.66666666666666,4,"<a href=\"Controllers\/Traits\/ProcessRequest.php.html#88\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::validateUpdateRequest<\/a>"],[0,4,"<a href=\"Controllers\/Traits\/ProcessRequest.php.html#121\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::groupByNumber<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/ProcessRequest.php.html#147\">Tir\\Crud\\Controllers\\Traits\\ProcessRequest::passedValidation<\/a>"],[58.333333333333336,3,"<a href=\"Controllers\/Traits\/Restore.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Restore::restore<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/Restore.php.html#37\">Tir\\Crud\\Controllers\\Traits\\Restore::restoreResponse<\/a>"],[78.94736842105263,5,"<a href=\"Controllers\/Traits\/Show.php.html#13\">Tir\\Crud\\Controllers\\Traits\\Show::show<\/a>"],[66.66666666666666,1,"<a href=\"Controllers\/Traits\/Store.php.html#18\">Tir\\Crud\\Controllers\\Traits\\Store::store<\/a>"],[0,4,"<a href=\"Controllers\/Traits\/Store.php.html#30\">Tir\\Crud\\Controllers\\Traits\\Store::storeCrud<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/Store.php.html#62\">Tir\\Crud\\Controllers\\Traits\\Store::storeResponse<\/a>"],[80,2,"<a href=\"Controllers\/Traits\/Trash.php.html#15\">Tir\\Crud\\Controllers\\Traits\\Trash::trashData<\/a>"],[0,3,"<a href=\"Controllers\/Traits\/Trash.php.html#32\">Tir\\Crud\\Controllers\\Traits\\Trash::trashResponse<\/a>"],[66.66666666666666,1,"<a href=\"Controllers\/Traits\/Update.php.html#18\">Tir\\Crud\\Controllers\\Traits\\Update::update<\/a>"],[0,4,"<a href=\"Controllers\/Traits\/Update.php.html#30\">Tir\\Crud\\Controllers\\Traits\\Update::updateCrud<\/a>"],[0,1,"<a href=\"Controllers\/Traits\/Update.php.html#56\">Tir\\Crud\\Controllers\\Traits\\Update::updateTransaction<\/a>"],[0,4,"<a href=\"Controllers\/Traits\/Update.php.html#65\">Tir\\Crud\\Controllers\\Traits\\Update::updateModel<\/a>"],[0,4,"<a href=\"Controllers\/Traits\/Update.php.html#103\">Tir\\Crud\\Controllers\\Traits\\Update::fillForUpdate<\/a>"],[0,4,"<a href=\"Controllers\/Traits\/Update.php.html#128\">Tir\\Crud\\Controllers\\Traits\\Update::saveForUpdate<\/a>"],[0,12,"<a href=\"Controllers\/Traits\/Update.php.html#152\">Tir\\Crud\\Controllers\\Traits\\Update::updateRelations<\/a>"],[0,1,"<a href=\"Scopes\/StatusTrait.php.html#9\">App\\Modules\\Crud\\Scopes\\StatusTrait::scopeHideUnPublished<\/a>"],[0,1,"<a href=\"Scopes\/StatusTrait.php.html#14\">App\\Modules\\Crud\\Scopes\\StatusTrait::scopeHideDraft<\/a>"],[0,1,"<a href=\"Support\/Eloquent\/HasDynamicRelation.php.html#20\">Tir\\Crud\\Support\\Eloquent\\HasDynamicRelation::addDynamicRelation<\/a>"],[0,1,"<a href=\"Support\/Eloquent\/HasDynamicRelation.php.html#32\">Tir\\Crud\\Support\\Eloquent\\HasDynamicRelation::hasDynamicRelation<\/a>"],[0,3,"<a href=\"Support\/Eloquent\/HasDynamicRelation.php.html#46\">Tir\\Crud\\Support\\Eloquent\\HasDynamicRelation::__get<\/a>"],[0,2,"<a href=\"Support\/Eloquent\/HasDynamicRelation.php.html#71\">Tir\\Crud\\Support\\Eloquent\\HasDynamicRelation::__call<\/a>"],[0,3,"<a href=\"Support\/Eloquent\/IsTranslatable.php.html#10\">Tir\\Crud\\Support\\Eloquent\\IsTranslatable::boot<\/a>"],[0,1,"<a href=\"Support\/Hooks\/BaseHooks.php.html#17\">Tir\\Crud\\Support\\Hooks\\BaseHooks::crudHooks<\/a>"],[0,2,"<a href=\"Support\/Hooks\/BaseHooks.php.html#25\">Tir\\Crud\\Support\\Hooks\\BaseHooks::callHookIfExists<\/a>"],[100,2,"<a href=\"Support\/Hooks\/BaseHooks.php.html#36\">Tir\\Crud\\Support\\Hooks\\BaseHooks::callHook<\/a>"],[0,1,"<a href=\"Support\/Hooks\/CreateHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\CreateHooks::onCreate<\/a>"],[0,1,"<a href=\"Support\/Hooks\/CreateHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\CreateHooks::onCreateResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/DestroyHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\DestroyHooks::onDestroy<\/a>"],[0,1,"<a href=\"Support\/Hooks\/DestroyHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\DestroyHooks::onDestroyResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/EditHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\EditHooks::onEdit<\/a>"],[0,1,"<a href=\"Support\/Hooks\/EditHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\EditHooks::onEditResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/ForceDeleteHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\ForceDeleteHooks::onForceDelete<\/a>"],[0,1,"<a href=\"Support\/Hooks\/ForceDeleteHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\ForceDeleteHooks::onForceDeleteResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/ForceDeleteHooks.php.html#30\">Tir\\Crud\\Support\\Hooks\\ForceDeleteHooks::onEmptyTrash<\/a>"],[0,1,"<a href=\"Support\/Hooks\/ForceDeleteHooks.php.html#39\">Tir\\Crud\\Support\\Hooks\\ForceDeleteHooks::onEmptyTrashResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#14\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onInitQuery<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#20\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onSelect<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#29\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onSearch<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#38\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onFilter<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#47\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onSort<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#56\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onRelation<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#65\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onModifyQuery<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#76\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onPaginate<\/a>"],[0,1,"<a href=\"Support\/Hooks\/IndexDataHooks.php.html#85\">Tir\\Crud\\Support\\Hooks\\IndexDataHooks::onIndexResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/RequestHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\RequestHooks::onProcessRequest<\/a>"],[0,1,"<a href=\"Support\/Hooks\/RequestHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\RequestHooks::onStoreValidation<\/a>"],[0,1,"<a href=\"Support\/Hooks\/RequestHooks.php.html#30\">Tir\\Crud\\Support\\Hooks\\RequestHooks::onUpdateValidation<\/a>"],[0,1,"<a href=\"Support\/Hooks\/RestoreHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\RestoreHooks::onRestore<\/a>"],[0,1,"<a href=\"Support\/Hooks\/RestoreHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\RestoreHooks::onRestoreResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/ShowHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\ShowHooks::onShow<\/a>"],[0,1,"<a href=\"Support\/Hooks\/ShowHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\ShowHooks::onShowResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/StoreHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\StoreHooks::onStore<\/a>"],[0,1,"<a href=\"Support\/Hooks\/StoreHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\StoreHooks::onSaveModel<\/a>"],[0,1,"<a href=\"Support\/Hooks\/StoreHooks.php.html#31\">Tir\\Crud\\Support\\Hooks\\StoreHooks::onFillModelForStore<\/a>"],[0,1,"<a href=\"Support\/Hooks\/StoreHooks.php.html#40\">Tir\\Crud\\Support\\Hooks\\StoreHooks::onStoreRelations<\/a>"],[0,1,"<a href=\"Support\/Hooks\/StoreHooks.php.html#50\">Tir\\Crud\\Support\\Hooks\\StoreHooks::onStoreCompleted<\/a>"],[0,1,"<a href=\"Support\/Hooks\/StoreHooks.php.html#59\">Tir\\Crud\\Support\\Hooks\\StoreHooks::onStoreResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/TrashHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\TrashHooks::onTrash<\/a>"],[0,1,"<a href=\"Support\/Hooks\/TrashHooks.php.html#21\">Tir\\Crud\\Support\\Hooks\\TrashHooks::onTrashResponse<\/a>"],[0,1,"<a href=\"Support\/Hooks\/TrashHooks.php.html#30\">Tir\\Crud\\Support\\Hooks\\TrashHooks::onTrashSelect<\/a>"],[0,1,"<a href=\"Support\/Hooks\/TrashHooks.php.html#39\">Tir\\Crud\\Support\\Hooks\\TrashHooks::onTrashFilter<\/a>"],[0,1,"<a href=\"Support\/Hooks\/TrashHooks.php.html#48\">Tir\\Crud\\Support\\Hooks\\TrashHooks::onTrashSort<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#12\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onUpdate<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#22\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onFillModelForUpdate<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#32\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onUpdateModel<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#41\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onUpdateRelations<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#50\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onUpdateRelation<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#59\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onUpdateCompleted<\/a>"],[0,1,"<a href=\"Support\/Hooks\/UpdateHooks.php.html#68\">Tir\\Crud\\Support\\Hooks\\UpdateHooks::onUpdateResponse<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#8\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper::getIndexButtons<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#19\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper::getCreateButtons<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#30\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper::getDetailButtons<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#41\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper::getEditButtons<\/a>"],[0,2,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#52\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper::addButtonsToScaffold<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/ButtonsHelper.php.html#59\">Tir\\Crud\\Support\\Scaffold\\ButtonsHelper::getButtons<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#32\">Tir\\Crud\\Support\\Scaffold\\FieldImports::text<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#40\">Tir\\Crud\\Support\\Scaffold\\FieldImports::textArea<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#48\">Tir\\Crud\\Support\\Scaffold\\FieldImports::password<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#56\">Tir\\Crud\\Support\\Scaffold\\FieldImports::number<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#64\">Tir\\Crud\\Support\\Scaffold\\FieldImports::select<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#72\">Tir\\Crud\\Support\\Scaffold\\FieldImports::checkBox<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#80\">Tir\\Crud\\Support\\Scaffold\\FieldImports::switchBox<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#88\">Tir\\Crud\\Support\\Scaffold\\FieldImports::datePicker<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#96\">Tir\\Crud\\Support\\Scaffold\\FieldImports::fileUploader<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#104\">Tir\\Crud\\Support\\Scaffold\\FieldImports::additional<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#112\">Tir\\Crud\\Support\\Scaffold\\FieldImports::colorPicker<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#120\">Tir\\Crud\\Support\\Scaffold\\FieldImports::editor<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#128\">Tir\\Crud\\Support\\Scaffold\\FieldImports::radio<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#136\">Tir\\Crud\\Support\\Scaffold\\FieldImports::slug<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#144\">Tir\\Crud\\Support\\Scaffold\\FieldImports::button<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#152\">Tir\\Crud\\Support\\Scaffold\\FieldImports::link<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldImports.php.html#160\">Tir\\Crud\\Support\\Scaffold\\FieldImports::custom<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#12\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getFields<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#20\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getAllFields<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#27\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getAllDataFields<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#35\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getFillableColumns<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#47\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getIndexFields<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#53\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getEditFields<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#59\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getDetailFields<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#65\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getCreateFields<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#71\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getFieldByName<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#80\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getSearchableFields<\/a>"],[0,5,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#92\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getSubFields<\/a>"],[0,5,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#105\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getChildren<\/a>"],[0,4,"<a href=\"Support\/Scaffold\/FieldsHelper.php.html#121\">Tir\\Crud\\Support\\Scaffold\\FieldsHelper::getAllChildren<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/RulesHelper.php.html#8\">Tir\\Crud\\Support\\Scaffold\\RulesHelper::getCreationRules<\/a>"],[0,3,"<a href=\"Support\/Scaffold\/RulesHelper.php.html#18\">Tir\\Crud\\Support\\Scaffold\\RulesHelper::getUpdateRules<\/a>"],[0,1,"<a href=\"Support\/Scaffold\/RulesHelper.php.html#29\">Tir\\Crud\\Support\\Scaffold\\RulesHelper::getValidationMsg<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

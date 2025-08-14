@@ -1,0 +1,160 @@
+
+
+[1;37;40mCode Coverage Report:       [0m
+[1;37;40m  2025-08-12 10:15:10       [0m
+[1;37;40m                            [0m
+[1;37;40m Summary:                   [0m
+[37;41m  Classes:  0.00% (0/62)    [0m
+[37;41m  Methods: 10.91% (37/339)  [0m
+[37;41m  Lines:   18.42% (344/1868)[0m
+
+App\Modules\Crud\Scopes\PublishedScope
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+App\Modules\Crud\Scopes\StatusTrait
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  2)[0m
+Tir\Crud\Controllers\CrudController
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Controllers\Traits\Create
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [30;43mLines:  82.35% ( 14/ 17)[0m
+Tir\Crud\Controllers\Traits\Crud
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Controllers\Traits\CrudInit
+  [37;41mMethods:  25.00% ( 2/ 8)[0m   [37;41mLines:  50.00% (  7/ 14)[0m
+Tir\Crud\Controllers\Traits\Data
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/ 13)[0m
+Tir\Crud\Controllers\Traits\Destroy
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [30;43mLines:  84.62% ( 22/ 26)[0m
+Tir\Crud\Controllers\Traits\Edit
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [30;43mLines:  80.00% ( 16/ 20)[0m
+Tir\Crud\Controllers\Traits\ForceDelete
+  [37;41mMethods:   0.00% ( 0/ 4)[0m   [37;41mLines:  14.58% (  7/ 48)[0m
+Tir\Crud\Controllers\Traits\Index
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [30;43mLines:  86.67% ( 26/ 30)[0m
+Tir\Crud\Controllers\Traits\IndexData
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:  28.57% (  4/ 14)[0m
+Tir\Crud\Controllers\Traits\ProcessRequest
+  [37;41mMethods:   0.00% ( 0/ 5)[0m   [30;43mLines:  53.85% ( 35/ 65)[0m
+Tir\Crud\Controllers\Traits\Restore
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:  29.17% (  7/ 24)[0m
+Tir\Crud\Controllers\Traits\Show
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [30;43mLines:  78.95% ( 15/ 19)[0m
+Tir\Crud\Controllers\Traits\Store
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:   7.41% (  2/ 27)[0m
+Tir\Crud\Controllers\Traits\Trash
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:  33.33% (  4/ 12)[0m
+Tir\Crud\Controllers\Traits\Update
+  [37;41mMethods:   0.00% ( 0/ 7)[0m   [37;41mLines:   2.60% (  2/ 77)[0m
+Tir\Crud\Facades\Fields
+  [37;41mMethods:   0.00% ( 0/18)[0m   [37;41mLines:   0.00% (  0/ 22)[0m
+Tir\Crud\Providers\CrudSeedServiceProvider
+  [37;41mMethods:   0.00% ( 0/ 5)[0m   [37;41mLines:  38.10% (  8/ 21)[0m
+Tir\Crud\Services\DataService
+  [37;41mMethods:  22.22% ( 4/18)[0m   [37;41mLines:  26.67% ( 52/195)[0m
+Tir\Crud\Services\StoreService
+  [37;41mMethods:  30.00% ( 3/10)[0m   [37;41mLines:   8.70% (  6/ 69)[0m
+Tir\Crud\Services\UpdateService
+  [30;43mMethods:  66.67% ( 2/ 3)[0m   [30;42mLines:  92.31% ( 12/ 13)[0m
+Tir\Crud\Support\Acl\Access
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:   0.00% (  0/ 11)[0m
+Tir\Crud\Support\Eloquent\BaseModel
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Eloquent\HasDynamicRelation
+  [37;41mMethods:   0.00% ( 0/ 4)[0m   [37;41mLines:   0.00% (  0/ 10)[0m
+Tir\Crud\Support\Eloquent\IsTranslatable
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/ 12)[0m
+Tir\Crud\Support\Hooks\BaseHooks
+  [37;41mMethods:  33.33% ( 1/ 3)[0m   [37;41mLines:  42.86% (  3/  7)[0m
+Tir\Crud\Support\Hooks\CreateHooks
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+Tir\Crud\Support\Hooks\CrudHooks
+  [37;41mMethods:   0.00% ( 0/ 4)[0m   [37;41mLines:   0.00% (  0/  7)[0m
+Tir\Crud\Support\Hooks\DestroyHooks
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+Tir\Crud\Support\Hooks\EditHooks
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+Tir\Crud\Support\Hooks\ForceDeleteHooks
+  [37;41mMethods:   0.00% ( 0/ 4)[0m   [37;41mLines:   0.00% (  0/  8)[0m
+Tir\Crud\Support\Hooks\IndexDataHooks
+  [37;41mMethods:   0.00% ( 0/ 9)[0m   [37;41mLines:   0.00% (  0/ 18)[0m
+Tir\Crud\Support\Hooks\RequestHooks
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:   0.00% (  0/  6)[0m
+Tir\Crud\Support\Hooks\RestoreHooks
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+Tir\Crud\Support\Hooks\ShowHooks
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+Tir\Crud\Support\Hooks\StoreHooks
+  [37;41mMethods:   0.00% ( 0/ 6)[0m   [37;41mLines:   0.00% (  0/ 12)[0m
+Tir\Crud\Support\Hooks\TrashHooks
+  [37;41mMethods:   0.00% ( 0/ 5)[0m   [37;41mLines:   0.00% (  0/ 10)[0m
+Tir\Crud\Support\Hooks\UpdateHooks
+  [37;41mMethods:   0.00% ( 0/ 7)[0m   [37;41mLines:   0.00% (  0/ 14)[0m
+Tir\Crud\Support\Middleware\AclMiddleware
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/ 13)[0m
+Tir\Crud\Support\Middleware\AddUserIdToRequestsMiddleware
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/  2)[0m
+Tir\Crud\Support\Middleware\SetLocaleMiddleware
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/  4)[0m
+Tir\Crud\Support\Module\AdminMenu
+  [37;41mMethods:   0.00% ( 0/ 8)[0m   [37;41mLines:   0.00% (  0/ 18)[0m
+Tir\Crud\Support\Module\Module
+  [37;41mMethods:   0.00% ( 0/ 8)[0m   [37;41mLines:   0.00% (  0/128)[0m
+Tir\Crud\Support\Module\Modules
+  [37;41mMethods:  25.00% ( 1/ 4)[0m   [37;41mLines:  30.00% (  3/ 10)[0m
+Tir\Crud\Support\Requests\CrudRequest
+  [37;41mMethods:   0.00% ( 0/ 7)[0m   [37;41mLines:   0.00% (  0/ 38)[0m
+Tir\Crud\Support\Resource\ResourceRegistrar
+  [37;41mMethods:   0.00% ( 0/ 8)[0m   [37;41mLines:   0.00% (  0/ 24)[0m
+Tir\Crud\Support\Response\CrudResponse
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/ 19)[0m
+Tir\Crud\Support\Scaffold\BaseScaffolder
+  [37;41mMethods:   3.70% ( 1/27)[0m   [37;41mLines:   3.74% (  4/107)[0m
+Tir\Crud\Support\Scaffold\ButtonsHelper
+  [37;41mMethods:   0.00% ( 0/ 6)[0m   [37;41mLines:   0.00% (  0/ 23)[0m
+Tir\Crud\Support\Scaffold\FieldImports
+  [37;41mMethods:   0.00% ( 0/17)[0m   [37;41mLines:   0.00% (  0/ 17)[0m
+Tir\Crud\Support\Scaffold\FieldsHelper
+  [37;41mMethods:   0.00% ( 0/13)[0m   [37;41mLines:   0.00% (  0/ 50)[0m
+Tir\Crud\Support\Scaffold\Fields\Additional
+  [37;41mMethods:   0.00% ( 0/ 6)[0m   [37;41mLines:   0.00% (  0/ 27)[0m
+Tir\Crud\Support\Scaffold\Fields\BaseField
+  [30;43mMethods:  52.38% (22/42)[0m   [37;41mLines:  44.53% ( 61/137)[0m
+Tir\Crud\Support\Scaffold\Fields\Blank
+  [37;41mMethods:   0.00% ( 0/ 2)[0m   [37;41mLines:   0.00% (  0/  3)[0m
+Tir\Crud\Support\Scaffold\Fields\Button
+  [37;41mMethods:  33.33% ( 1/ 3)[0m   [37;41mLines:  40.00% (  2/  5)[0m
+Tir\Crud\Support\Scaffold\Fields\CheckBox
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\ColorPicker
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Custom
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/  2)[0m
+Tir\Crud\Support\Scaffold\Fields\DatePicker
+  [37;41mMethods:   0.00% ( 0/ 6)[0m   [37;41mLines:   0.00% (  0/ 56)[0m
+Tir\Crud\Support\Scaffold\Fields\Editor
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:   0.00% (  0/  6)[0m
+Tir\Crud\Support\Scaffold\Fields\FileUploader
+  [37;41mMethods:   0.00% ( 0/ 4)[0m   [37;41mLines:   0.00% (  0/  8)[0m
+Tir\Crud\Support\Scaffold\Fields\Group
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:   0.00% (  0/ 11)[0m
+Tir\Crud\Support\Scaffold\Fields\Link
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/  2)[0m
+Tir\Crud\Support\Scaffold\Fields\Number
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Password
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Radio
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Select
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Slug
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Step
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\SwitchBox
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\Text
+  [30;42mMethods:  ( 0/ 0)[0m   [30;42mLines:  (  0/  0)[0m
+Tir\Crud\Support\Scaffold\Fields\TextArea
+  [37;41mMethods:   0.00% ( 0/ 1)[0m   [37;41mLines:   0.00% (  0/  2)[0m
+Tir\Crud\Support\Scaffold\RulesHelper
+  [37;41mMethods:   0.00% ( 0/ 3)[0m   [37;41mLines:   0.00% (  0/ 16)[0m

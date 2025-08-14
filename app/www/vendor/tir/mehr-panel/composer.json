@@ -1,0 +1,28 @@
+{
+    "name": "tir/mehr-panel",
+    "description": "The admin panel for Tir framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mehrdad Abbasi",
+            "email": "javadabbasi@gmail.com"
+        }
+    ],
+    "require": {
+        "tir/crud": "^3.0 || ^8.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Tir\\MehrPanel\\": "src/"
+        }
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+              "Tir\\MehrPanel\\MehrPanelServiceProvider"
+            ]
+        }
+    }
+}
