@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24226de5bb70e0e22881201ef06829fe",
+    "content-hash": "5b5201a29bc403bc98ee181068f44136",
     "packages": [
         {
             "name": "brick/math",
@@ -5677,16 +5677,16 @@
         },
         {
             "name": "tir/mehr-panel",
-            "version": "v8.1.4",
+            "version": "v11.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TirFramework/mehr-panel.git",
-                "reference": "5a8f199f11277984a8ff015af0b6eb16c49b02f7"
+                "reference": "db6c894ad263ac7ce7247f188f902ecaf8da484f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TirFramework/mehr-panel/zipball/5a8f199f11277984a8ff015af0b6eb16c49b02f7",
-                "reference": "5a8f199f11277984a8ff015af0b6eb16c49b02f7",
+                "url": "https://api.github.com/repos/TirFramework/mehr-panel/zipball/db6c894ad263ac7ce7247f188f902ecaf8da484f",
+                "reference": "db6c894ad263ac7ce7247f188f902ecaf8da484f",
                 "shasum": ""
             },
             "require": {
@@ -5718,9 +5718,9 @@
             "description": "The admin panel for Tir framework",
             "support": {
                 "issues": "https://github.com/TirFramework/mehr-panel/issues",
-                "source": "https://github.com/TirFramework/mehr-panel/tree/v8.1.4"
+                "source": "https://github.com/TirFramework/mehr-panel/tree/v11.x"
             },
-            "time": "2025-02-08T22:49:41+00:00"
+            "time": "2025-08-14T13:03:32+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -8255,7 +8255,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "tir/mehr-panel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
