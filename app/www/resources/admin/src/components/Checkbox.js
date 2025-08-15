@@ -1,6 +1,6 @@
 import { Form, Checkbox } from "antd";
 import { separationRules } from "../lib/helpers";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import { CheckCircleFilled,  CheckCircleOutlined,  CloseOutlined } from "@ant-design/icons";
 
 const Text = (props) => {
   const rules = separationRules({
@@ -14,7 +14,7 @@ if (props.readonly) {
     return (
       <>
         {props.hideLable ?? <div>{props.display}</div>}
-        {props.value ? <CheckOutlined style={{ color: 'green' }} /> : <CloseOutlined style={{ color: 'red' }} />}
+        {props.value ? <CheckCircleOutlined style={{ color: 'green', fontSize: '18px' }} /> : <>  </>}
       </>
     );
   }
