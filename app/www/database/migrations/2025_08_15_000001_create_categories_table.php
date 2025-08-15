@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('minimal_examples', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->text('description')->nullable();
-            $table->string('slug')->unique()->nullable();
-            $table->json('status')->nullable(); // JSON field for multiple status values
             $table->boolean('is_active')->default(true);
-            $table->text('internal_notes')->nullable();
+            $table->integer('sort_order')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('minimal_examples');
+        Schema::dropIfExists('categories');
     }
 };

@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
 
         // Run specific seeders
         $this->call([
+            CategorySeeder::class,          // Seed categories first
             MinimalExampleSeeder::class,
             SampleModelSeeder::class,
         ]);

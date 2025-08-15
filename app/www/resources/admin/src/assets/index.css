@@ -130,11 +130,11 @@ body {
   /*padding-top: 0 !important;*/
 }
 
-.ant-card-head-title {
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
-  background: #fff;
-}
+/* .ant-card-head-title { */
+  /* padding-bottom: 0 !important; */
+  /* padding-top: 0 !important; */
+  /* background: #fff; */
+/* } */
 
 /* .group .ant-card-body {
   padding-bottom: 0;
@@ -423,4 +423,8 @@ body {
   font-size: 18px;
   /* font-weight: 300; */
   margin-bottom: 16px;
+}
+.ant-menu-submenu-popup .ant-menu-vertical .ant-menu-item,
+.ant-menu-submenu-popup .ant-menu-vertical .ant-menu-submenu-title {
+    display: flex;
 }

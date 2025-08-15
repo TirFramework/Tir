@@ -53,7 +53,7 @@ use Tir\Crud\Support\Scaffold\FieldsHelper;
  */
 class SampleModel extends Model
 {
-    use HasFactory, SoftDeletes, FieldsHelper;
+    use HasFactory, SoftDeletes;
 
     /**
      * The table associated with the model.
