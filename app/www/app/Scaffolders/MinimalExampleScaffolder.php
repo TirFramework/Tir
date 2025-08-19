@@ -4,12 +4,13 @@ namespace App\Scaffolders;
 
 use Tir\Crud\Support\Scaffold\BaseScaffolder;
 use Tir\Crud\Support\Scaffold\Fields\Group;
+use Tir\Crud\Support\Scaffold\Fields\Slug;
 use Tir\Crud\Support\Scaffold\Fields\Text;
 use Tir\Crud\Support\Scaffold\Fields\TextArea;
 use Tir\Crud\Support\Scaffold\Fields\CheckBox;
 use Tir\Crud\Support\Scaffold\Fields\Select;
 use Tir\Crud\Support\Scaffold\Actions;
-use Tir\Crud\Support\Scaffold\ActionType;
+use Tir\Crud\Support\Enums\ActionType;
 use App\Models\MinimalExample;
 use App\Models\User;
 use App\Models\Category;
@@ -48,9 +49,7 @@ class MinimalExampleScaffolder extends BaseScaffolder
             ActionType::CREATE,
             ActionType::SHOW,
             ActionType::EDIT,
-            'inline-edit',          // ✅ Custom action for inline editing
-            'bulk-export',          // ✅ Custom action for bulk operations
-            'send-notification'     // ✅ Custom action for notifications
+            ActionType::INLINE_EDIT
         );
 
         // Alternative approaches:
@@ -96,26 +95,26 @@ class MinimalExampleScaffolder extends BaseScaffolder
                 ->rules('nullable')
                 ->hideFromIndex(),
 
-            Text::make('slug')
+            Slug::make('slug')
                 ->display('Slug')
                 ->rules('nullable', 'unique:minimal_examples,slug')
                 ->showOnIndex(false),
 
             // Multiple select field with array storage (no relationship)
-            Select::make('status')
-                ->display('Status')
-                ->data([
-                    ['value' => 'draft', 'label' => 'Draft'],
-                    ['value' => 'pending', 'label' => 'Pending Review'],
-                    ['value' => 'approved', 'label' => 'Approved'],
-                    ['value' => 'published', 'label' => 'Published'],
-                    ['value' => 'archived', 'label' => 'Archived'],
-                ])
-                    ->default('draft')
-                ->multiple(true)
-                ->filter()
-                ->rules('required', 'array')
-                ->searchable(),
+            // Select::make('status')
+            //     ->display('Status')
+            //     ->data([
+            //         ['value' => 'draft', 'label' => 'Draft'],
+            //         ['value' => 'pending', 'label' => 'Pending Review'],
+            //         ['value' => 'approved', 'label' => 'Approved'],
+            //         ['value' => 'published', 'label' => 'Published'],
+            //         ['value' => 'archived', 'label' => 'Archived'],
+            //     ])
+            //         ->default('draft')
+            //     ->multiple(true)
+            //     ->filter()
+            //     ->rules('required', 'array')
+            //     ->searchable(),
 
             // Many-to-many relationship with users
             Select::make('users')
