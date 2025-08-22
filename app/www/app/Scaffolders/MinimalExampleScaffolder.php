@@ -85,76 +85,77 @@ class MinimalExampleScaffolder extends BaseScaffolder
         return [
 
             Group::make('Basic Information')
-            ->children(
-                 Text::make('title')
-                ->display('Title')
-                ->rules('required', 'max:255'),
+                ->children(
+                    Text::make('title')
+                        ->display('Title')
+                        ->searchable()
+                        ->rules('required', 'max:255'),
 
-            TextArea::make('description')
-                ->display('Description')
-                ->rules('nullable')
-                ->hideFromIndex(),
+                    TextArea::make('description')
+                        ->display('Description')
+                        ->rules('nullable')
+                        ->hideFromIndex(),
 
-            Slug::make('slug')
-                ->display('Slug')
-                ->rules('nullable', 'unique:minimal_examples,slug')
-                ->showOnIndex(false),
+                    Slug::make('slug')
+                        ->display('Slug')
+                        ->rules('nullable', 'unique:minimal_examples,slug')
+                        ->showOnIndex(false),
 
-            // Multiple select field with array storage (no relationship)
-            // Select::make('status')
-            //     ->display('Status')
-            //     ->data([
-            //         ['value' => 'draft', 'label' => 'Draft'],
-            //         ['value' => 'pending', 'label' => 'Pending Review'],
-            //         ['value' => 'approved', 'label' => 'Approved'],
-            //         ['value' => 'published', 'label' => 'Published'],
-            //         ['value' => 'archived', 'label' => 'Archived'],
-            //     ])
-            //         ->default('draft')
-            //     ->multiple(true)
-            //     ->filter()
-            //     ->rules('required', 'array')
-            //     ->searchable(),
+                    // Multiple select field with array storage (no relationship)
+                    // Select::make('status')
+                    //     ->display('Status')
+                    //     ->data([
+                    //         ['value' => 'draft', 'label' => 'Draft'],
+                    //         ['value' => 'pending', 'label' => 'Pending Review'],
+                    //         ['value' => 'approved', 'label' => 'Approved'],
+                    //         ['value' => 'published', 'label' => 'Published'],
+                    //         ['value' => 'archived', 'label' => 'Archived'],
+                    //     ])
+                    //         ->default('draft')
+                    //     ->multiple(true)
+                    //     ->filter()
+                    //     ->rules('required', 'array')
+                    //     ->searchable(),
 
-            // Many-to-many relationship with users
-            Select::make('users')
-                ->display('Users')
-                ->relation('users', 'email')
-                ->data(User::select('id as value', 'email as label')->get()->toArray())
-                ->filter()
-                ->multiple(true)
-                ->rules('required')
-                ->searchable(),
+                    // Many-to-many relationship with users
+                    Select::make('users')
+                        ->display('Users')
+                        ->relation('email')
+                        ->data(User::select('id as value', 'email as label')->get()->toArray())
+                        ->filter()
+                        ->multiple(true)
+                        ->rules('required'),
+                    // ->searchable(),
 
-            // Many-to-many relationship with categories
-            Select::make('categories')
-                ->display('Categories')
-                ->relation('categories', 'name')
-                ->data(Category::where('is_active', true)
-                    ->select('id as value', 'name as label')
-                    ->orderBy('sort_order')
-                    ->get()->toArray())
-                ->filter()
-                ->multiple(true)
-                ->rules('nullable')
-                ->searchable(),
+                    // Many-to-many relationship with categories
+                    Select::make('categories')
+                        ->display('Categories')
+                        ->relation('name')
+                        ->data(Category::where('is_active', true)
+                            ->select('id as value', 'name as label')
+                            ->orderBy('sort_order')
+                            ->get()->toArray())
+                        ->filter()
+                        ->multiple(true)
+                        ->rules('nullable'),
+                    // ->searchable(),
 
 
-            Text::make('created_at')
-                ->onlyOnDetail(),
+                    Text::make('created_at')
+                        ->onlyOnDetail(),
 
-            // This field will be EXCLUDED from $fillable
-            Text::make('internal_notes')
-                ->display('Internal Notes')
-                ->fillable(false)
-                ->onlyOnDetail()
-                ->hideFromIndex(),
+                    // This field will be EXCLUDED from $fillable
+                    Text::make('internal_notes')
+                        ->display('Internal Notes')
+                        ->fillable(false)
+                        ->onlyOnDetail()
+                        ->hideFromIndex(),
 
-            CheckBox::make('is_active')
-                ->display('Active')
-                ->default(true)
+                    CheckBox::make('is_active')
+                        ->display('Active')
+                        ->default(true)
 
-            )
+                )
 
 
         ];
