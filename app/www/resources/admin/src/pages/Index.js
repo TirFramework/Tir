@@ -37,6 +37,8 @@ import CustomCol from "../blocks/CustomCol";
 import Export from "../blocks/Export";
 import { useQueryClient } from "@tanstack/react-query";
 import useGetParams from "../hooks/useGetParams";
+import { useEditing } from "../context/EditingContext";
+import { getPlacementsForSearch, getSearchableFromCols } from "../lib/utils";
 
 const { Title } = Typography;
 
@@ -96,7 +98,6 @@ function Index() {
       enabled: !!pagination?.key,
     }
   );
-  console.log("🚀 ~ Index ~ indexData:", indexData);
 
   const handleChangeTable = (p, filters, sorter) => {
     // console.log(
@@ -187,7 +188,7 @@ function Index() {
         ) : (
           <>
             <Title className="page-index__title">
-              {pageData?.configs?.module_title}
+              {pageData?.configs?.module_title} {}
             </Title>
 
             <Row
@@ -202,6 +203,7 @@ function Index() {
                       loading={dataQuery.isLoading}
                       value={pagination?.search}
                       onSearch={onSearch}
+                      placeholder={getPlacementsForSearch(pageData?.cols)}
                     />
 
                     {pageData?.cols.length && (
@@ -242,8 +244,8 @@ function Index() {
               </Col>
               <Col className="gutter-row text-right">
                 <Space>
-                  {pageData?.actions?.create && (
-                    <Link to={`/admin/${pageModule}/create-edit`}>
+                  {pageData?.configs?.actions?.create && (
+                    <Link to={`/${Config.perfix}/${pageModule}/create-edit`}>
                       <Button
                         size="large"
                         type="primary"
@@ -398,18 +400,17 @@ const actions = (configs, pageModule, form) => {
 const DetailRow = ({ id }) => {
   const { pageModule } = useParams();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  let pageId = searchParams.get("id");
+  const { editingId } = useEditing();
 
   return (
     <>
-      {pageId == id ? (
+      {editingId == id ? (
         <></>
       ) : (
         <Link
           type="link"
           // disabled={!!pageId}
-          to={`/admin/${pageModule}/detail?id=${id}`}
+          to={`/${Config.perfix}/${pageModule}/detail?id=${id}`}
         >
           <EyeOutlined />
         </Link>
@@ -420,15 +421,14 @@ const DetailRow = ({ id }) => {
 const EditRow = ({ id }) => {
   const { pageModule } = useParams();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  let pageId = searchParams.get("id");
+  const { editingId } = useEditing();
 
   return (
     <>
-      {pageId == id ? (
+      {editingId == id ? (
         <></>
       ) : (
-        <Link to={`/admin/${pageModule}/create-edit?id=${id}`}>
+        <Link to={`/${Config.perfix}/${pageModule}/create-edit?id=${id}`}>
           <FormOutlined />
         </Link>
       )}
@@ -439,8 +439,7 @@ const DeleteRow = ({ id, interactionCharacter }) => {
   const { pageModule } = useParams();
   useDeleteRow(pageModule, id);
 
-  const [searchParams] = useSearchParams();
-  let pageId = searchParams.get("id");
+  const { editingId } = useEditing();
 
   const deleteRow = useDeleteRow();
 
@@ -452,7 +451,7 @@ const DeleteRow = ({ id, interactionCharacter }) => {
 
   return (
     <>
-      {pageId == id ? (
+      {editingId == id ? (
         <></>
       ) : (
         <Popconfirm
@@ -490,8 +489,7 @@ const DeleteRow = ({ id, interactionCharacter }) => {
   );
 };
 const InlineEdit = ({ id, form, data }) => {
-  const [urlParams, setUrlParams] = useSearchParams();
-  let pageId = urlParams.get("id");
+  const { editingId, startEditing, cancelEditing } = useEditing();
   const [saveLoading, setSaveLoading] = useState(false);
   const { pageModule } = useParams();
   const [pagination, setPagination] = useGetParams(pageModule, {
@@ -511,12 +509,11 @@ const InlineEdit = ({ id, form, data }) => {
           values: values,
           setSubmitLoad: setSaveLoading,
           pageModule: pageModule,
-          pageId: pageId,
-          requestBy: "inlineEdit",
-          setUrlParams: () => {},
+          pageId: editingId,
           afterSubmit: () => {
-            setUrlParams("");
+            cancelEditing();
           },
+          requestBy: "inlineEdit",
           queryClient: queryClient,
           queryClientKey: [`index-data-${pageModule}`, pagination],
         });
@@ -525,7 +522,7 @@ const InlineEdit = ({ id, form, data }) => {
   };
   return (
     <>
-      {pageId == id ? (
+      {editingId == id ? (
         <>
           <Button
             type="primary"
@@ -543,7 +540,7 @@ const InlineEdit = ({ id, form, data }) => {
           <Button
             type="link"
             onClick={() => {
-              setUrlParams(``);
+              cancelEditing();
             }}
           >
             Cancel
@@ -556,7 +553,7 @@ const InlineEdit = ({ id, form, data }) => {
               form.setFieldsValue({
                 ...data,
               });
-              setUrlParams(`id=${id}`);
+              startEditing(id);
             }}
             type="link"
             icon={<EditOutlined />}

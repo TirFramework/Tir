@@ -86,6 +86,8 @@ class MinimalExampleScaffolder extends BaseScaffolder
 
             Group::make('Basic Information')
                 ->children(
+                    Text::make('categoryName')->display('Category Name')->multiple()->virtual(),
+
                     Text::make('title')
                         ->display('Title')
                         ->searchable()

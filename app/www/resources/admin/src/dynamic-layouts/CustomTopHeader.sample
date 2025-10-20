@@ -1,3 +1,5 @@
+/*
+
 import React, { lazy, memo, Suspense } from "react";
 import { Layout, Row, Typography, Button, Col, Space } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +10,7 @@ import Config from "../constants/config";
 
 const { Header } = Layout;
 
-/* --- نسخه پیش‌فرض --- */
-const DefaultTopHeader = ({ username, name }) => {
+const TopHeader = ({ username, name }) => {
   const navigate = useNavigate();
 
   const logout = () => {
@@ -45,21 +46,7 @@ const DefaultTopHeader = ({ username, name }) => {
   );
 };
 
-const TopHeader = (props) => {
-  const CustomTopHeader = "dynamic-layouts/CustomTopHeader.js";
-  const DynamicField = lazy(() =>
-    import(`../${CustomTopHeader}`).catch((error) => {
-      return { default: () => <DefaultTopHeader {...props} /> };
-    })
-  );
-  return (
-    <Suspense fallback={<DefaultTopHeader {...props} />}>
-      <DynamicField
-        {...props}
-        // showInIndex={props.id != pageId}
-      />
-    </Suspense>
-  );
-};
 
-export default memo(TopHeader);
+
+export default TopHeader;
+*/

@@ -36,11 +36,23 @@ class MinimalExample extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'status' => 'array',
+        'categoryName' => 'array', // Cast categoryName as array for many-to-many relationship
     ];
+
 
     protected $attributes = [
         'status' => '["draft"]', // Default JSON value
     ];
+
+    // protected $appends = [
+    //     'categoryName',
+    // ];
+
+
+    protected function GetCategoryNameAttribute(): string
+    {
+        return $this->categories()->pluck('name')->implode(', ');
+    }
 
     /**
      * The categories that belong to the minimal example.

@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import Config from "../constants/config";
 import Field from "../components/Field";
 import FilterDate from "../blocks/FilterDate";
+import { useEditing } from "../context/EditingContext";
 export const getColsNormalize = (res) => {
   let cols = res.cols;
   const interactionCharacter =
@@ -121,8 +122,10 @@ export const indexOfInObject = (arr, obj, val, label) => {
 };
 
 const Render = ({ item, value, rowIndex, data, id, minWidth }) => {
-  const [searchParams] = useSearchParams();
-  let pageId = searchParams.get("id");
+  // 1. استفاده از هوک useEditing به جای useSearchParams
+  const { editingId } = useEditing();
+
+  // console.log("🚀 ~ Render ~ editingId:", editingId);
 
   return (
     <Field
@@ -130,7 +133,8 @@ const Render = ({ item, value, rowIndex, data, id, minWidth }) => {
       {...item.field}
       hideLable={true}
       table={true}
-      readonly={!(id == pageId && pageId && id)}
+      // 2. تغییر شرط readonly برای استفاده از editingId
+      readonly={!(id === editingId)}
     />
   );
 };
@@ -159,6 +163,37 @@ function getTextWidth(text, font) {
   context.font = font;
   const metrics = context.measureText(text);
   return metrics.width;
+}
+
+export function getPlacementsForSearch(cols) {
+  const searchableFields = getSearchableFromCols(cols);
+
+  //TODO: add translate
+  if (!searchableFields) {
+    return "No searchable fields";
+  }
+
+  //TODO: add translate
+  return `${searchableFields}`;
+}
+
+export function getSearchableFromCols(cols) {
+  const newCols = [...cols];
+  const searchableFields = [];
+
+  newCols.forEach((col) => {
+    // چک کردن اگر فیلد اصلی و همچنین searchable است
+    if (col.field && col.field.searchable) {
+      searchableFields.push(col.field.display);
+    }
+  });
+
+  console.log(
+    "🚀 ~ getSearchableFromCols ~ searchableFields:",
+    searchableFields
+  );
+
+  return searchableFields.join(", ");
 }
 
 function getCssStyle(element, prop) {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b5201a29bc403bc98ee181068f44136",
+    "content-hash": "e5baf60813c27e99c3a1dd074999bcc1",
     "packages": [
         {
             "name": "brick/math",
@@ -5677,20 +5677,20 @@
         },
         {
             "name": "tir/mehr-panel",
-            "version": "v11.x-dev",
+            "version": "dev-12.2-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TirFramework/mehr-panel.git",
-                "reference": "db6c894ad263ac7ce7247f188f902ecaf8da484f"
+                "reference": "1e8e2cb05dd79d22dc7f2511806d72f375f68f6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TirFramework/mehr-panel/zipball/db6c894ad263ac7ce7247f188f902ecaf8da484f",
-                "reference": "db6c894ad263ac7ce7247f188f902ecaf8da484f",
+                "url": "https://api.github.com/repos/TirFramework/mehr-panel/zipball/1e8e2cb05dd79d22dc7f2511806d72f375f68f6f",
+                "reference": "1e8e2cb05dd79d22dc7f2511806d72f375f68f6f",
                 "shasum": ""
             },
             "require": {
-                "tir/crud": "^3.0 || ^8.0"
+                "tir/crud": "*"
             },
             "type": "library",
             "extra": {
@@ -5718,9 +5718,9 @@
             "description": "The admin panel for Tir framework",
             "support": {
                 "issues": "https://github.com/TirFramework/mehr-panel/issues",
-                "source": "https://github.com/TirFramework/mehr-panel/tree/v11.x"
+                "source": "https://github.com/TirFramework/mehr-panel/tree/12.2-dev"
             },
-            "time": "2025-08-14T13:03:32+00:00"
+            "time": "2025-08-23T11:48:22+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

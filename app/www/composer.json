@@ -11,7 +11,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "tir/crud": "v8.2",
-        "tir/mehr-panel": "11.x-dev"
+        "tir/mehr-panel": "dev-12.2-dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

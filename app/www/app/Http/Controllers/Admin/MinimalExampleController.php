@@ -25,6 +25,22 @@ class MinimalExampleController extends Controller
         // Simple: Disable access control for this entire controller
         $this->accessControlEnabled = false;
 
+        // $this->onPaginate(function ($paginate, $query) {
+        //     $item = $paginate();
+        //     $item->getCollection()->each->append('categoryName');
+        //     return $item;
+
+        // });
+
+        $this->onSelect(function ($defaultSelect, $query) {
+            $defaultSelect();
+            $col = $query->getQuery()->columns;
+
+            $col[] = \DB::raw("(SELECT CAST(CONCAT('[', GROUP_CONCAT('\"', categories.name, '\"'), ']') AS JSON) FROM categories INNER JOIN category_minimal_example ON categories.id = category_minimal_example.category_id WHERE category_minimal_example.minimal_example_id = minimal_examples.id) as categoryName");
+            $query->select($col);
+            return $query;
+        });
+
         // $this->onCheckAccess(function ($action) {
         //     return false;
         // });
