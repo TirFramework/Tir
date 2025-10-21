@@ -32,14 +32,14 @@ class MinimalExampleController extends Controller
 
         // });
 
-        $this->onSelect(function ($defaultSelect, $query) {
-            $defaultSelect();
-            $col = $query->getQuery()->columns;
+        // $this->onSelect(function ($defaultSelect, $query) {
+        //     $defaultSelect();
+        //     $col = $query->getQuery()->columns;
 
-            $col[] = \DB::raw("(SELECT CAST(CONCAT('[', GROUP_CONCAT('\"', categories.name, '\"'), ']') AS JSON) FROM categories INNER JOIN category_minimal_example ON categories.id = category_minimal_example.category_id WHERE category_minimal_example.minimal_example_id = minimal_examples.id) as categoryName");
-            $query->select($col);
-            return $query;
-        });
+        //     $col[] = \DB::raw("(SELECT CAST(CONCAT('[', GROUP_CONCAT('\"', categories.name, '\"'), ']') AS JSON) FROM categories INNER JOIN category_minimal_example ON categories.id = category_minimal_example.category_id WHERE category_minimal_example.minimal_example_id = minimal_examples.id) as categoryName");
+        //     $query->select($col);
+        //     return $query;
+        // });
 
         // $this->onCheckAccess(function ($action) {
         //     return false;

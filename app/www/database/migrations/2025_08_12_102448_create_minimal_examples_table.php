@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('minimal_examples', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->bigInteger('author_id')->nullable();
             $table->text('description')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->json('status')->nullable(); // JSON field for multiple status values

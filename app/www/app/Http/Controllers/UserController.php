@@ -14,4 +14,9 @@ class UserController extends CrudController
         return UserScaffolder::class;
     }
 
+    public function setup()
+    {
+        $this->accessControlEnabled = false;
+    }
+
 }

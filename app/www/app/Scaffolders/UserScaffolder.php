@@ -2,6 +2,7 @@
 
 namespace App\Scaffolders;
 
+use App\Models\MinimalExample;
 use Tir\Crud\Support\Scaffold\BaseScaffolder;
 use Tir\Crud\Support\Scaffold\Fields\Text;
 use Tir\Crud\Support\Scaffold\Fields\Password;
@@ -75,8 +76,14 @@ class UserScaffolder extends BaseScaffolder
                 ->hideFromIndex()
                 ->hideFromDetail(),
 
+            $this->select('examples')
+                ->display('Examples')
+                ->relation('examples', 'title')
+                ->data(MinimalExample::select('id as value', 'title as label')->get()->toArray())
+                ->multiple(),
+
             // Example 4: Hybrid method based on conditions
-            $this->conditionalField(),
+            // $this->conditionalField(),
         ];
     }
 

@@ -39,6 +39,7 @@ services:
       args:
         UID: ${UID}  # Get UID from .env
         GID: ${GID}  # Get GID from .env
+        ENABLE_XDEBUG: 'true' # Set this to 'false' for production
     image: ${APP_NAME}-app
     container_name: ${APP_NAME}-app
     restart: unless-stopped
@@ -50,10 +51,13 @@ services:
       CONTAINER_ROLE: app
     volumes:
       - ./app/www:/var/www
-      - ./app/php/local.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./app/php/local/local.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./app/php/local/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     depends_on:
       - webserver
       - mysql
+    extra_hosts:
+      host.docker.internal: host-gateway
     networks:
       - ${APP_NAME}-network
     env_file:

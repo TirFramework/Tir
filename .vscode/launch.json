@@ -1,0 +1,36 @@
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for Xdebug (Laravel via Nginx)",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "/var/www": "${workspaceFolder}/app/www"
+      },
+      // "log": true,
+      "stopOnEntry": false,
+      "externalConsole": false
+    },
+
+    {
+      "name": "PHPUnit inside container",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "/var/www": "${workspaceFolder}/app/www"
+      },
+      "runtimeExecutable": "docker",
+      "runtimeArgs": [
+        "compose", "run", "--rm",
+        "-e", "XDEBUG_CONFIG=client_host=host.docker.internal client_port=9003",
+        "testing",
+        "php", "/var/www/vendor/bin/phpunit", "--colors=always"
+      ],
+      "cwd": "${workspaceFolder}/app/project-files"
+    }
+  ]
+}

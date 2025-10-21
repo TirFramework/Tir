@@ -89,9 +89,20 @@ class MinimalExampleScaffolder extends BaseScaffolder
                     Text::make('categoryName')->display('Category Name')->multiple()->virtual(),
 
                     Text::make('title')
+                        ->options(['prefix' => 'BLA_BLA_'])
                         ->display('Title')
                         ->searchable()
+                        ->accessor(function($value) {
+                            return $value . ' - test';
+                        })
                         ->rules('required', 'max:255'),
+
+                    Text::make('bla_bla')
+                        ->display('Bla Bla')
+                        ->accessor(function($value, $model) {
+                            return $model->title . ' - Bla Bla';
+                        })->virtual()
+                        ->append(),
 
                     TextArea::make('description')
                         ->display('Description')
@@ -122,7 +133,7 @@ class MinimalExampleScaffolder extends BaseScaffolder
                     // Many-to-many relationship with users
                     Select::make('users')
                         ->display('Users')
-                        ->relation('email')
+                        ->relation('users','email')
                         ->data(User::select('id as value', 'email as label')->get()->toArray())
                         ->filter()
                         ->multiple(true)
@@ -132,16 +143,20 @@ class MinimalExampleScaffolder extends BaseScaffolder
                     // Many-to-many relationship with categories
                     Select::make('categories')
                         ->display('Categories')
-                        ->relation('name')
-                        ->data(Category::where('is_active', true)
-                            ->select('id as value', 'name as label')
-                            ->orderBy('sort_order')
-                            ->get()->toArray())
+                        ->relation('categories','name')
+                        // ->data(Category::where('is_active', true)
+                        //     ->select('id as value', 'name as label')
+                        //     ->orderBy('sort_order')
+                        //     ->get()->toArray())
                         ->filter()
                         ->multiple(true)
                         ->rules('nullable'),
                     // ->searchable(),
 
+                    Select::make('my_author')
+                        ->display('Author')
+                        // ->data(User::select('id as value', 'name as label')->get()->toArray()),
+                        ->relation('author','name'),
 
                     Text::make('created_at')
                         ->onlyOnDetail(),

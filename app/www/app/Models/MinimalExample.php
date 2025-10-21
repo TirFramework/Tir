@@ -31,7 +31,7 @@ class MinimalExample extends Model
      *
      * This means you only need to define fields once in the scaffolder!
      */
-    protected $fillable = []; // Framework will auto-generate this!
+    // protected $fillable = ['author_id']; // Framework will auto-generate this!
 
     protected $casts = [
         'is_active' => 'boolean',
@@ -70,4 +70,11 @@ class MinimalExample extends Model
         return $this->belongsToMany(User::class);
     }
 
+    /**
+     * The author that belongs to the minimal example.
+     */
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }
