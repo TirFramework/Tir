@@ -88,21 +88,24 @@ class MinimalExampleScaffolder extends BaseScaffolder
                 ->children(
                     Text::make('categoryName')->display('Category Name')->multiple()->virtual(),
 
-                    Text::make('title')
-                        ->options(['prefix' => 'BLA_BLA_'])
-                        ->display('Title')
-                        ->searchable()
-                        ->accessor(function($value) {
-                            return $value . ' - test';
-                        })
-                        ->rules('required', 'max:255'),
+                    // Text::make('title')
+                    //     ->options(['prefix' => 'BLA_BLA_'])
+                    //     ->display('Title')
+                    //     ->searchable()
+                    //     ->accessor(function($value) {
+                    //         return $value . ' - test';
+                    //     })
+                    //     ->rules('required', 'max:255'),
 
                     Text::make('bla_bla')
                         ->display('Bla Bla')
                         ->accessor(function($value, $model) {
-                            return $model->title . ' - Bla Bla';
+                            return $model->title;
                         })->virtual()
-                        ->append(),
+                        ->searchQuery(function($query, $req) {
+                            return $query->orWhere('title', 'like', "%$req%");
+                        })
+                        ->appends('title', 'description'),
 
                     TextArea::make('description')
                         ->display('Description')
@@ -155,7 +158,7 @@ class MinimalExampleScaffolder extends BaseScaffolder
 
                     Select::make('my_author')
                         ->display('Author')
-                        // ->data(User::select('id as value', 'name as label')->get()->toArray()),
+                        ->data(User::select('id as value', 'name as label')->get()->toArray())
                         ->relation('author','name'),
 
                     Text::make('created_at')

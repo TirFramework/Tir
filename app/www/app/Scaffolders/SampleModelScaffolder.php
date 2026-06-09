@@ -2,6 +2,8 @@
 
 namespace App\Scaffolders;
 
+use Tir\Crud\Support\Enums\ActionType;
+use Tir\Crud\Support\Scaffold\Actions;
 use Tir\Crud\Support\Scaffold\BaseScaffolder;
 use Tir\Crud\Support\Scaffold\Fields\Text;
 use Tir\Crud\Support\Scaffold\Fields\TextArea;
@@ -394,22 +396,9 @@ class SampleModelScaffolder extends BaseScaffolder
      */
     protected function setActions(): array
     {
-        return [
-            'create' => true,
-            'edit' => true,
-            'show' => true,
-            'destroy' => true, // Allow soft delete
-            'fullDestroy' => false, // Prevent permanent deletion
-        ];
+        return Actions::except(
+            ActionType::FORCE_DELETE // Prevent permanent deletion
+        );
     }
 
-    /**
-     * Set ACL status
-     *
-     * @return bool Whether to enable ACL checking
-     */
-    protected function setAcl(): bool
-    {
-        return false; // Enable access control
-    }
 }

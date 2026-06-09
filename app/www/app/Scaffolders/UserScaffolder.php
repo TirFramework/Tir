@@ -3,10 +3,14 @@
 namespace App\Scaffolders;
 
 use App\Models\MinimalExample;
-use Tir\Crud\Support\Scaffold\BaseScaffolder;
-use Tir\Crud\Support\Scaffold\Fields\Text;
-use Tir\Crud\Support\Scaffold\Fields\Password;
+use Illuminate\Validation\Rule;
 use Tir\Crud\Facades\Fields;
+use Tir\Crud\Support\Scaffold\BaseScaffolder;
+use Tir\Crud\Support\Scaffold\Fields\Blank;
+use Tir\Crud\Support\Scaffold\Fields\CheckBox;
+use Tir\Crud\Support\Scaffold\Fields\Password;
+use Tir\Crud\Support\Scaffold\Fields\Select;
+use Tir\Crud\Support\Scaffold\Fields\Text;
 
 /**
  * UserScaffolder - Example implementation showing best practices
@@ -51,65 +55,81 @@ class UserScaffolder extends BaseScaffolder
     public function setFields(): array
     {
         return [
-            // Example 1: Classic method (direct import) - still works
+            // Basic User Information
             Text::make('name')
                 ->display('Full Name')
                 ->placeholder('Enter user\'s full name')
                 ->rules(['required', 'string', 'max:255'])
-                ->hideFromAll()
-                ->showOnEditing(isset($this->name)),
+                ->hideFromIndex(false),
 
-            // Example 2: Facade method - namespace-change resistant
             Fields::text('email')
                 ->display('Email Address')
                 ->placeholder('user@example.com')
-                ->rules(['required', 'email', 'max:255', 'unique:users,email'])
-                ->showOnEditing($this->hasValue('email'))
+                ->rules(...$this->emailRules())
                 ->searchable()
                 ->sortable(),
 
-            // Example 3: BaseScaffolder method - simple and clean
-            $this->password('password')
-                ->display('Password')
-                ->placeholder('Enter secure password')
-                ->rules(['required', 'min:8'])
-                ->hideFromIndex()
-                ->hideFromDetail(),
-
-            $this->select('examples')
-                ->display('Examples')
-                ->relation('examples', 'title')
-                ->data(MinimalExample::select('id as value', 'title as label')->get()->toArray())
+            Fields::select('role_ids')
+                ->display('Roles')
+                ->relation('roles', 'id', 'title')
+                ->data(...$this->getAvailableRoles())
                 ->multiple(),
 
-            // Example 4: Hybrid method based on conditions
-            // $this->conditionalField(),
+
+            // Password Section
+            Blank::make('separator')->value('<h3>Change Password</h3><hr/>')->hideFromIndex(),
+
+            Password::make('new_password')
+                ->display('Password')
+                ->creationRules(...$this->passwordRules())
+                ->placeholder('Enter password (min 8 chars, letters + numbers + special chars)')
+                ->hideFromIndex(),
+
+            CheckBox::make('must_change_password')
+                ->display('Must Change Password on Next Login')
+                ->hideFromIndex(),
         ];
     }
 
     /**
-     * Conditional field example using different methods
+     * Email validation rules - handles unique constraint on update
+     *
+     * Uses Laravel's Rule::unique() with ignore() to exclude the current
+     * record when validating during update operations. This prevents the
+     * unique constraint from failing when a user keeps their same email.
+     *
+     * @return array Validation rules
      */
-    private function conditionalField()
+    private function emailRules(): array
     {
-        // Default: trait method (simple)
-        $field = $this->text('status')
-            ->display('User Status')
-            ->default('active');
+        return [
+            'required',
+            'email',
+            'max:255',
+            Rule::unique('users', 'email')->ignore($this->id, 'id'),
+        ];
+    }
 
-        // If admin: use Facade (more complex)
-        if ($this->hasValue('role') && $this->getValue('role') === 'admin') {
-            $field = Fields::select('status')
-                ->display('Admin Status')
-                ->options([
-                    'active' => 'Active',
-                    'inactive' => 'Inactive',
-                    'suspended' => 'Suspended',
-                    'super_admin' => 'Super Admin',
-                ]);
-        }
-
-        return $field;
+    /**
+     * Password validation rules - matching CRM security standards
+     *
+     * Requirements:
+     * - Minimum 8 characters, maximum 64
+     * - Must contain letters (a-z, A-Z)
+     * - Must contain numbers (0-9)
+     * - Must contain special characters (!$#%)
+     *
+     * @return array Validation rules
+     */
+    private function passwordRules(): array
+    {
+        return [
+            'required',
+            'string',
+            'min:8',
+            'max:64',
+            'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+        ];
     }
 
     /**
@@ -135,18 +155,12 @@ class UserScaffolder extends BaseScaffolder
         return 'User Management';
     }
 
-    /**
-     * Configure available actions (optional)
-     *
-     * @return array Actions configuration
-     */
-    protected function setActions(): array
+
+    protected function getAvailableRoles(): array
     {
-        return [
-            'create' => true,   // Allow creating new users
-            'edit' => true,     // Allow editing users
-            'show' => true,     // Allow viewing user details
-            'destroy' => false, // Disable user deletion for safety
-        ];
+        return \App\Models\UserRole::select('title', 'id')->get()->map(function ($role) {
+            return ['label' => $role->title, 'value' => $role->id];
+        })->toArray();
     }
+
 }

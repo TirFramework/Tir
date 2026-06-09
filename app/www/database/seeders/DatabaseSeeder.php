@@ -13,11 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create demo users first
+        $this->call([
+            DemoUserSeeder::class,
+        ]);
+
         // Create admin user first (only if it doesn't exist)
         if (!User::where('email', 'admin@example.com')->exists()) {
             User::factory()->create([
                 'name' => 'Admin User',
                 'email' => 'admin@example.com',
+                'password' => bcrypt('Admin@123456'),
             ]);
         }
 

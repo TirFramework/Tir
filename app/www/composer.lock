@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5baf60813c27e99c3a1dd074999bcc1",
+    "content-hash": "1bb4794754ec67ff8e17827dc8884699",
     "packages": [
         {
             "name": "brick/math",
@@ -5627,20 +5627,25 @@
         },
         {
             "name": "tir/crud",
-            "version": "v8.2",
+            "version": "12.7.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TirFramework/crud.git",
-                "reference": "ed425c2f8b43da583a77a7a4629f2e5e40967f4e"
+                "reference": "1fccfed334c656748e3240da565e3843662d14c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TirFramework/crud/zipball/ed425c2f8b43da583a77a7a4629f2e5e40967f4e",
-                "reference": "ed425c2f8b43da583a77a7a4629f2e5e40967f4e",
+                "url": "https://api.github.com/repos/TirFramework/crud/zipball/1fccfed334c656748e3240da565e3843662d14c0",
+                "reference": "1fccfed334c656748e3240da565e3843662d14c0",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": ">8.0"
+                "laravel/framework": "^12.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^10.0",
+                "phpunit/phpunit": "^12.5"
             },
             "type": "library",
             "extra": {
@@ -5671,9 +5676,9 @@
             "description": "Laravel CRUD scaffolding system",
             "support": {
                 "issues": "https://github.com/TirFramework/crud/issues",
-                "source": "https://github.com/TirFramework/crud/tree/v8.2"
+                "source": "https://github.com/TirFramework/crud/tree/12.7.9"
             },
-            "time": "2025-02-15T13:58:04+00:00"
+            "time": "2026-06-08T11:12:14+00:00"
         },
         {
             "name": "tir/mehr-panel",

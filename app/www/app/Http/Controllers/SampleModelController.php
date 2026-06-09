@@ -16,7 +16,6 @@ class SampleModelController extends CrudController
     protected function setup()
     {
 
-
         $this->onRelation(function ($relations, $query) {
             $relations(['authors']);
         });
